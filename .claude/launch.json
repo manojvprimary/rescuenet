@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "scratchpad-static",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "8420", "--directory", "/private/tmp/claude-501/-Users-manoj-Downloads-rescuenet/100ff9b7-663d-40a3-a10a-15f411dfefe9/scratchpad"],
+      "port": 8420
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+# Dependencies
+node_modules/
+
+# CDK
+cdk.out/
+*.d.ts
+!lib/**/*.d.ts
+
+# TypeScript build output
+dist/
+*.tsbuildinfo
+
+# Env / secrets — never commit real credentials
+.env
+.env.*
+!.env.example
+!mobile/.env.example
+
+# Claude Code local settings
+.claude/settings.local.json
+
+# macOS
+.DS_Store
+
+# Logs
+*.log
+npm-debug.log*
+
+# Editor
+.vscode/
+.idea/

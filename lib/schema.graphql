@@ -1,0 +1,105 @@
+type Case {
+  caseId:       String!
+  timestamp:    String!
+  status:       String!
+  location:     AWSJSON
+  reporterId:   String
+  channel:      String
+  reportData:   AWSJSON
+  eventHistory: AWSJSON
+  needsProfile: AWSJSON
+  bidSummary:   AWSJSON
+  assignedTo:   String
+  dupStatus:    String
+  linkedTo:     String
+}
+
+type ShelterCapacity {
+  availableSlots: Int
+  hasVetOnSite:   Boolean
+}
+
+type Shelter {
+  shelterId: String!
+  name:      String!
+  tier:      Int!
+  location:  AWSJSON
+  capacity:  ShelterCapacity
+}
+
+input SubmitReportInput {
+  reportType:       String
+  lat:              Float!
+  lng:              Float!
+  accuracyMetres:   Float
+  reporterId:       String
+  channel:          String
+  reportData:       AWSJSON
+  wantsPhotoUpload: Boolean
+  photoCount:       Int
+}
+
+type SubmitReportResult {
+  caseId:          String!
+  status:          String!
+  timestamp:       String!
+  photoUploadUrl:  String
+  photoKey:        String
+  photoUploadUrls: [String]
+  photoKeys:       [String]
+  message:         String
+}
+
+# Internal — the case-stream-publisher Lambda calls this on every DynamoDB Streams
+# status change purely so @aws_subscribe below has a mutation to key off. It has no
+# side effect of its own; it echoes its input back out to subscribers.
+input PublishCaseUpdateInput {
+  caseId:       String!
+  timestamp:    String!
+  status:       String!
+  location:     AWSJSON
+  reporterId:   String
+  channel:      String
+  reportData:   AWSJSON
+  eventHistory: AWSJSON
+  needsProfile: AWSJSON
+  bidSummary:   AWSJSON
+  assignedTo:   String
+  dupStatus:    String
+  linkedTo:     String
+}
+
+# Deliberately thin — reports are anonymous, so the "what's happening nearby" view
+# shows enough to be useful without exposing another reporter's freeform description.
+type NearbyCase {
+  caseId:     String!
+  species:    String
+  status:     String!
+  distanceKm: Float
+  timestamp:  String!
+  lat:        Float
+  lng:        Float
+}
+
+type Query {
+  getCase(caseId: String!): Case
+  listShelters:             [Shelter]
+  listNearbyCases(lat: Float!, lng: Float!, radiusKm: Float!): [NearbyCase]
+  getCasePhotos(caseId: String!): [String]
+}
+
+type Mutation {
+  submitReport(input: SubmitReportInput!):             SubmitReportResult
+  publishCaseUpdate(input: PublishCaseUpdateInput!):   Case
+}
+
+type Subscription {
+  onCaseUpdated(caseId: String!): Case
+    @aws_subscribe(mutations: ["publishCaseUpdate"])
+}
+
+schema {
+  query:        Query
+  mutation:     Mutation
+  subscription: Subscription
+}
