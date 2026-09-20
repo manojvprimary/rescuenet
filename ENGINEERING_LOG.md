@@ -21,3 +21,36 @@ A running, dated record of decisions, findings, and changes made during the CISC
 **Open questions for supervisor** — see the Supervisor Briefing Note in this week's launch packet submission.
 
 ---
+
+## Week 2 — 2026-09-13
+
+**Context.** Hard Stop 1: Proposal Approval Package due. Instructor returned scored RU-01 feedback on the Week 1 launch packet (88/100) with five concrete, per-criterion deficiencies.
+
+**Decisions and actions this week:**
+- Resolved the one repeated feedback item rather than deferring again: created a private GitHub remote (`github.com/manojvprimary/rescuenet`), pushed the existing history, and opened three tracking issues (species-match fix, AHP elicitation, geocoding Place Index provisioning).
+- Formalized the AHP elicitation protocol (judges, 5×5 pairwise instrument, CR < 0.10 threshold, revision procedure) that Week 1 had only gestured at.
+- Added three independently verified 2025 sources (MARL survey, AWS Bedrock multi-agent GA, auction+AHP task-fitness paper) to the bibliography.
+- Restructured the AI Usage Disclosure into the granular, per-instance schema the instructor requested, and embedded the full log as a submission appendix rather than only referencing it.
+- Added an "Existing Algorithm (v1) and Identified Defects" section reproducing the real `computeMatchScore` code, with an explicit, honest scoping note: this term's success criteria fix the confirmed `specScore` defect and replace the five `softWeights` via AHP, but do **not** recalibrate the hand-picked `/5`, `/120`, `/30` normalization constants or the `ltcScore`/`slotsNorm` duplication — those remain disclosed, known limitations.
+
+**Result:** RU-02 scored 99/100. The two 0.5 deductions (unconfirmed hard-stop dates; IRB statement phrased as a settled conclusion rather than an assumption) are carried into Week 3 as corrections.
+
+**Open questions for supervisor** — carried forward: whether the supervisor participates as a second AHP judge (Week 6); whether the seeded shelter data is an acceptable midpoint-review evidence base.
+
+---
+
+## Week 3 — 2026-09-20
+
+**Context.** RU-03 Literature and Requirements Brief due. Course now also assigns a team database-design project (ISEM 534) unrelated to RescueNet by deliberate choice, since real teammates unfamiliar with RescueNet would gain little from co-designing an already-deployed system.
+
+**Decisions and actions this week:**
+- Expanded the bibliography from 9 to 14 sources, adding three themes it previously lacked: competing/comparable systems (Shelterluv, RescueGroups.org), evaluation strategy under sparse data (Castells & Moffat, 2022), and AI governance (NIST AI 600-1, 2024; NIST critical-infrastructure concept note, 2026).
+- Derived 11 requirements (6 functional, 5 non-functional), each traced to either a literature source or a named stakeholder need.
+- Formalized the three flows already documented in `docs/rescuenet-usecases.pdf` into a proper use-case model with a UML-style diagram.
+- Built a real data-source inventory by reading `lib/stacks/database-stack.ts`, `lib/schema.graphql`, and every Lambda's DynamoDB access pattern directly, rather than describing the schema generically. This surfaced two previously undocumented findings: the `needsProfile` data is duplicated across the `rescuenet-needs` table and an embedded copy on the Case item with no single source of truth, and the `caseId-index` GSI on the QA-sessions table is defined in the CDK stack but never actually queried anywhere in the Lambda code.
+- Corrected the IRB/privacy statement from Week 1's unqualified "no approval required" to an explicit assumption subject to university policy, per the Week 2 feedback.
+- This same data-source inventory work (entities, access patterns, and the Scan-based queries already flagged as demo-scale in the code's own comments) is being reused as the starting point for a single-table DynamoDB redesign exercise in the ISEM 534 database course — a deliberate, disclosed reuse of analysis effort across two courses, distinct from reusing RescueNet itself as the ISEM 534 team project.
+
+**Open questions for supervisor** — carried forward: whether the six seeded shelter profiles remain an acceptable requirements-validation baseline, or whether broader synthetic shelter diversity should become its own requirement before Week 5 implementation begins.
+
+---

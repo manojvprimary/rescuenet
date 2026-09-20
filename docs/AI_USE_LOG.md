@@ -70,6 +70,39 @@ Structured, per-instance disclosure of AI assistance, reformatted in CISC 699 We
 - **Human Verification:** Reviewed and edited by the student before submission; risk likelihoods and the approval brief's "conditional" items were checked against the student's own understanding of project status.
 - **Final Student Revisions:** Student decided which open items from the Week 1 Supervisor Briefing Note remain genuinely open now that the GitHub item is resolved, and wrote the specific evidence commitments for the Week 4 checkpoint.
 
+## Entry 7 — Literature Verification and Synthesis
+
+- **Tool:** Claude (Anthropic, Claude Sonnet 5)
+- **Date / Phase:** Week 3 (2026-09-20), literature expansion for RU-03
+- **Purpose:** Identify and independently verify credible sources for three themes missing from the Week 1-2 bibliography: competing/comparable systems, evaluation strategy under sparse data, and AI governance/ethics standards.
+- **Prompt / Task Summary:** Search for real, current sources on animal-shelter management software, offline/sparse-data evaluation methods for ranking systems, and NIST AI risk-management guidance; verify exact authors, venues, and dates before use.
+- **Output Used:** Five new annotated bibliography entries and the literature synthesis narrative, including an explicit gap statement.
+- **Affected Section / Artifact:** Literature and Requirements Brief, Sections 2 and 3.
+- **Human Verification:** Every new source's real existence, exact title, authorship, and publication/announcement date was independently confirmed via search before inclusion; the NIST critical-infrastructure document was confirmed to be a concept note in development, not a finished profile, and is cited accordingly rather than overstated.
+- **Final Student Revisions:** Student selected which five sources to add and directed the specific gap this project fills relative to each theme.
+
+## Entry 8 — Requirements and Use Case Drafting
+
+- **Tool:** Claude (Anthropic, Claude Sonnet 5)
+- **Date / Phase:** Week 3, full drafting
+- **Purpose:** Derive functional and non-functional requirements from the literature and domain context, and formalize the project's existing informal product-walkthrough flows into a structured use-case model.
+- **Prompt / Task Summary:** Draft a requirements table tracing each requirement to either a literature source or a stakeholder need; convert the three flows already documented in docs/rescuenet-usecases.pdf into formal use cases (actor, trigger, preconditions, main flow, postcondition); produce one visual use-case diagram.
+- **Output Used:** Literature and Requirements Brief, Sections 4 and 5, including the use-case diagram.
+- **Affected Section / Artifact:** Sections 4, 5.
+- **Human Verification:** Every use case was checked against the real product-walkthrough document and, where applicable, the actual Lambda code path it describes (e.g., dedup-agent's active-status query).
+- **Final Student Revisions:** Student decided which requirements were mandatory versus stretch and confirmed the use-case actors matched the real system's actual actors rather than a generic template.
+
+## Entry 9 — Domain Constraints and Data Source Inventory
+
+- **Tool:** Claude (Anthropic, Claude Sonnet 5)
+- **Date / Phase:** Week 3, full drafting
+- **Purpose:** Profile the system's real DynamoDB tables for provenance, schema, and data-quality limitations, and enumerate domain constraints (latency, legal/privacy, data fields, hardware, interface, organizational policy).
+- **Prompt / Task Summary:** Read the actual CDK database stack, GraphQL schema, and every Lambda's DynamoDB access pattern to build an accurate data-source inventory rather than a generic description; ground domain constraints in the real deployed system and prior weeks' findings.
+- **Output Used:** Literature and Requirements Brief, Sections 6 and 7.
+- **Affected Section / Artifact:** Sections 6, 7.
+- **Human Verification:** Every table, field, and access pattern listed was confirmed directly against lib/stacks/database-stack.ts, lib/schema.graphql, and each Lambda's source file, not assumed.
+- **Final Student Revisions:** Student directed the reframing of the IRB statement as an assumption subject to university policy (per Week 2 supervisor feedback) rather than a settled conclusion, and confirmed which data-quality findings (e.g., the unused caseId-index GSI) were worth disclosing as known limitations.
+
 ---
 
 ## Prior AI Use (ISEM 502 / GRAD 695, narrative summary — predates this schema)
