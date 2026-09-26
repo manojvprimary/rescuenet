@@ -145,7 +145,7 @@ Structured, per-instance disclosure of AI assistance, reformatted in CISC 699 We
 - **Output Used:** Design Review Package, Sections 6, 7, and 11.
 - **Affected Section / Artifact:** Sections 6, 7, 11.
 - **Human Verification:** Every version number and dependency in Section 6 was confirmed directly against package.json/tsconfig.json/cdk.json, not assumed from the Week 1 environment snapshot.
-- **Final Student Revisions:** Student decided whether and how to send the drafted supervisor-review request ahead of submission.
+- **Final Student Revisions:** Student sent the supervisor-review email (Sep 26, 5:55 PM EDT) after the AI-drafted text was shortened and made more conversational at the student's direction; a follow-up on the later design change was drafted.
 
 ## Entry 14 — Design Revision: Dynamic Archetype-Blended Weighting
 
