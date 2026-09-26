@@ -114,6 +114,39 @@ Structured, per-instance disclosure of AI assistance, reformatted in CISC 699 We
 - **Human Verification:** The original Week 3 verification had confirmed the paper's real existence and DOI but relied on a search-engine summary for the author list and title rather than the source page itself — an insufficient verification standard. This entry documents fetching the actual article page directly as the corrective standard going forward.
 - **Final Student Revisions:** Student also directed softening two overstated claims the same feedback flagged: the "competing systems ignore routing" and project-niche conclusions in Sections 2 and 3 now explicitly note they rest on published documentation only, not an audit of undocumented internals.
 
+## Entry 11 — Architecture, Data Flow, and Computational Method Drafting
+
+- **Tool:** Claude (Anthropic, Claude Sonnet 5)
+- **Date / Phase:** Week 4 (2026-09-27), full drafting
+- **Purpose:** Translate the approved RU-03 requirements into a formal architecture description, a data-flow diagram scoped to the arbitrator, and reproducible pseudocode for both the corrected scoring function and the AHP weight-derivation procedure.
+- **Prompt / Task Summary:** Read the real Lambda source (arbitrator, needs-profile) and CDK stack to build an accurate component/responsibility table and data-flow diagram; derive AHP pseudocode including the verified Saaty random-index table; independently verify the RI(5)=1.12 value rather than assume it from memory.
+- **Output Used:** Design Review Package, Sections 3, 4, and 5.
+- **Affected Section / Artifact:** Sections 3, 4, 5.
+- **Human Verification:** Every component listed in Section 3 and every code line in Section 5 was confirmed against the actual Lambda source files, not described generically; the RI(5) value was independently re-verified via search rather than trusted from training knowledge.
+- **Final Student Revisions:** Student confirmed the arbitrator scope boundary drawn in Figure 2 matches the charter's Section 9 (Out-of-Scope) boundary exactly, and directed which real Bedrock prompt fields to show as the API contract example.
+
+## Entry 12 — Test and Evaluation Plan, Traceability Matrix
+
+- **Tool:** Claude (Anthropic, Claude Sonnet 5)
+- **Date / Phase:** Week 4, full drafting
+- **Purpose:** Design a concrete, evidence-producing test and evaluation plan, including a defined synthetic-case matrix with ground-truth answers, and trace every RU-03 requirement to a design component and test method.
+- **Prompt / Task Summary:** Define test types, metrics, acceptance thresholds, and comparison logic for SC1-SC5; construct a concrete synthetic case matrix varying species match, urgency, distance, capacity, and vet availability with expert-annotated expected outcomes; design a sensitivity/perturbation check answering the Week 2 supervisor-feedback request for a fairness check.
+- **Output Used:** Design Review Package, Sections 8 and 9.
+- **Affected Section / Artifact:** Sections 8, 9.
+- **Human Verification:** The synthetic case matrix was checked by the student for domain plausibility before being accepted as ground truth.
+- **Final Student Revisions:** Student set the specific perturbation design (±1 Saaty-scale step, one judgment at a time) for the sensitivity check and decided the highest-risk dependency call in Section 10.
+
+## Entry 13 — Environment, API Contracts, and Supervisor Review Drafting
+
+- **Tool:** Claude (Anthropic, Claude Sonnet 5)
+- **Date / Phase:** Week 4, full drafting
+- **Purpose:** Document the real environment/toolchain plan and API contracts, and draft a genuine supervisor-review request rather than a self-review disclosure, directly applying the Week 3 feedback that a disclosed self-check does not substitute for the assignment-required review.
+- **Prompt / Task Summary:** Confirm real runtime/dependency versions from package.json, tsconfig.json, and the CDK stack; pull a real Bedrock request payload from needs-profile/index.ts as the API contract example rather than a fabricated one; draft a short, sendable message requesting actual supervisor review of this package's highest-risk item before the deadline.
+- **Output Used:** Design Review Package, Sections 6, 7, and 11.
+- **Affected Section / Artifact:** Sections 6, 7, 11.
+- **Human Verification:** Every version number and dependency in Section 6 was confirmed directly against package.json/tsconfig.json/cdk.json, not assumed from the Week 1 environment snapshot.
+- **Final Student Revisions:** Student decided whether and how to send the drafted supervisor-review request ahead of submission.
+
 ---
 
 ## Prior AI Use (ISEM 502 / GRAD 695, narrative summary — predates this schema)

@@ -67,3 +67,19 @@ A running, dated record of decisions, findings, and changes made during the CISC
 **Not corrected:** the same Zhou et al. citation also appears in the already-submitted, already-graded (99/100) Hard Stop 1 proposal docx. Left as-is rather than hand-editing a graded, submitted artifact; the correction is captured here and in the current document for the final report.
 
 ---
+
+## Week 4 — 2026-09-27
+
+**Context.** Hard Stop 2: Design Review Package due. This is the term's engineering-commitment checkpoint — architecture, computational method, environment, API contracts, and test/evaluation plan all need to be concrete enough that implementation (Weeks 5-8) can start immediately after approval.
+
+**Decisions and actions this week:**
+- Built a data-flow diagram scoped specifically to the arbitrator's hand-off points (needs-profile → tier1/tier2 bidding → arbitrator → confirmation-handler), distinct from the existing full-system architecture diagram.
+- Wrote the AHP weight-derivation procedure as literal reproducible pseudocode (pairwise matrix → normalization → row-average weights → λmax → CI → CR), including Saaty's Random Index table, independently re-verified (RI(5) = 1.12) rather than assumed — directly applying the Week 3 citation-verification lesson to a numeric fact, not just a bibliography entry.
+- Designed a concrete 6-case synthetic evaluation matrix (SYN-01 through SYN-06) with student-annotated expected-best-shelter ground truth, varying species match, urgency, distance, capacity, and vet availability. SYN-02 is deliberately constructed to expose the specScore defect by design, giving SC1 a concrete, checkable piece of evidence independent of whether the AHP weights turn out to be well-chosen.
+- Designed a sensitivity/perturbation check (±1 Saaty-scale step per judgment, 20 perturbed matrices, checked against the synthetic case set) directly answering the Week 2 feedback's request for an AHP fairness/sensitivity check — this had been outstanding since Hard Stop 1.
+- Confirmed the real environment/toolchain plan against package.json, tsconfig.json, and cdk.json rather than the Week 1 snapshot: Node 20.x, TypeScript 5.4/ES2020 strict, CDK 2.150+, and Jest still not installed (a real, current gap, not yet closed).
+- Applied the Week 3 supervisor-review lesson directly: rather than writing another self-review disclosure, drafted an actual, specific, sendable request for supervisor feedback on the highest-risk item (whether the AHP protocol as specified is sound to proceed with, and whether the seeded-shelter evidence base is acceptable for the midpoint). Sending it is the student's own action, separate from this document.
+
+**Open questions for supervisor** — carried forward and consolidated into the Section 11 request: the AHP protocol soundness check, the seeded-shelter evidence-base question, and the still-unconfirmed remaining hard-stop dates (open since Week 1).
+
+---
