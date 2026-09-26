@@ -54,3 +54,16 @@ A running, dated record of decisions, findings, and changes made during the CISC
 **Open questions for supervisor** — carried forward: whether the six seeded shelter profiles remain an acceptable requirements-validation baseline, or whether broader synthetic shelter diversity should become its own requirement before Week 5 implementation begins.
 
 ---
+
+## Week 3 (continued) — 2026-09-22
+
+**Context.** Instructor feedback on RU-03 (complete/incomplete, no numeric score) identified three deficiencies: an inaccurate citation despite a claimed independent-verification standard, no supervisor review actually completed before submission, and overstated competing-systems/gap conclusions.
+
+**Findings and corrections:**
+- The Zhou et al. citation was wrong on inspection: year (had 2025, actual is 2026), a fabricated article title, and incorrect middle initials for six of the paper's seven authors. Root cause: the original Week 3 "verification" confirmed the paper existed at the right DOI but was drawn from a search-result summary, not the actual article page — existence-checking and full-citation-accuracy are different verification standards, and only the former was actually met. Corrected by fetching the real Frontiers in Physics page directly; the document and AI_USE_LOG.md (Entry 10) now reflect the real citation.
+- Softened two claims in the literature synthesis and Theme 3 bibliography entries that concluded competing shelter platforms "don't attempt" routing decisions — that conclusion was drawn only from published feature documentation, not an audit of undocumented internals, and now says so explicitly.
+- The supervisor-review task was disclosed as self-reviewed-pending rather than actually completed, following the same pattern used for Week 1 and Hard Stop 1's "confirm with supervisor" items. Unlike those, this was flagged as one of three principal deficiencies here — the lesson going forward is that an explicit "review with supervisor" task instruction needs the actual conversation to happen, not just a disclosed self-check, even when the assignment phrasing looks similar to prior weeks' items.
+
+**Not corrected:** the same Zhou et al. citation also appears in the already-submitted, already-graded (99/100) Hard Stop 1 proposal docx. Left as-is rather than hand-editing a graded, submitted artifact; the correction is captured here and in the current document for the final report.
+
+---

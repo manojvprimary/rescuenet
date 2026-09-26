@@ -103,6 +103,17 @@ Structured, per-instance disclosure of AI assistance, reformatted in CISC 699 We
 - **Human Verification:** Every table, field, and access pattern listed was confirmed directly against lib/stacks/database-stack.ts, lib/schema.graphql, and each Lambda's source file, not assumed.
 - **Final Student Revisions:** Student directed the reframing of the IRB statement as an assumption subject to university policy (per Week 2 supervisor feedback) rather than a settled conclusion, and confirmed which data-quality findings (e.g., the unused caseId-index GSI) were worth disclosing as known limitations.
 
+## Entry 10 — Citation Re-Verification and Correction (Post-Feedback)
+
+- **Tool:** Claude (Anthropic, Claude Sonnet 5)
+- **Date / Phase:** Week 3 (2026-09-22), post-submission correction following RU-03 instructor feedback
+- **Purpose:** Correct a bibliographic error the instructor identified in the Zhou et al. citation, and re-verify it properly this time.
+- **Prompt / Task Summary:** Instructor feedback flagged that "the bibliographic details in the student's brief need correction." Re-fetched the actual Frontiers in Physics article page directly (not a search-result summary) to confirm the real author list, title, and publication date.
+- **Output Used:** Corrected citation — Zhou, Y., Lan, Q., Yang, X., Wang, L., Li, G., Li, S., & Lyu, T. (2026), "Multi-agent task allocation method based on the cost-effectiveness maximization multi-round auction algorithm," Frontiers in Physics, 13 — replacing a version with the wrong year (2025 vs. actual 2026), a fabricated title, and incorrect middle initials for six of seven authors.
+- **Affected Section / Artifact:** Literature and Requirements Brief, Sections 2 and 3.
+- **Human Verification:** The original Week 3 verification had confirmed the paper's real existence and DOI but relied on a search-engine summary for the author list and title rather than the source page itself — an insufficient verification standard. This entry documents fetching the actual article page directly as the corrective standard going forward.
+- **Final Student Revisions:** Student also directed softening two overstated claims the same feedback flagged: the "competing systems ignore routing" and project-niche conclusions in Sections 2 and 3 now explicitly note they rest on published documentation only, not an audit of undocumented internals.
+
 ---
 
 ## Prior AI Use (ISEM 502 / GRAD 695, narrative summary — predates this schema)
