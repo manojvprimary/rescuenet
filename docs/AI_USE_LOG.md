@@ -122,7 +122,7 @@ Structured, per-instance disclosure of AI assistance, reformatted in CISC 699 We
 - **Prompt / Task Summary:** Read the real Lambda source (arbitrator, needs-profile) and CDK stack to build an accurate component/responsibility table and data-flow diagram; derive AHP pseudocode including the verified Saaty random-index table; independently verify the RI(5)=1.12 value rather than assume it from memory.
 - **Output Used:** Design Review Package, Sections 3, 4, and 5.
 - **Affected Section / Artifact:** Sections 3, 4, 5.
-- **Human Verification:** Every component listed in Section 3 and every code line in Section 5 was confirmed against the actual Lambda source files, not described generically; the RI(5) value was independently re-verified via search rather than trusted from training knowledge.
+- **Human Verification:** Components and code lines were checked against the Lambda source, but the first draft of the pipeline ordering (Figure 2) was wrong and was corrected after the EventBridge rules were read directly (see Entry 15); the RI(5) value was independently re-verified via search rather than trusted from training knowledge.
 - **Final Student Revisions:** Student confirmed the arbitrator scope boundary drawn in Figure 2 matches the charter's Section 9 (Out-of-Scope) boundary exactly, and directed which real Bedrock prompt fields to show as the API contract example.
 
 ## Entry 12 — Test and Evaluation Plan, Traceability Matrix
@@ -157,6 +157,17 @@ Structured, per-instance disclosure of AI assistance, reformatted in CISC 699 We
 - **Affected Section / Artifact:** Most of the Design Review Package; also corrects the Hard Stop 1 framing of "constant hand-picked weights."
 - **Human Verification:** The claim that weights are already per-case was verified against the source, not assumed; the species-check defect's real scope was re-checked against the hard-constraint filter and downgraded accordingly.
 - **Final Student Revisions:** Student chose the archetype-blending option and directed that the design be as dynamic as possible, accepting the scope expansion into needs-profile. The three archetypes and all thresholds marked provisional are AI proposals for the student and supervisor to confirm or change.
+
+## Entry 15 — Rubric Audit and Corrections
+
+- **Tool:** Claude (Anthropic, Claude Sonnet 5)
+- **Date / Phase:** Week 4 (2026-09-26), audit before Hard Stop 2 submission
+- **Purpose:** Check the Design Review Package against the RU-04 rubric and the assignment task list, and close the gaps found.
+- **Prompt / Task Summary:** Compare each section with the five rubric criteria and nine tasks; re-read lib/stacks/lambda-stack.ts for the real event wiring; re-check every reader and writer of NEEDS_TABLE; add the missing tradeoff analysis, setup steps, data-validation steps, failure-mode table, interface table, revised success criteria, Figure 3, and the risks, dependencies, and gaps lists.
+- **Output Used:** Sections 2.3, 3 (interface table), 5.4, 6.1 to 6.3, 8 (failure modes), 9 (revised success criteria), 11 (three-part lists), Figures 2 and 3; corrections to the RU-03 brief and engineering log.
+- **Affected Section / Artifact:** Most of the Design Review Package, the RU-03 repository copy, ENGINEERING_LOG.md.
+- **Human Verification:** The event fan-out was read from the EventBridge rules; the unused needs table was confirmed by searching every reference to NEEDS_TABLE. Both showed earlier AI-drafted claims were wrong (Entry 9 said every table and access pattern was confirmed against source, but the duplicated-needs-profile finding had been inferred, not verified), which is why they are disclosed.
+- **Final Student Revisions:** Student requested the rubric check. Whether to tell the instructor about the RU-03 correction is the student's decision. Figures 2 and 3 were drawn by the AI as SVG from the verified design.
 
 ---
 
