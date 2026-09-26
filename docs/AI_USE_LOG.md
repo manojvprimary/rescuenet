@@ -147,6 +147,17 @@ Structured, per-instance disclosure of AI assistance, reformatted in CISC 699 We
 - **Human Verification:** Every version number and dependency in Section 6 was confirmed directly against package.json/tsconfig.json/cdk.json, not assumed from the Week 1 environment snapshot.
 - **Final Student Revisions:** Student decided whether and how to send the drafted supervisor-review request ahead of submission.
 
+## Entry 14 — Design Revision: Dynamic Archetype-Blended Weighting
+
+- **Tool:** Claude (Anthropic, Claude Sonnet 5)
+- **Date / Phase:** Week 4 (2026-09-26), design revision before Hard Stop 2 submission
+- **Purpose:** Resolve the student's question of whether routing should use one settled weight set or case-specific weights, by checking what the code actually does and revising the design accordingly.
+- **Prompt / Task Summary:** Re-read lambda/needs-profile/index.ts and lambda/arbitrator/index.ts to establish that weights are already generated per case by an unseeded Bedrock call; lay out three design options (single AHP set, AHP per archetype, LLM-only); revise the Design Review Package for the chosen option.
+- **Output Used:** Revised Sections 2.2, 3, 4, 5, 7, 8, 9, 10, and 11 of the Design Review Package, including the archetype-blend method, the expanded test plan, and the frozen-v1 comparison design.
+- **Affected Section / Artifact:** Most of the Design Review Package; also corrects the Hard Stop 1 framing of "constant hand-picked weights."
+- **Human Verification:** The claim that weights are already per-case was verified against the source, not assumed; the species-check defect's real scope was re-checked against the hard-constraint filter and downgraded accordingly.
+- **Final Student Revisions:** Student chose the archetype-blending option and directed that the design be as dynamic as possible, accepting the scope expansion into needs-profile. The three archetypes and all thresholds marked provisional are AI proposals for the student and supervisor to confirm or change.
+
 ---
 
 ## Prior AI Use (ISEM 502 / GRAD 695, narrative summary — predates this schema)
