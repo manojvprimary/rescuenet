@@ -169,6 +169,17 @@ Structured, per-instance disclosure of AI assistance, reformatted in CISC 699 We
 - **Human Verification:** The event fan-out was read from the EventBridge rules; the unused needs table was confirmed by searching every reference to NEEDS_TABLE. Both showed earlier AI-drafted claims were wrong (Entry 9 said every table and access pattern was confirmed against source, but the duplicated-needs-profile finding had been inferred, not verified), which is why they are disclosed.
 - **Final Student Revisions:** Student requested the rubric check. Whether to tell the instructor about the RU-03 correction is the student's decision. Figures 2 and 3 were drawn by the AI as SVG from the verified design.
 
+## Entry 16 — Incorporating the Supervisor's Response
+
+- **Tool:** Claude (Anthropic, Claude Sonnet 5)
+- **Date / Phase:** Week 4 (2026-09-28), revision after supervisor reply
+- **Purpose:** Read the supervisor's actual reply to the two emailed requests and revise the design and Section 11 to act on it, rather than only disclosing that a reply was expected.
+- **Prompt / Task Summary:** Open and quote the supervisor's Sep 27, 8:59 PM EDT reply approving the three-archetype approach and requiring the blend to be explicit about being deterministic, documented, and reproducible; add that explicit statement to Section 5.3; update Section 11 with the quoted response and what was and was not directly addressed; note the class-wide deadline extension to Sep 29 and that this revision is being made to act on the response, not merely to use extra time.
+- **Output Used:** Revised Sections 5.3 and 11 of the Design Review Package.
+- **Affected Section / Artifact:** Sections 5.3, 11.
+- **Human Verification:** The quoted reply was read directly from Outlook, not paraphrased from memory; the Canvas assignment page was checked directly for the real extended availability date (Sep 29, 11:59 PM) rather than computing it from the announcement's "two days" wording alone.
+- **Final Student Revisions:** Student decided that the second-judge and evidence-base questions, not directly addressed in the reply, would be treated as resolved by proceeding rather than re-asked, consistent with the decision to stop emailing and document instead.
+
 ---
 
 ## Prior AI Use (ISEM 502 / GRAD 695, narrative summary — predates this schema)
