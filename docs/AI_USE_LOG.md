@@ -180,6 +180,17 @@ Structured, per-instance disclosure of AI assistance, reformatted in CISC 699 We
 - **Human Verification:** The quoted reply was read directly from Outlook, not paraphrased from memory; the Canvas assignment page was checked directly for the real extended availability date (Sep 29, 11:59 PM) rather than computing it from the announcement's "two days" wording alone.
 - **Final Student Revisions:** Student decided that the second-judge and evidence-base questions, not directly addressed in the reply, would be treated as resolved by proceeding rather than re-asked, consistent with the decision to stop emailing and document instead.
 
+## Entry 17 — Fairness-by-Shelter-Characteristic Check
+
+- **Tool:** Claude (Anthropic, Claude Sonnet 5)
+- **Date / Phase:** Week 4 (2026-09-29), addition before resubmission
+- **Purpose:** Add the second half of the Week 2 fairness/sensitivity request, which the sensitivity check alone did not cover: whether scoring systematically favors a shelter characteristic regardless of case merit.
+- **Prompt / Task Summary:** Re-read the exact Week 2 feedback wording to separate its two asks (judgment sensitivity vs. input-factor fairness); design a won-share-vs-eligible-share method by shelter characteristic (tier, vet availability, distance, freshness); add it to Section 8 with an honest statistical-power caveat given only 9 planned cases; add a traceability row and a Week 7 build-order update.
+- **Output Used:** New Section 8 subsection, Section 9 row NFR7, Section 11 Week 7 build step, of the Design Review Package.
+- **Affected Section / Artifact:** Sections 8, 9, 11.
+- **Human Verification:** The Week 2 feedback text was re-read verbatim rather than paraphrased from memory to confirm it named two distinct checks, not one.
+- **Final Student Revisions:** Student requested this addition given the extended deadline; the specific characteristics checked and the "reported as counts, not percentages" honesty framing were directed by the student.
+
 ---
 
 ## Prior AI Use (ISEM 502 / GRAD 695, narrative summary — predates this schema)
