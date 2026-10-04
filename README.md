@@ -42,7 +42,12 @@ rescuenet/
 │   ├── list-nearby-cases/      # Geo-filtered query backing the app's "Live Cases" map
 │   ├── get-case-photos/        # Presigned GET URLs for a case's uploaded photos
 │   └── shared/
-│       └── utils.ts            # DynamoDB client, EventBridge helper, haversine distance, shared types
+│       ├── utils.ts            # DynamoDB client, EventBridge helper, haversine distance, shared types
+│       ├── scoring.ts          # Pure scoring helpers (species match) extracted from the arbitrator for testing
+│       ├── weights.ts          # Pure case-specific weight derivation (AHP archetype blend); not yet wired in
+│       └── ahp-weights.json    # AHP vectors per case archetype (PLACEHOLDER until Week 6 elicitation)
+│
+├── test/                       # Jest unit tests (weights, scoring); run with `npm test`
 │
 ├── mobile/                     # Expo React Native app (own package.json, deploys independently)
 │   ├── app/                    # Screens (file-based routing via Expo Router)
@@ -111,6 +116,22 @@ npx expo run:ios       # native build + simulator launch (needed once, for nativ
 # subsequently:
 npx expo start          # fast-refresh dev server
 ```
+
+### Verify the baseline without deploying anything (CISC 699 Sprint I)
+
+These steps need no AWS account and no deployment. They install dependencies, type-check every Lambda, run the unit tests, and run a smoke test of the new weight-derivation code.
+
+```bash
+nvm use 20            # reads .nvmrc; Lambda runs Node 20. (Developed on Node 25.9, see docs/RISK_LOG.md R-05)
+npm ci                # exact versions from package-lock.json
+npm run typecheck     # tsc --noEmit over every Lambda; expect no output
+npm test              # Jest; expect 36 tests passing
+npm run smoke         # runs scripts/smoke-weights.ts; expect "SMOKE TEST PASSED" and exit code 0
+```
+
+Optional, needs the AWS CLI configured: `npm run synth` runs `cdk synth` to confirm all 5 stacks still build. It does not deploy.
+
+What is real and what is not at this baseline: the species-match fix and the weight-blend/fallback functions are implemented and tested; the weight vectors are **equal placeholders**, not the AHP judgments (those are elicited in Week 6); the new code is **not wired into the deployed pipeline** and nothing was deployed this sprint. See [`KNOWN_ISSUES.md`](KNOWN_ISSUES.md), [`docs/RISK_LOG.md`](docs/RISK_LOG.md), [`docs/ARCHITECTURE_NOTES.md`](docs/ARCHITECTURE_NOTES.md) and [`CONTRIBUTING.md`](CONTRIBUTING.md).
 
 ### Try it without deploying anything
 

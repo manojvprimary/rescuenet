@@ -1,0 +1,11 @@
+{
+  "version": "v0-placeholder",
+  "status": "PLACEHOLDER_NOT_ELICITED",
+  "note": "Equal vectors. These are NOT the student's AHP judgments; the real vectors (3 matrices, CR < 0.10 each) are elicited in Week 6 and replace this file. See docs/ARCHITECTURE_NOTES.md and issue #2.",
+  "factors": ["vet_care", "pickup_urgency", "species_specialization", "proximity", "long_term_care"],
+  "vectors": {
+    "INJURED_CRITICAL": [0.2, 0.2, 0.2, 0.2, 0.2],
+    "URGENT_TRANSIENT": [0.2, 0.2, 0.2, 0.2, 0.2],
+    "STABLE_ROUTINE":   [0.2, 0.2, 0.2, 0.2, 0.2]
+  }
+}

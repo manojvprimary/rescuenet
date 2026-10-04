@@ -1,0 +1,56 @@
+# Sprint I smoke-test evidence
+Captured: 2026-10-04 02:41:02 EDT
+Source: fresh 'git clone' of branch sprint-1/baseline at commit 6a084a3 into an empty directory (simulates a peer)
+Node: v25.9.0   npm: 11.12.1   (Lambda runtime is Node 20.x; see KNOWN_ISSUES KI-05)
+
+$ npm ci
+added 348 packages in 4s
+exit code: 0
+
+$ npm run typecheck
+> rescuenet@1.0.0 typecheck
+> tsc --noEmit
+exit code: 0
+
+$ npm test
+PASS test/scoring.test.ts
+PASS test/weights.test.ts
+Test Suites: 2 passed, 2 total
+Tests:       36 passed, 36 total
+Time:        2.983 s, estimated 5 s
+exit code: 0
+
+$ npm run smoke
+> rescuenet@1.0.0 smoke
+> ts-node scripts/smoke-weights.ts
+weights version: v0-placeholder (placeholder equal vectors until the Week 6 AHP elicitation)
+PASS  shipped vectors load and validate
+critical injury: fallback=false p={"INJURED_CRITICAL":0.85,"URGENT_TRANSIENT":0.1,"STABLE_ROUTINE":0.05}
+  softWeights: vet_care=0.200 pickup_urgency=0.200 species_specialization=0.200 proximity=0.200 long_term_care=0.200
+PASS  critical injury: weights sum to 1
+routine stray: fallback=false p={"INJURED_CRITICAL":0.05,"URGENT_TRANSIENT":0.1,"STABLE_ROUTINE":0.85}
+  softWeights: vet_care=0.200 pickup_urgency=0.200 species_specialization=0.200 proximity=0.200 long_term_care=0.200
+PASS  routine stray: weights sum to 1
+malformed model output: fallback=true p={"INJURED_CRITICAL":0,"URGENT_TRANSIENT":0,"STABLE_ROUTINE":1}
+  softWeights: vet_care=0.200 pickup_urgency=0.200 species_specialization=0.200 proximity=0.200 long_term_care=0.200
+PASS  malformed model output: weights sum to 1
+PASS  malformed output used the fallback
+PASS  species check: dog shelter does not match a cat (old code scored this 0.85)
+PASS  species check: cat shelter matches a cat
+ILLUSTRATIVE vectors (not elicited), showing the case-specific blend:
+  critical injury vet_care = 0.440
+  routine stray   vet_care = 0.120
+PASS  injured case weights vet care more than a routine case
+SMOKE TEST PASSED
+exit code: 0
+
+
+---
+# Infrastructure smoke test: cdk synth (author's machine, NOT the fresh clone)
+Ran after the arbitrator change, before the baseline commit, with the AWS CLI configured. This step needs AWS credentials and was not run on the clean clone (KNOWN_ISSUES KI-06, KI-10).
+
+$ npm run synth
+Successfully synthesized to /Users/manoj/Downloads/rescuenet/cdk.out
+Supply a stack id (RescueNetStorage, RescueNetDatabase, RescueNetMessaging, RescueNetApi, RescueNetLambda) to display its template.
+EXIT=0
+(Stacks: RescueNetStorage, RescueNetDatabase, RescueNetMessaging, RescueNetApi, RescueNetLambda)

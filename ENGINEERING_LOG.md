@@ -95,3 +95,19 @@ A running, dated record of decisions, findings, and changes made during the CISC
 **Open questions for supervisor** — carried forward and consolidated into the Section 11 request: the AHP protocol soundness check, the seeded-shelter evidence-base question, and the still-unconfirmed remaining hard-stop dates (open since Week 1).
 
 ---
+
+---
+
+## Week 5 — 2026-10-04 (Implementation Sprint I)
+
+**Context.** First build sprint. Goal from the check-in assignment: a real, runnable engineering baseline plus documentation and a risk log, not feature count.
+
+**Done.** Branch `sprint-1/baseline`: Jest/ts-jest tooling (36 tests), `lambda/shared/weights.ts` (pure case-specific weight blend, fallback, top-archetype mode, placeholder equal AHP vectors), `lambda/shared/scoring.ts` and a six-line arbitrator change fixing the species-match defect (issue #1), smoke script, `.nvmrc`/`engines`, pinned `ts-node`, and the documentation set (README baseline steps, CHANGELOG, KNOWN_ISSUES, CONTRIBUTING, RISK_LOG, ARCHITECTURE_NOTES, sprint reflection). Merged to `main` with `--no-ff` and tagged `v0.1.0-baseline`.
+
+**Verification.** Type-check clean before and after; mutation check (old buggy logic restored temporarily) made 2 regression tests fail, then all 36 passed after restoring; fresh `git clone` into an empty directory ran `npm ci`, typecheck, tests, and smoke, all exit 0; `cdk synth` succeeded on the author's machine. Evidence in `docs/evidence/sprint-1/`.
+
+**Corrections made during the sprint (disclosed, not absorbed).** (1) `ts-node` turned out to be an undeclared dependency fetched unpinned by `npx` (also used by `cdk.json`); pinned. (2) My first evidence capture had a blank exit-code line and a hand-typed `npm ci` line; regenerated from a script. (3) My first draft of the reflection said 31 tests cover the weights module; the real count is 27 (9 cover the species helpers).
+
+**Not done / honest limits.** Weights module not wired into `needs-profile`; classifier not started; vectors are placeholders until the Week 6 AHP elicitation; no harness, fixtures, or measured results; nothing deployed. Not verified under Node 20 (local Node is 25.9, `nvm` not installed) or synth on a machine without the author's AWS configuration.
+
+**Decision.** No deployment this sprint; the live pipeline is untouched. The `WEIGHTING_MODE` flag and non-production path must exist before `needs-profile` is modified.
