@@ -1,5 +1,6 @@
 import { QueryCommand, PutCommand, UpdateCommand, GetCommand } from '@aws-sdk/lib-dynamodb';
 import { ddb, putEvent, haversineKm, NeedsProfile, ShelterBid, ttl1h } from '../shared/utils';
+import { extractCaseSpecies, speciesMatchScore } from '../shared/scoring';
 
 const FRESHNESS_WEIGHT: Record<string, number> = {
   LIVE:   1.00,
@@ -127,13 +128,15 @@ async function scoreAndAssign(caseId: string) {
     return escalate(caseId, 'All bids failed hard constraints.');
   }
 
+  const caseSpecies = extractCaseSpecies(caseItem.reportData as Record<string, unknown> | undefined);
+
   // Get shelter locations for distance scoring
   const shelterLocs = await getShelterLocations(eligible.map(b => b.shelterId));
 
   // Score each eligible bid using case-relative weights
   const scored = eligible.map(bid => ({
     ...bid,
-    matchScore: computeMatchScore(bid, caseLocation, shelterLocs[bid.shelterId] ?? {}, softWeights),
+    matchScore: computeMatchScore(bid, caseLocation, shelterLocs[bid.shelterId] ?? {}, softWeights, caseSpecies),
   })).sort((a, b) => b.matchScore - a.matchScore);
 
   const winner = scored[0];
@@ -192,12 +195,13 @@ function computeMatchScore(
   caseLoc:     { lat: number; lng: number },
   shelterLoc:  Partial<{ lat: number; lng: number }>,
   weights:     NeedsProfile['softWeights'],
+  caseSpecies?: string,
 ): number {
   const vetScore   = bid.hasVetOnSite ? 1.00 : bid.vetCanBeArranged ? 0.60 : 0.00;
   const slotsNorm  = Math.min((bid.availableSlots ?? 0) / 5, 1.0);
   const windowNorm = Math.max(0, 1 - (bid.estimatedIntakeWindowMinutes ?? 60) / 120);
   const urgScore   = (slotsNorm + windowNorm) / 2;
-  const specScore  = bid.acceptedSpecies ? 0.85 : 0.50;
+  const specScore  = speciesMatchScore(bid.acceptedSpecies, caseSpecies);
 
   const dist     = bid.distanceKm ?? haversineKm(caseLoc?.lat, caseLoc?.lng, shelterLoc?.lat, shelterLoc?.lng);
   const proxScore = Math.max(0, 1 - dist / 30);

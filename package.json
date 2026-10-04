@@ -1,20 +1,28 @@
 {
   "name": "rescuenet",
   "version": "1.0.0",
-  "description": "RescueNet — blackboard multi-agent animal rescue routing",
+  "description": "RescueNet \u2014 blackboard multi-agent animal rescue routing",
   "scripts": {
     "build": "tsc",
     "watch": "tsc -w",
     "cdk": "cdk",
     "deploy": "cdk deploy --all --require-approval never",
     "destroy": "cdk destroy --all --force",
-    "diff": "cdk diff --all"
+    "diff": "cdk diff --all",
+    "test": "jest",
+    "typecheck": "tsc --noEmit",
+    "smoke": "ts-node scripts/smoke-weights.ts",
+    "synth": "cdk synth --quiet"
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.140",
+    "@types/jest": "^29.5.14",
     "@types/node": "^20.0.0",
     "aws-cdk": "^2.150.0",
     "esbuild": "^0.21.0",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.4.14",
+    "ts-node": "^10.9.2",
     "typescript": "^5.4.0"
   },
   "dependencies": {
@@ -30,5 +38,8 @@
     "@aws-sdk/util-dynamodb": "^3.996.7",
     "aws-cdk-lib": "^2.150.0",
     "constructs": "^10.3.0"
+  },
+  "engines": {
+    "node": ">=20 <21"
   }
 }
