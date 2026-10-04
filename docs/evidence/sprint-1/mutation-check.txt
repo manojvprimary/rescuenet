@@ -1,0 +1,12 @@
+# Regression-test sanity check (species-match fix, issue #1)
+Date: 2026-10-03/04, author's machine, working tree.
+
+Procedure: temporarily replaced the new `speciesMatchScore` body with the OLD logic
+(`return acceptedSpecies ? 0.85 : 0.5;`), ran the scoring tests, then restored the file.
+
+Result with the OLD logic:   Tests: 2 failed, 7 passed, 9 total
+  failed: "no match scores 0.50 even though the shelter lists species (the old bug scored this 0.85)"
+  failed: "empty or missing list scores 0.50"
+Result after restoring:      Tests: 36 passed, 36 total (2 suites)
+
+Meaning: the regression tests detect the original defect; they are not vacuous.

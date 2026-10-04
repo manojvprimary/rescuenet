@@ -191,6 +191,17 @@ Structured, per-instance disclosure of AI assistance, reformatted in CISC 699 We
 - **Human Verification:** The Week 2 feedback text was re-read verbatim rather than paraphrased from memory to confirm it named two distinct checks, not one.
 - **Final Student Revisions:** Student requested this addition given the extended deadline; the specific characteristics checked and the "reported as counts, not percentages" honesty framing were directed by the student.
 
+## Entry 18 — Implementation Sprint I: Code, Tests, and Engineering Documentation
+
+- **Tool:** Claude (Anthropic, Claude Sonnet 5.5)
+- **Date / Phase:** Week 5 (2026-10-03 to 2026-10-04), Implementation Sprint I check-in
+- **Purpose:** Build the first runnable baseline of the Hard Stop 2 design: tested weight-derivation code, the species-match fix, test and smoke tooling, and the documentation and risk log the check-in requires.
+- **Prompt / Task Summary:** From the approved design (Sections 5.3, 8, 11), generate `lambda/shared/weights.ts`, `scoring.ts`, `ahp-weights.json` (placeholder vectors), 36 Jest tests, a smoke script, a six-line arbitrator change, README/CHANGELOG/KNOWN_ISSUES/CONTRIBUTING/RISK_LOG/ARCHITECTURE_NOTES, and this sprint's reflection and submission package. AI-generated code and documents; no AI-generated measurements or results exist (none have been produced yet).
+- **Output Used:** All of the above, committed on branch `sprint-1/baseline` and merged to `main` under tag `v0.1.0-baseline`.
+- **Affected Section / Artifact:** The repository (new files plus `lambda/arbitrator/index.ts`, `package.json`, `README.md`); `docs/evidence/sprint-1/`.
+- **Human Verification:** Verified by execution rather than reading: type-check clean before and after; 36 tests pass; a mutation check showed the regression tests fail against the original buggy logic; the documented steps were run on a fresh `git clone` in an empty directory (all exit codes 0); `cdk synth` succeeded on the author's machine. Two AI errors were caught and fixed during the sprint: an unpinned `ts-node` dependency, and a first evidence file with a blank exit code and a hand-typed line, which was regenerated from a capture script. Not verified: behavior under Node 20, and synth on a machine without the author's AWS setup.
+- **Final Student Revisions:** The student set the design and scope (archetype blending, three profiles, as approved by the supervisor on 2026-09-27) and requested this sprint build. The student's own line-by-line review of the generated code is the student's to confirm before submission; this entry will be updated if the student changes anything.
+
 ---
 
 ## Prior AI Use (ISEM 502 / GRAD 695, narrative summary — predates this schema)
