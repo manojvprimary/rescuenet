@@ -1,0 +1,33 @@
+# Sprint I verification under Node 20 (the Lambda production major version)
+Captured: 2026-10-04 19:21:54 EDT
+Source: anonymous 'git clone' of the now-public repo, branch main, commit bfc2116 (code identical to tag v0.1.0-baseline; later commits add documentation only)
+Node used for every command below: v20.20.2  (machine default is v25.9.0; Node 20 supplied temporarily via npx, nothing installed)
+
+$ npm ci
+added 348 packages in 3s
+exit code: 0
+
+$ npm run typecheck
+> rescuenet@1.0.0 typecheck
+> tsc --noEmit
+exit code: 0
+
+$ npm test
+PASS test/scoring.test.ts (5.711 s)
+PASS test/weights.test.ts (5.758 s)
+Test Suites: 2 passed, 2 total
+Tests:       36 passed, 36 total
+exit code: 0
+
+$ npm run smoke
+weights version: v0-placeholder (placeholder equal vectors until the Week 6 AHP elicitation)
+PASS  shipped vectors load and validate
+PASS  critical injury: weights sum to 1
+PASS  routine stray: weights sum to 1
+PASS  malformed model output: weights sum to 1
+PASS  malformed output used the fallback
+PASS  species check: dog shelter does not match a cat (old code scored this 0.85)
+PASS  species check: cat shelter matches a cat
+PASS  injured case weights vet care more than a routine case
+SMOKE TEST PASSED
+exit code: 0

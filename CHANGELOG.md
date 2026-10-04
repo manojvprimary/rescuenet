@@ -24,5 +24,6 @@ Baseline for comparing all later sprints against.
 - Hand-picked normalization constants (`/5`, `/120`, `/30`) and the freshness table are untouched (out of scope this term).
 
 ## Earlier history
+- 2026-10-04: repository made public after a secrets scan of all 19 commits (no keys or tokens found). Known soft exposures: one AWS account ID in the Hard Stop 2 document, and two Slack channel IDs in `lib/constants.ts`; neither is a credential.
 - 2026-09-13: private GitHub remote created and pushed; issues #1-#3 opened.
 - Initial commit `a352707`: full RescueNet codebase from ISEM 502 / GRAD 695.

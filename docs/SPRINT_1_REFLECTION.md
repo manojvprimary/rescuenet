@@ -13,12 +13,12 @@ Baseline tag: `v0.1.0-baseline`. Smallest demonstrable technical path (the super
 - The weights module is **not wired into `needs-profile`**, and the classifier (Bedrock returning archetype probabilities) is not started. The deployed system is unchanged and **nothing was deployed**.
 - The AHP vectors are **equal placeholders**. The real vectors depend on the student's judgments in Week 6; the smoke demo's non-equal weights use clearly labeled illustrative vectors, not elicited ones.
 - There is no evaluation harness, no synthetic fixtures, no frozen v1 baseline, and no measured results yet. The 36 tests cover only the new pure modules; the rest of the pipeline has no tests (KI-04).
-- Not verified: the setup steps under Node 20 (this machine runs 25.9 and `nvm` is not installed), and `npm run synth` on a machine without the author's AWS configuration.
+- Verified after the initial capture: the install, type-check, tests, and smoke test pass under Node 20.20.2 on an anonymous clone of the public repo (`docs/evidence/sprint-1/node20-output.txt`). Not verified: `npm run synth` on a machine without the author's AWS configuration.
 
 ## Blocked or needing input
 - **AHP elicitation (R-01):** needs the student's 30 pairwise judgments; cannot be generated.
 - **Second annotator (R-03):** an independent person to annotate the 8 synthetic cases blind; the supervisor said this would strengthen validity if feasible.
-- **Node 20:** install it (or `nvm`) to run the final validation under the production major version (R-05).
+- **Node 20 as the local default (R-05):** the baseline already passes under Node 20 via `npx`; installing Node 20 locally (nvm or Homebrew) would make everyday runs match production.
 - **Bedrock quotas (R-06):** need a console check before the stability tests.
 
 ## Lessons
