@@ -1,0 +1,15 @@
+{
+  "id": "SYN-05",
+  "description": "Injured dog, near; nearest shelter has no vet, second-nearest has a vet",
+  "caseLocation": { "lat": 40.758, "lng": -73.9855 },
+  "reportData": {
+    "species": "dog",
+    "reporterSituation": "I'm with a dog with a deep cut on its front leg, limping badly and bleeding. I wrapped it. I can keep it still but it needs a vet.",
+    "imageAnalysis": { "species": "dog", "injuryIndicators": ["open wound", "limping"] }
+  },
+  "bids": [
+    { "caseId": "SYN-05", "shelterId": "shelter-A", "shelterName": "Nearest, No Vet", "availableSlots": 5, "hasVetOnSite": false, "acceptedSpecies": ["dog", "cat"], "distanceKm": 1.0, "confidence": 0.9, "estimatedIntakeWindowMinutes": 30, "notes": "synthetic", "dataFreshness": "LIVE", "autonomyPreference": "AUTO_CONFIRM", "timestamp": "2026-10-10T12:00:00Z" },
+    { "caseId": "SYN-05", "shelterId": "shelter-B", "shelterName": "Second Nearest, Vet On Site", "availableSlots": 3, "hasVetOnSite": true, "acceptedSpecies": ["dog", "cat"], "distanceKm": 6.0, "confidence": 0.9, "estimatedIntakeWindowMinutes": 30, "notes": "synthetic", "dataFreshness": "LIVE", "autonomyPreference": "AUTO_CONFIRM", "timestamp": "2026-10-10T12:00:00Z" },
+    { "caseId": "SYN-05", "shelterId": "shelter-C", "shelterName": "Far, Vet On Site", "availableSlots": 6, "hasVetOnSite": true, "acceptedSpecies": ["dog", "cat"], "distanceKm": 14.0, "confidence": 0.9, "estimatedIntakeWindowMinutes": 30, "notes": "synthetic", "dataFreshness": "LIVE", "autonomyPreference": "AUTO_CONFIRM", "timestamp": "2026-10-10T12:00:00Z" }
+  ]
+}

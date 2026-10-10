@@ -1,0 +1,15 @@
+{
+  "id": "SYN-08",
+  "description": "Bedrock call fails or returns malformed output; the classifier output is replaced by a malformed value",
+  "caseLocation": { "lat": 40.758, "lng": -73.9855 },
+  "reportData": {
+    "species": "dog",
+    "reporterSituation": "Dog sitting by the road, seems okay, I will keep an eye on it.",
+    "imageAnalysis": { "species": "dog", "injuryIndicators": [] }
+  },
+  "injectClassifierOutput": { "oops": true },
+  "bids": [
+    { "caseId": "SYN-08", "shelterId": "shelter-A", "shelterName": "Shelter A", "availableSlots": 3, "hasVetOnSite": true, "acceptedSpecies": ["dog", "cat"], "distanceKm": 3.0, "confidence": 0.9, "estimatedIntakeWindowMinutes": 30, "notes": "synthetic", "dataFreshness": "LIVE", "autonomyPreference": "AUTO_CONFIRM", "timestamp": "2026-10-10T12:00:00Z" },
+    { "caseId": "SYN-08", "shelterId": "shelter-B", "shelterName": "Shelter B", "availableSlots": 5, "hasVetOnSite": false, "acceptedSpecies": ["dog", "cat"], "distanceKm": 8.0, "confidence": 0.9, "estimatedIntakeWindowMinutes": 30, "notes": "synthetic", "dataFreshness": "LIVE", "autonomyPreference": "AUTO_CONFIRM", "timestamp": "2026-10-10T12:00:00Z" }
+  ]
+}

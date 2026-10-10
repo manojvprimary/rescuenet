@@ -1,0 +1,14 @@
+{
+  "id": "SYN-06",
+  "description": "Routine healthy secured cat; two shelters near-tied on every factor",
+  "caseLocation": { "lat": 40.758, "lng": -73.9855 },
+  "reportData": {
+    "species": "cat",
+    "reporterSituation": "A calm cat has been hanging around my porch for a few days. It looks healthy and well-fed. I put out water. No rush.",
+    "imageAnalysis": { "species": "cat", "injuryIndicators": [] }
+  },
+  "bids": [
+    { "caseId": "SYN-06", "shelterId": "shelter-A", "shelterName": "Shelter A", "availableSlots": 4, "hasVetOnSite": false, "acceptedSpecies": ["dog", "cat"], "distanceKm": 5.0, "confidence": 0.9, "estimatedIntakeWindowMinutes": 30, "notes": "synthetic", "dataFreshness": "LIVE", "autonomyPreference": "AUTO_CONFIRM", "timestamp": "2026-10-10T12:00:00Z" },
+    { "caseId": "SYN-06", "shelterId": "shelter-B", "shelterName": "Shelter B", "availableSlots": 4, "hasVetOnSite": false, "acceptedSpecies": ["dog", "cat"], "distanceKm": 5.0, "confidence": 0.9, "estimatedIntakeWindowMinutes": 30, "notes": "synthetic", "dataFreshness": "LIVE", "autonomyPreference": "AUTO_CONFIRM", "timestamp": "2026-10-10T12:00:00Z" }
+  ]
+}

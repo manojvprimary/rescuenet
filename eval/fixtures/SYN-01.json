@@ -1,0 +1,15 @@
+{
+  "id": "SYN-01",
+  "description": "Critically injured cat, species accepted, near",
+  "caseLocation": { "lat": 40.758, "lng": -73.9855 },
+  "reportData": {
+    "species": "cat",
+    "reporterSituation": "I am holding the cat in a towel. She was hit by a car, bleeding from the mouth and one back leg is dragging. She is barely moving.",
+    "imageAnalysis": { "species": "cat", "injuryIndicators": ["visible blood", "unable to stand"] }
+  },
+  "bids": [
+    { "caseId": "SYN-01", "shelterId": "shelter-A", "shelterName": "Near Vet Clinic Shelter", "availableSlots": 3, "hasVetOnSite": true, "acceptedSpecies": ["dog", "cat"], "distanceKm": 2.0, "confidence": 0.9, "estimatedIntakeWindowMinutes": 30, "notes": "synthetic", "dataFreshness": "LIVE", "autonomyPreference": "AUTO_CONFIRM", "timestamp": "2026-10-10T12:00:00Z" },
+    { "caseId": "SYN-01", "shelterId": "shelter-B", "shelterName": "Mid Distance Shelter", "availableSlots": 5, "hasVetOnSite": true, "acceptedSpecies": ["dog", "cat"], "distanceKm": 9.0, "confidence": 0.9, "estimatedIntakeWindowMinutes": 30, "notes": "synthetic", "dataFreshness": "LIVE", "autonomyPreference": "AUTO_CONFIRM", "timestamp": "2026-10-10T12:00:00Z" },
+    { "caseId": "SYN-01", "shelterId": "shelter-C", "shelterName": "Far Shelter", "availableSlots": 6, "hasVetOnSite": true, "acceptedSpecies": ["dog", "cat", "bird"], "distanceKm": 18.0, "confidence": 0.9, "estimatedIntakeWindowMinutes": 30, "notes": "synthetic", "dataFreshness": "LIVE", "autonomyPreference": "AUTO_CONFIRM", "timestamp": "2026-10-10T12:00:00Z" }
+  ]
+}

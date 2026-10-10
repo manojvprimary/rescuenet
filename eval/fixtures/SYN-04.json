@@ -1,0 +1,15 @@
+{
+  "id": "SYN-04",
+  "description": "Dog loose near a highway, reporter cannot hold it; nearest shelter has zero slots",
+  "caseLocation": { "lat": 40.758, "lng": -73.9855 },
+  "reportData": {
+    "species": "dog",
+    "reporterSituation": "A dog is running loose next to the highway on-ramp. I cannot catch it and can't hold it, it keeps darting toward traffic. No visible injuries.",
+    "imageAnalysis": { "species": "dog", "injuryIndicators": [] }
+  },
+  "bids": [
+    { "caseId": "SYN-04", "shelterId": "shelter-A", "shelterName": "Nearest, Full", "availableSlots": 0, "hasVetOnSite": true, "acceptedSpecies": ["dog", "cat"], "distanceKm": 1.0, "confidence": 0.9, "estimatedIntakeWindowMinutes": 15, "notes": "synthetic", "dataFreshness": "LIVE", "autonomyPreference": "AUTO_CONFIRM", "timestamp": "2026-10-10T12:00:00Z" },
+    { "caseId": "SYN-04", "shelterId": "shelter-B", "shelterName": "Next Nearest With Slots", "availableSlots": 3, "hasVetOnSite": false, "acceptedSpecies": ["dog", "cat"], "distanceKm": 4.0, "confidence": 0.9, "estimatedIntakeWindowMinutes": 20, "notes": "synthetic", "dataFreshness": "LIVE", "autonomyPreference": "AUTO_CONFIRM", "timestamp": "2026-10-10T12:00:00Z" },
+    { "caseId": "SYN-04", "shelterId": "shelter-C", "shelterName": "Farther With Slots", "availableSlots": 5, "hasVetOnSite": true, "acceptedSpecies": ["dog", "cat"], "distanceKm": 12.0, "confidence": 0.9, "estimatedIntakeWindowMinutes": 45, "notes": "synthetic", "dataFreshness": "LIVE", "autonomyPreference": "AUTO_CONFIRM", "timestamp": "2026-10-10T12:00:00Z" }
+  ]
+}
