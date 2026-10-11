@@ -1,0 +1,22 @@
+{
+  "id": "SYN-03",
+  "modelId": "us.anthropic.claude-sonnet-4-5-20250929-v1:0",
+  "recordedAt": "2026-10-11T01:02:36.730Z",
+  "error": null,
+  "throttled": false,
+  "rawText": "```json\n{\n  \"hardConstraints\": [\"accepts_species:dog\"],\n  \"softWeights\": {\n    \"vet_care\": 0.05,\n    \"pickup_urgency\": 0.20,\n    \"species_specialization\": 0.15,\n    \"proximity\": 0.15,\n    \"long_term_care\": 0.45\n  },\n  \"urgencyLevel\": \"MEDIUM\",\n  \"reasoning\": \"Healthy dog is temporarily secured but needs placement within 1-2 days for potential owner search and rehoming support.\"\n}\n```",
+  "profile": {
+    "hardConstraints": [
+      "accepts_species:dog"
+    ],
+    "softWeights": {
+      "vet_care": 0.05,
+      "pickup_urgency": 0.2,
+      "species_specialization": 0.15,
+      "proximity": 0.15,
+      "long_term_care": 0.45
+    },
+    "urgencyLevel": "MEDIUM",
+    "reasoning": "Healthy dog is temporarily secured but needs placement within 1-2 days for potential owner search and rehoming support."
+  }
+}

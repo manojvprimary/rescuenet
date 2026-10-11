@@ -1,0 +1,50 @@
+{
+  "version": 1,
+  "source": "Transcribed from the synthetic-case matrix in Hard Stop 2 (Design Review Package, Section 8), submitted to Canvas 2026-09-29. Written and committed BEFORE any harness run and before any elicited AHP vector exists, so ground truth cannot be adjusted after seeing results.",
+  "annotator": "Manoj Venkatachalaiah (single annotator; a second annotator is still being sought, risk R-03)",
+  "tieBreakRule": "If the top two scores differ by less than 0.02, the harness reports a near-tie and applies a documented deterministic rule: the lexicographically smaller shelterId wins. A tie is never resolved silently.",
+  "cases": {
+    "SYN-01": {
+      "archetype": ["INJURED_CRITICAL"],
+      "bestShelter": "shelter-A",
+      "rationale": "Critically injured: needs a vet. The nearest shelter has a vet on site and slots, so it is both nearest and vet-equipped."
+    },
+    "SYN-02": {
+      "archetype": ["STABLE_ROUTINE"],
+      "bestShelter": "shelter-B",
+      "rationale": "Healthy and secured. The nearest shelter does not list rabbits; the second-nearest does. Exercises the species-match fix (SC1). The scenario is that the classifier emitted no accepts_species constraint (fixture flag classifierEmitsNoSpeciesConstraint)."
+    },
+    "SYN-03": {
+      "archetype": ["STABLE_ROUTINE"],
+      "bestShelter": "shelter-A",
+      "rationale": "Healthy and secured; all options are over 25 km and otherwise equal, so the nearer shelter should win."
+    },
+    "SYN-04": {
+      "archetype": ["URGENT_TRANSIENT"],
+      "bestShelter": "shelter-B",
+      "rationale": "Loose near a highway, reporter cannot hold it. The nearest shelter has zero slots, so the next-nearest shelter with slots is the best option."
+    },
+    "SYN-05": {
+      "archetype": ["INJURED_CRITICAL"],
+      "bestShelter": "shelter-B",
+      "rationale": "Injured: needs a vet even if that shelter is farther. The nearest shelter has no vet; the second-nearest does."
+    },
+    "SYN-06": {
+      "archetype": ["STABLE_ROUTINE"],
+      "bestShelter": null,
+      "nearTie": true,
+      "rationale": "Two shelters are identical on every factor. No shelter is annotated as best; the expected behaviour is a reported near-tie resolved by the documented tie-break rule (smaller shelterId), not a silent pick."
+    },
+    "SYN-07": {
+      "archetype": ["INJURED_CRITICAL", "URGENT_TRANSIENT"],
+      "bestShelter": "shelter-B",
+      "rationale": "Mixed case: injured and loose in traffic. The near vet-equipped shelter should beat the nearer shelter without a vet. Exercises the blend."
+    },
+    "SYN-08": {
+      "archetype": [],
+      "expectFallback": true,
+      "bestShelter": "winner under the STABLE_ROUTINE vector",
+      "rationale": "Malformed classifier output must not crash and must produce the STABLE_ROUTINE fallback weights. The expected winner is whatever the STABLE_ROUTINE vector alone produces; the harness computes that and checks the fallback path matches it."
+    }
+  }
+}

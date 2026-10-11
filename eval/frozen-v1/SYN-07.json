@@ -1,0 +1,23 @@
+{
+  "id": "SYN-07",
+  "modelId": "us.anthropic.claude-sonnet-4-5-20250929-v1:0",
+  "recordedAt": "2026-10-11T01:02:48.681Z",
+  "error": null,
+  "throttled": false,
+  "rawText": "```json\n{\n  \"hardConstraints\": [\"has_vet\", \"accepts_species:dog\"],\n  \"softWeights\": {\n    \"vet_care\": 0.45,\n    \"pickup_urgency\": 0.35,\n    \"species_specialization\": 0.05,\n    \"proximity\": 0.10,\n    \"long_term_care\": 0.05\n  },\n  \"urgencyLevel\": \"CRITICAL\",\n  \"reasoning\": \"Injured dog bleeding on busy road requires immediate veterinary attention and urgent pickup before traffic causes further harm.\"\n}\n```",
+  "profile": {
+    "hardConstraints": [
+      "has_vet",
+      "accepts_species:dog"
+    ],
+    "softWeights": {
+      "vet_care": 0.45,
+      "pickup_urgency": 0.35,
+      "species_specialization": 0.05,
+      "proximity": 0.1,
+      "long_term_care": 0.05
+    },
+    "urgencyLevel": "CRITICAL",
+    "reasoning": "Injured dog bleeding on busy road requires immediate veterinary attention and urgent pickup before traffic causes further harm."
+  }
+}

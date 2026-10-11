@@ -1,0 +1,270 @@
+# Hard Stop 3 validation evidence (fresh clone, Node 20)
+Captured: 2026-10-11 16:21:56 EDT
+Source: git clone of the local repository at commit 35d3cf6a6ee40d5d32b23f1639ff75c0cec5192c on branch sprint-2/validation
+Machine: Darwin arm64, default node v25.9.0, npm 11.12.1
+Node used for every command below: v20.20.2
+
+$ npm ci
+
+added 348 packages, and audited 368 packages in 3s
+
+35 packages are looking for funding
+  run `npm fund` for details
+
+37 vulnerabilities (6 moderate, 30 high, 1 critical)
+
+To address issues that do not require attention, run:
+  npm audit fix
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+Run `npm audit` for details.
+exit code: 0
+
+$ npm run typecheck
+
+> rescuenet@1.0.0 typecheck
+> tsc --noEmit
+
+exit code: 0
+
+$ npm test
+
+> rescuenet@1.0.0 test
+> jest
+
+PASS test/ahp.test.ts (18.218 s)
+PASS test/weights.test.ts (18.543 s)
+PASS test/match.test.ts (18.622 s)
+PASS test/scoring.test.ts (18.668 s)
+PASS test/harness.test.ts (18.723 s)
+PASS test/needs-profile.test.ts (18.726 s)
+  ● Console
+
+    console.log
+      Needs profile agent for case c1
+
+      at handler (lambda/needs-profile/index.ts:18:11)
+
+    console.log
+      Needs profile for c1: {"hardConstraints":["has_vet"],"softWeights":{"vet_care":0.4,"pickup_urgency":0.3,"species_specialization":0.15,"proximity":0.1,"long_term_care":0.05},"urgencyLevel":"HIGH","reasoning":"x"}
+
+      at handler (lambda/needs-profile/index.ts:47:13)
+
+    console.log
+      Needs profile agent for case c1
+
+      at handler (lambda/needs-profile/index.ts:18:11)
+
+    console.log
+      Needs profile agent for case c1
+
+      at handler (lambda/needs-profile/index.ts:18:11)
+
+    console.warn
+      Classifier output failed validation — using STABLE_ROUTINE fallback
+
+      94 |     const raw = JSON.parse(Buffer.from(response.body).toString());
+      95 |     classified = parseClassifierResponse((raw.content?.[0]?.text ?? '') as string);
+    > 96 |     if (!classified) console.warn('Classifier output failed validation — using STABLE_ROUTINE fallback');
+         |                              ^
+      97 |   } catch (err) {
+      98 |     console.error('Bedrock failed — using STABLE_ROUTINE fallback:', (err as Error).message);
+      99 |   }
+
+      at buildArchetypeProfile (lambda/needs-profile/index.ts:96:30)
+      at handler (lambda/needs-profile/index.ts:27:15)
+      at Object.<anonymous> (test/needs-profile.test.ts:137:5)
+
+    console.log
+      Needs profile agent for case c1
+
+      at handler (lambda/needs-profile/index.ts:18:11)
+
+    console.error
+      Bedrock failed — using STABLE_ROUTINE fallback: ThrottlingException
+
+       96 |     if (!classified) console.warn('Classifier output failed validation — using STABLE_ROUTINE fallback');
+       97 |   } catch (err) {
+    >  98 |     console.error('Bedrock failed — using STABLE_ROUTINE fallback:', (err as Error).message);
+          |             ^
+       99 |   }
+      100 |
+      101 |   const derived = deriveWeights(classified?.archetypeProbabilities ?? null, loadVectors(), mode, WEIGHTS_VERSION);
+
+      at buildArchetypeProfile (lambda/needs-profile/index.ts:98:13)
+      at handler (lambda/needs-profile/index.ts:27:15)
+      at Object.<anonymous> (test/needs-profile.test.ts:147:5)
+
+    console.log
+      Needs profile agent for case c1
+
+      at handler (lambda/needs-profile/index.ts:18:11)
+
+    console.log
+      Needs profile agent for case c1
+
+      at handler (lambda/needs-profile/index.ts:18:11)
+
+    console.log
+      Needs profile for c1: {"hardConstraints":[],"softWeights":{"vet_care":0.2,"pickup_urgency":0.2,"species_specialization":0.2,"proximity":0.2,"long_term_care":0.2},"urgencyLevel":"LOW","reasoning":"r"}
+
+      at handler (lambda/needs-profile/index.ts:47:13)
+
+PASS test/sensitivity.test.ts (18.767 s)
+
+Test Suites: 7 passed, 7 total
+Tests:       108 passed, 108 total
+Snapshots:   0 total
+Time:        19.45 s
+Ran all test suites.
+exit code: 0
+
+$ npm run smoke
+
+> rescuenet@1.0.0 smoke
+> ts-node scripts/smoke-weights.ts
+
+weights version: v1-elicited-20261011-a785f618 (status: ELICITED_ALL_THREE)
+
+PASS  shipped vectors load and validate
+
+critical injury: fallback=false p={"INJURED_CRITICAL":0.85,"URGENT_TRANSIENT":0.1,"STABLE_ROUTINE":0.05}
+  softWeights: vet_care=0.476 pickup_urgency=0.183 species_specialization=0.097 proximity=0.172 long_term_care=0.072
+PASS  critical injury: weights sum to 1
+
+routine stray: fallback=false p={"INJURED_CRITICAL":0.05,"URGENT_TRANSIENT":0.1,"STABLE_ROUTINE":0.85}
+  softWeights: vet_care=0.100 pickup_urgency=0.127 species_specialization=0.232 proximity=0.188 long_term_care=0.352
+PASS  routine stray: weights sum to 1
+
+malformed model output: fallback=true p={"INJURED_CRITICAL":0,"URGENT_TRANSIENT":0,"STABLE_ROUTINE":1}
+  softWeights: vet_care=0.078 pickup_urgency=0.094 species_specialization=0.255 proximity=0.168 long_term_care=0.405
+PASS  malformed model output: weights sum to 1
+PASS  malformed output used the fallback
+
+PASS  species check: dog shelter does not match a cat (old code scored this 0.85)
+PASS  species check: cat shelter matches a cat
+ILLUSTRATIVE vectors (not elicited), showing the case-specific blend:
+  critical injury vet_care = 0.440
+  routine stray   vet_care = 0.120
+PASS  injured case weights vet care more than a routine case
+
+
+SMOKE TEST PASSED
+exit code: 0
+
+# AHP consistency check of the adopted judgments (read-only)
+
+$ node_modules/.bin/ts-node scripts/ahp-adopt.ts eval/ahp/evidence-informed-proposal.json
+INJURED_CRITICAL  CR 0.0339 OK   weights 0.547 0.164 0.087 0.147 0.055  (row-avg vs eigenvector max diff 0.011)
+URGENT_TRANSIENT  CR 0.0231 OK   weights 0.065 0.387 0.109 0.387 0.053  (row-avg vs eigenvector max diff 0.003)
+STABLE_ROUTINE    CR 0.0218 OK   weights 0.078 0.094 0.255 0.168 0.405  (row-avg vs eigenvector max diff 0.003)
+
+Check only: nothing written. Re-run with --adopt once the student has reviewed the proposal.
+exit code: 0
+
+# Repeated execution: three runs each, result hashes must be identical
+
+$ run-eval (rule-based classifier), run 1
+weights: v1-elicited-20261011-a785f618 | classifier: rule-based comparison classifier (offline, not Bedrock) | mode: blend
+archetype agreement: 7 of 7
+winner matches annotation: 6 of 8
+single-best cases (6): 4 correct with the pre-registered tie rule, 3 correct by raw top score alone
+result hash: 76dfd49e7f302100c5cdd8f505e4fad1ccbac96f0768322edbb5d6e60666855d
+
+$ run-eval (rule-based classifier), run 2
+weights: v1-elicited-20261011-a785f618 | classifier: rule-based comparison classifier (offline, not Bedrock) | mode: blend
+archetype agreement: 7 of 7
+winner matches annotation: 6 of 8
+single-best cases (6): 4 correct with the pre-registered tie rule, 3 correct by raw top score alone
+result hash: 76dfd49e7f302100c5cdd8f505e4fad1ccbac96f0768322edbb5d6e60666855d
+
+$ run-eval (rule-based classifier), run 3
+weights: v1-elicited-20261011-a785f618 | classifier: rule-based comparison classifier (offline, not Bedrock) | mode: blend
+archetype agreement: 7 of 7
+winner matches annotation: 6 of 8
+single-best cases (6): 4 correct with the pre-registered tie rule, 3 correct by raw top score alone
+result hash: 76dfd49e7f302100c5cdd8f505e4fad1ccbac96f0768322edbb5d6e60666855d
+
+$ run-eval (recorded live Bedrock classifier output), run 1
+weights: v1-elicited-20261011-a785f618 | classifier: file:eval/results/classifier-recorded-2026-10-11T01-12-15-757Z.json | mode: blend
+archetype agreement: 7 of 7
+winner matches annotation: 7 of 8
+single-best cases (6): 5 correct with the pre-registered tie rule, 3 correct by raw top score alone
+result hash: 97acbd168db6883aff61b912780757f74bad9d573b19182e4bd278c2817bf12f
+
+$ run-eval (recorded live Bedrock classifier output), run 2
+weights: v1-elicited-20261011-a785f618 | classifier: file:eval/results/classifier-recorded-2026-10-11T01-12-15-757Z.json | mode: blend
+archetype agreement: 7 of 7
+winner matches annotation: 7 of 8
+single-best cases (6): 5 correct with the pre-registered tie rule, 3 correct by raw top score alone
+result hash: 97acbd168db6883aff61b912780757f74bad9d573b19182e4bd278c2817bf12f
+
+$ run-eval (recorded live Bedrock classifier output), run 3
+weights: v1-elicited-20261011-a785f618 | classifier: file:eval/results/classifier-recorded-2026-10-11T01-12-15-757Z.json | mode: blend
+archetype agreement: 7 of 7
+winner matches annotation: 7 of 8
+single-best cases (6): 5 correct with the pre-registered tie rule, 3 correct by raw top score alone
+result hash: 97acbd168db6883aff61b912780757f74bad9d573b19182e4bd278c2817bf12f
+
+# Hash comparison
+rule runs:     3 76dfd49e7f302100 
+live runs:     3 97acbd168db6883a 
+
+# Full evaluation table (recorded live classifier output, final vectors)
+weights: v1-elicited-20261011-a785f618 | classifier: file:eval/results/classifier-recorded-2026-10-11T01-12-15-757Z.json | mode: blend
+annotations committed at fdb6171 (sha256 666684ddda4b...)
+
+case    top archetype     agree  winner     expected   ok   decisive factor / note
+SYN-01  INJURED_CRITICAL  yes    shelter-B  shelter-A  NO   pickup_urgency
+SYN-02  STABLE_ROUTINE    yes    shelter-B  shelter-B  yes  proximity
+SYN-03  STABLE_ROUTINE    yes    shelter-A  shelter-A  yes  near-tie (margin 0.0151); tie-break applied
+SYN-04  URGENT_TRANSIENT  yes    shelter-B  shelter-B  yes  near-tie (margin 0.0178); tie-break applied
+SYN-05  INJURED_CRITICAL  yes    shelter-B  shelter-B  yes  near-tie (margin 0.0195); tie-break applied
+SYN-06  STABLE_ROUTINE    yes    shelter-A  null       yes  near-tie (margin 0.0000 < 0.02); tie-break rule applied: smaller shelterId
+SYN-07  INJURED_CRITICAL  yes    shelter-B  shelter-B  yes  
+SYN-08  STABLE_ROUTINE    n/a    shelter-B  shelter-B  yes  long_term_care
+
+archetype agreement: 7 of 7
+winner matches annotation: 7 of 8
+single-best cases (6): 5 correct with the pre-registered tie rule, 3 correct by raw top score alone
+classifier-failure cases handled: 1 of 1
+near-ties: SYN-03, SYN-04, SYN-05, SYN-06
+decisive factor counts: {"pickup_urgency":1,"proximity":1,"long_term_care":1}
+result hash: 97acbd168db6883aff61b912780757f74bad9d573b19182e4bd278c2817bf12f
+
+# Frozen v1 vs v2
+v2: weights v1-elicited-20261011-a785f618, classifier file:eval/results/classifier-recorded-2026-10-11T01-12-15-757Z.json
+
+case    annotated   v1 winner   v2 winner   v1 ok  v2 ok  | raw-score top: v1  v2   v1 ok  v2 ok | differ
+SYN-01  shelter-A   shelter-B   shelter-B   NO     NO     | B              B   NO     NO     | no
+SYN-02  shelter-B   shelter-B   shelter-B   yes    yes    | B              B   yes    yes    | no
+SYN-03  shelter-A   shelter-A   shelter-A   yes    yes    | A              A   yes    yes    | no
+SYN-04  shelter-B   shelter-C   shelter-B   NO     yes    | C              C   NO     NO     | YES (needs a written rationale)
+SYN-05  shelter-B   shelter-C   shelter-B   NO     yes    | C              C   NO     NO     | YES (needs a written rationale)
+SYN-06  null        shelter-A   shelter-A   n/a    n/a    | A              A   n/a    n/a    | no
+SYN-07  shelter-B   shelter-B   shelter-B   yes    yes    | B              B   yes    yes    | no
+SYN-08  winner und  null        shelter-B   n/a    n/a    | l              B   n/a    n/a    | no
+
+cases with a single annotated best shelter: 6
+v1 matches annotation: 3 of 6
+v2 matches annotation: 5 of 6
+
+STRICTER, by raw score with no tie rule (added after seeing the first results; the pre-registered tie rule above is unchanged):
+  v1 matches annotation: 3 of 6
+  v2 matches annotation: 3 of 6
+winner disagreements v1 vs v2 (all cases): 2
+SC3 criterion (v2 at least as good as v1): MET with the tie rule; MET by raw score
+
+# One-step AHP sensitivity (recorded live classifier output)
+classifier: file:eval/results/classifier-recorded-2026-10-11T01-12-15-757Z.json
+60 one-step perturbations (each judgment up and down, one at a time)
+largest number of cases flipped by any single perturbation: 1
+criterion (no single perturbation flips 2 or more cases): PASS
+wrote /var/folders/sg/bd12qyls789gqyvmckly3p8r0000gn/T/tmp.bhXTurMR3M/sens.json
+
+# Pre-registration check: the annotations in this clone are byte-identical to the first commit that added them
+first-commit sha256: 666684ddda4b67cd14eb570eded19539dcf9b8a3e73096b987cb2f60071dbe22
+current sha256:      666684ddda4b67cd14eb570eded19539dcf9b8a3e73096b987cb2f60071dbe22
+first commit: fdb6171 2026-10-10 06:04:07 -0400 Pre-register evaluation ground truth: 8 synthetic fixtures and annotations

@@ -1,12 +1,13 @@
 // Runnable smoke test for the weight-derivation skeleton. Exits non-zero on any failure.
 // Usage: npx ts-node scripts/smoke-weights.ts
 import { FACTORS, deriveWeights, loadVectors, WEIGHTS_VERSION } from '../lambda/shared/weights';
+import ahpConfig from '../lambda/shared/ahp-weights.json';
 import { speciesMatchScore } from '../lambda/shared/scoring';
 
 let failures = 0;
 const check = (name: string, ok: boolean) => { console.log(`${ok ? 'PASS' : 'FAIL'}  ${name}`); if (!ok) failures++; };
 
-console.log(`weights version: ${WEIGHTS_VERSION} (placeholder equal vectors until the Week 6 AHP elicitation)\n`);
+console.log(`weights version: ${WEIGHTS_VERSION} (status: ${ahpConfig.status})\n`);
 const vectors = loadVectors();
 check('shipped vectors load and validate', Object.keys(vectors).length === 3);
 
@@ -28,7 +29,7 @@ check('species check: dog shelter does not match a cat (old code scored this 0.8
 check('species check: cat shelter matches a cat', speciesMatchScore(['cat'], 'cat') === 0.85);
 
 // ILLUSTRATIVE ONLY: demo vectors (same as the unit-test vectors), NOT the student's elicited AHP judgments.
-// The shipped placeholder is equal, which hides the blend; this shows the mechanism working.
+// Kept as a fixed reference so this demo does not change when the shipped vectors change.
 const demo = {
   INJURED_CRITICAL: { vet_care: 0.50, pickup_urgency: 0.25, species_specialization: 0.10, proximity: 0.10, long_term_care: 0.05 },
   URGENT_TRANSIENT: { vet_care: 0.10, pickup_urgency: 0.40, species_specialization: 0.10, proximity: 0.35, long_term_care: 0.05 },

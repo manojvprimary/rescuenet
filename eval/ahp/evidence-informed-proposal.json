@@ -1,0 +1,69 @@
+{
+  "title": "Evidence-informed AHP judgments (PROPOSAL, not yet adopted)",
+  "status": "PROPOSED_BY_AI_AWAITING_STUDENT_ADOPTION",
+  "preparedOn": "2026-10-11",
+  "preparedBy": "Claude (AI assistant) from the sources below; the student is the judge of record and adopts, changes, or rejects each pair.",
+  "answerSyntax": "Same as scripts/ahp-elicit.ts: '=' equal; 'aN' = the first factor is N times as important as the second; 'bN' = the second is N times as important as the first (Saaty 1-9).",
+  "limits": [
+    "The sources support the DIRECTION of most comparisons (which factor matters more in which kind of case). None of them supports a magnitude on Saaty's 1-9 scale; the magnitudes are the preparer's reading and are the part most open to the student's disagreement.",
+    "No forum evidence is used. Reddit and X could not be fetched, and search returned no Reddit threads, so nothing anecdotal is cited or hidden behind the numbers.",
+    "Sources are US/Hawaii/Portland veterinary and shelter-standards documents, not NYC rescue data. They inform plausibility; they do not validate the weights.",
+    "A consistency ratio below 0.10 shows the 10 judgments agree with each other, not that they are right (SC2 sensitivity check is the second safeguard)."
+  ],
+  "sources": {
+    "S1": { "cite": "DoveLewis Emergency Animal Hospital. Triage Severity Guide (PDF, file dated 2022-10-18).", "url": "https://www.dovelewis.org/sites/default/files/resource-files/TriageSeverityGuide_0.pdf", "used": "Severity levels Stat > Critical > Intensive > Urgent > Stable and the order patients are seen. 'Hit by vehicle and not walking' is listed under Stat, 'Seen Before All Patients'; 'Fracture with bone exposed' and 'Severe pain' under Critical; chronic conditions under Stable, 'Last to Be Seen'.", "verified": "text extracted from the PDF itself" },
+    "S2": { "cite": "Association of Shelter Veterinarians (2010). Guidelines for Standards of Care in Animal Shelters (first edition), sections 'Capacity for Care' (p. 18) and 'Emergency Medical Care' (p. 26).", "url": "https://www.scstatehouse.gov/CommitteeInfo/Joint%20Pet%20Care%20And%20Humane%20Treatment%20Study%20Committee/Documents/ASV_guidlines.pdf", "used": "'An emergency medical plan must be in place to provide appropriate and timely veterinary medical care for any animal who is injured, in distress, or showing signs of significant illness ... either on site or through transfer to another facility.' Also: every sheltering organization has a maximum capacity for care; exceeding it is an unacceptable practice; operating beyond it results in animal suffering and a vicious cycle of longer stays.", "verified": "text extracted from the PDF itself; this is the 2010 first edition. A second edition (2022) exists and was not read directly." },
+    "S3": { "cite": "Hawaii County Police Department. Animal Control Services (call priorities).", "url": "https://hawaiipolice.gov/services/animal-control-services", "used": "Priority 1, 1-hour response and after-hours field response: 'loose dog in road that is a public safety risk' and 'any injured animal'. Priority 2, same-day response, no after-hours: healthy lost or stray animal. Priority 3, delayed field response: cruelty or neglect without immediate threat to life.", "verified": "fetched the page" },
+    "S4": { "cite": "Million Cat Challenge. Capacity for Care.", "url": "https://www.millioncatchallenge.org/resources/capacity-for-care", "used": "Capacity for care = meeting the needs of each animal admitted; daily capacity equals average daily intake times ideal length of stay; length of stay is the single greatest risk factor for upper respiratory infection in shelter cats; over capacity compromises welfare and outcomes.", "verified": "fetched the page; cats only" },
+    "S5": { "cite": "University of Illinois College of Veterinary Medicine. Caring for strays.", "url": "https://vetmed.illinois.edu/animal-owners-community/caring-for-strays/", "used": "The teaching hospital accepts and triages injured animals of unknown ownership but does not take healthy strays; healthy strays go to the designated local agency for a microchip scan and exam.", "verified": "fetched the page" }
+  },
+  "factors": ["vet_care", "pickup_urgency", "species_specialization", "proximity", "long_term_care"],
+  "pairOrder": ["vet_care vs pickup_urgency", "vet_care vs species_specialization", "vet_care vs proximity", "vet_care vs long_term_care", "pickup_urgency vs species_specialization", "pickup_urgency vs proximity", "pickup_urgency vs long_term_care", "species_specialization vs proximity", "species_specialization vs long_term_care", "proximity vs long_term_care"],
+  "archetypes": {
+    "INJURED_CRITICAL": {
+      "answers": ["a5", "a5", "a5", "a7", "a3", "=", "a3", "b2", "a2", "a3"],
+      "rationale": [
+        "Vet over pickup, a5: S1 puts a vehicle-struck animal that cannot walk ahead of every other patient, and S2 makes timely veterinary care the defining obligation for an injured animal. Fast intake matters, but only as a way to reach the vet. Direction: sourced. Magnitude: judgment.",
+        "Vet over species match, a5: the species requirement is already a hard constraint (accepts_species), so as a soft factor it is a tiebreaker beside a medical emergency (S1, S2). Direction: sourced.",
+        "Vet over proximity, a5: S2 allows care 'on site or through transfer to another facility', so a farther shelter with a vet beats a nearer one without (this is the SYN-05 scenario). Direction: sourced.",
+        "Vet over long-term care, a7: room for recovery is a later concern than getting treatment started (S1 triage order). Direction: sourced.",
+        "Pickup over species, a3: speed of intake outranks a soft species preference once species is a hard constraint (S3: injured animals are priority 1). Direction: reasoned from S3.",
+        "Pickup equal to proximity: both are about how fast the animal is received (open slots and intake window versus distance). No source separates them, so equal is the honest answer.",
+        "Pickup over long-term care, a3: S3 priority 1 for any injured animal. Direction: reasoned.",
+        "Proximity over species, b2: shorter transport means less time to treatment (S1, S3). Direction: reasoned.",
+        "Species over long-term care, a2: a shelter that cannot house the species is useless at any capacity (S2 housing by species). Direction: reasoned; weakest-supported pair of the set.",
+        "Proximity over long-term care, a3: S3 1-hour response for injured animals. Direction: reasoned."
+      ]
+    },
+    "URGENT_TRANSIENT": {
+      "answers": ["b5", "b2", "b5", "=", "a5", "=", "a7", "b5", "a3", "a7"],
+      "rationale": [
+        "Pickup over vet, b5: the animal looks healthy, so a vet is not the need; the need is to get it off the road (S3: loose dog in road is priority 1 with a 1-hour response, the same priority as an injured animal). Direction: sourced.",
+        "Species over vet, b2: for a healthy animal the soft species match matters more than a vet it does not need. Direction: reasoned.",
+        "Proximity over vet, b5: same reasoning as pickup over vet; speed of reaching a shelter is the point (S3). Direction: sourced.",
+        "Vet equal to long-term care: both are low for a healthy, mobile animal; nothing in the sources separates them.",
+        "Pickup over species, a5: a species preference is a luxury while the animal is in traffic (S3 priority 1). Direction: reasoned from S3.",
+        "Pickup equal to proximity: both express speed (see the injured case). No source separates them.",
+        "Pickup over long-term care, a7: recovery room is irrelevant to the first hour (S3). Direction: reasoned.",
+        "Proximity over species, b5: same reasoning as pickup over species. Direction: reasoned.",
+        "Species over long-term care, a3: once the animal is safe, whether the shelter takes the species matters more than extended room. Direction: reasoned.",
+        "Proximity over long-term care, a7: same as pickup over long-term care. Direction: reasoned."
+      ]
+    },
+    "STABLE_ROUTINE": {
+      "answers": ["=", "b3", "b3", "b5", "b3", "b2", "b3", "a2", "b2", "b3"],
+      "rationale": [
+        "Vet equal to pickup: a healthy, secured animal needs neither a vet nor a fast pickup; S3 priority 2 (same day) and S5 (healthy strays go to the local agency, not to a hospital) support both being low. Direction: sourced.",
+        "Species over vet, b3: S5 routes healthy strays to the agency for scan and exam, not to a vet; fit with the shelter matters more. Direction: sourced.",
+        "Proximity over vet, b3: with no medical need, distance is a practical cost that a vet is not offsetting. Direction: reasoned.",
+        "Long-term care over vet, b5: S2 and S4 make capacity and length of stay the central welfare issue for animals who will stay a while. Direction: sourced.",
+        "Species over pickup, b3: no urgency (S3 priority 2), so match quality outweighs speed. Direction: sourced.",
+        "Proximity over pickup, b2: distance still affects the reporter and transport; speed of intake does not. Direction: reasoned.",
+        "Long-term care over pickup, b3: S2 and S4 on capacity for care and length of stay. Direction: sourced.",
+        "Species over proximity, a2: for a stay of days or weeks, correct housing for the species outweighs a short trip (S2 housing by species). Direction: reasoned.",
+        "Long-term care over species, b2: S2 states operating beyond capacity for care is an unacceptable practice and results in suffering; S4 calls length of stay the greatest URI risk factor (cats). Direction: sourced; the S4 evidence is cats only.",
+        "Long-term care over proximity, b3: capacity matters over a stay far more than a few kilometres. Direction: sourced (S2, S4)."
+      ]
+    }
+  }
+}

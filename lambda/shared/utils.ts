@@ -101,6 +101,11 @@ export interface NeedsProfile {
   };
   urgencyLevel: 'LOW' | 'MEDIUM' | 'HIGH' | 'CRITICAL';
   reasoning:    string;
+  // Set only when WEIGHTING_MODE is 'blend' or 'top' (Hard Stop 2, Section 5.3), so every assignment is auditable.
+  archetypeProbabilities?: Record<'INJURED_CRITICAL' | 'URGENT_TRANSIENT' | 'STABLE_ROUTINE', number>;
+  weightsVersion?:         string;
+  weightingMode?:          'blend' | 'top';
+  usedFallback?:           boolean;
 }
 
 export interface ShelterBid {
@@ -192,21 +197,8 @@ export async function putEvent(
   }));
 }
 
-// ── Haversine distance ─────────────────────────────────────────────────────
-export function haversineKm(
-  lat1?: number, lng1?: number | null,
-  lat2?: number, lng2?: number | null,
-): number {
-  if (lat1 == null || lat2 == null) return 999;
-  const R    = 6371;
-  const dLat = (lat2 - lat1) * Math.PI / 180;
-  const dLng = ((lng2 ?? 0) - (lng1 ?? 0)) * Math.PI / 180;
-  const a    = Math.sin(dLat / 2) ** 2
-             + Math.cos(lat1 * Math.PI / 180)
-             * Math.cos(lat2 * Math.PI / 180)
-             * Math.sin(dLng / 2) ** 2;
-  return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-}
+// Haversine moved to ./geo (pure, no AWS clients) so scoring can be unit-tested; re-exported here.
+export { haversineKm } from './geo';
 
 // ── TTL helper (30 days from now) ─────────────────────────────────────────
 export const ttl30d = () => Math.floor(Date.now() / 1000) + 30 * 86400;

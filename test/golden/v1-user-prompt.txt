@@ -1,0 +1,37 @@
+Given this rescue case reportData, extract a needs profile for shelter matching.
+
+reportData:
+{
+  "species": "cat",
+  "reporterSituation": "holding \"her\" now",
+  "imageAnalysis": {
+    "species": "cat",
+    "injuryIndicators": [
+      "visible blood"
+    ]
+  }
+}
+
+Respond with exactly this JSON shape:
+{
+  "hardConstraints": ["has_vet"],
+  "softWeights": {
+    "vet_care": 0.40,
+    "pickup_urgency": 0.30,
+    "species_specialization": 0.15,
+    "proximity": 0.10,
+    "long_term_care": 0.05
+  },
+  "urgencyLevel": "HIGH",
+  "reasoning": "One sentence."
+}
+
+Rules:
+- hardConstraints: use "has_vet" if animal needs veterinary care; "accepts_species:X" for species requirement. Empty array if none.
+- softWeights must sum to exactly 1.0. All five keys required.
+  vet_care: 0 if healthy, up to 0.50 if critically injured.
+  pickup_urgency: high if reporter cannot hold animal or animal is in immediate danger.
+  species_specialization: higher for exotic/uncommon species.
+  proximity: high if animal is mobile and at risk, low if reporter has secured it.
+  long_term_care: high if animal needs extended recovery.
+- urgencyLevel: LOW | MEDIUM | HIGH | CRITICAL

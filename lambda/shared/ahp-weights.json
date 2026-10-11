@@ -1,11 +1,52 @@
 {
-  "version": "v0-placeholder",
-  "status": "PLACEHOLDER_NOT_ELICITED",
-  "note": "Equal vectors. These are NOT the student's AHP judgments; the real vectors (3 matrices, CR < 0.10 each) are elicited in Week 6 and replace this file. See docs/ARCHITECTURE_NOTES.md and issue #2.",
-  "factors": ["vet_care", "pickup_urgency", "species_specialization", "proximity", "long_term_care"],
+  "version": "v1-elicited-20261011-a785f618",
+  "status": "ELICITED_ALL_THREE",
+  "note": "Built from the student's pairwise judgments in eval/ahp/*.judgments.json (single judge; adopted from the evidence-informed proposal in eval/ahp/evidence-informed-proposal.json, see each file's note). Judged: INJURED_CRITICAL, URGENT_TRANSIENT, STABLE_ROUTINE. Still equal placeholders: none.",
+  "factors": [
+    "vet_care",
+    "pickup_urgency",
+    "species_specialization",
+    "proximity",
+    "long_term_care"
+  ],
+  "consistency": {
+    "INJURED_CRITICAL": {
+      "cr": 0.03392006381510318,
+      "lambdaMax": 5.151961885891662,
+      "elicitedAt": "2026-10-11T18:47:19.490Z"
+    },
+    "URGENT_TRANSIENT": {
+      "cr": 0.023080600308886454,
+      "lambdaMax": 5.103401089383811,
+      "elicitedAt": "2026-10-11T18:47:19.490Z"
+    },
+    "STABLE_ROUTINE": {
+      "cr": 0.021772909262577196,
+      "lambdaMax": 5.097542633496346,
+      "elicitedAt": "2026-10-11T18:47:19.490Z"
+    }
+  },
   "vectors": {
-    "INJURED_CRITICAL": [0.2, 0.2, 0.2, 0.2, 0.2],
-    "URGENT_TRANSIENT": [0.2, 0.2, 0.2, 0.2, 0.2],
-    "STABLE_ROUTINE":   [0.2, 0.2, 0.2, 0.2, 0.2]
+    "INJURED_CRITICAL": [
+      0.547304977176567,
+      0.16424360413096556,
+      0.0868037336406788,
+      0.1468522997831395,
+      0.054795385268649244
+    ],
+    "URGENT_TRANSIENT": [
+      0.06472340845784345,
+      0.3869231949949252,
+      0.10851245854785722,
+      0.3869231949949252,
+      0.052917743004448924
+    ],
+    "STABLE_ROUTINE": [
+      0.07804212139629522,
+      0.09418777581058584,
+      0.2549439526464604,
+      0.16759115292128005,
+      0.40523499722537853
+    ]
   }
 }

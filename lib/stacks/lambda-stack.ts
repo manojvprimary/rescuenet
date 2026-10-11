@@ -92,6 +92,7 @@ export class LambdaStack extends cdk.Stack {
       REGION:            this.region,
       MODEL_ID,
       BID_WINDOW_SECONDS: String(BID_WINDOW_SEC),
+      WEIGHTING_MODE:    'llm',   // llm | blend | top. 'llm' = original behaviour; rollback is setting this back to 'llm'.
       NODE_OPTIONS:      '--enable-source-maps',
     };
 

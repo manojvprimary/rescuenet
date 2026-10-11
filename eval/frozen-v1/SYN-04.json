@@ -1,0 +1,22 @@
+{
+  "id": "SYN-04",
+  "modelId": "us.anthropic.claude-sonnet-4-5-20250929-v1:0",
+  "recordedAt": "2026-10-11T01:02:39.805Z",
+  "error": null,
+  "throttled": false,
+  "rawText": "```json\n{\n  \"hardConstraints\": [\"accepts_species:dog\"],\n  \"softWeights\": {\n    \"vet_care\": 0.10,\n    \"pickup_urgency\": 0.50,\n    \"species_specialization\": 0.05,\n    \"proximity\": 0.30,\n    \"long_term_care\": 0.05\n  },\n  \"urgencyLevel\": \"CRITICAL\",\n  \"reasoning\": \"Loose dog near highway traffic with reporter unable to secure it creates immediate life-threatening danger requiring urgent pickup.\"\n}\n```",
+  "profile": {
+    "hardConstraints": [
+      "accepts_species:dog"
+    ],
+    "softWeights": {
+      "vet_care": 0.1,
+      "pickup_urgency": 0.5,
+      "species_specialization": 0.05,
+      "proximity": 0.3,
+      "long_term_care": 0.05
+    },
+    "urgencyLevel": "CRITICAL",
+    "reasoning": "Loose dog near highway traffic with reporter unable to secure it creates immediate life-threatening danger requiring urgent pickup."
+  }
+}

@@ -1,0 +1,409 @@
+{
+  "provenance": {
+    "gitCommit": "93f895a8aef49c054bcc50d71f17634efac98398",
+    "annotationsCommit": "fdb61713fb34e1628c51f307d783f69ab3f86bcd",
+    "annotationsSha256": "666684ddda4b67cd14eb570eded19539dcf9b8a3e73096b987cb2f60071dbe22",
+    "fixturesSha256": "b5e9ee1efbac18b06f4fc4f4d14e486f15d09c6d0b87ab40e2be32f27e680d4e",
+    "weightsVersion": "v1-elicited-20261011-a785f618",
+    "classifier": "rule-based comparison classifier (offline, not Bedrock)",
+    "mode": "blend"
+  },
+  "results": [
+    {
+      "id": "SYN-01",
+      "classifierProbabilities": {
+        "INJURED_CRITICAL": 0.9,
+        "URGENT_TRANSIENT": 0.05,
+        "STABLE_ROUTINE": 0.05
+      },
+      "usedFallback": false,
+      "topArchetype": "INJURED_CRITICAL",
+      "archetypeAnnotated": [
+        "INJURED_CRITICAL"
+      ],
+      "archetypeAgrees": true,
+      "hardConstraints": [
+        "has_vet",
+        "accepts_species:cat"
+      ],
+      "softWeights": {
+        "vet_care": 0.499712755952,
+        "pickup_urgency": 0.171874792258,
+        "species_specialization": 0.096296180836,
+        "proximity": 0.159892787201,
+        "long_term_care": 0.072223483753
+      },
+      "ranking": [
+        {
+          "shelterId": "shelter-B",
+          "score": 0.824493048914
+        },
+        {
+          "shelterId": "shelter-A",
+          "score": 0.801132617468
+        },
+        {
+          "shelterId": "shelter-C",
+          "score": 0.78132199637
+        }
+      ],
+      "winner": "shelter-B",
+      "rawWinner": "shelter-B",
+      "runnerUp": "shelter-A",
+      "margin": 0.023360431446,
+      "nearTie": false,
+      "decisiveFactor": "pickup_urgency",
+      "annotatedBest": "shelter-A",
+      "expectedWinner": "shelter-A",
+      "correct": false,
+      "correctRaw": false,
+      "note": ""
+    },
+    {
+      "id": "SYN-02",
+      "classifierProbabilities": {
+        "INJURED_CRITICAL": 0.05,
+        "URGENT_TRANSIENT": 0.05,
+        "STABLE_ROUTINE": 0.9
+      },
+      "usedFallback": false,
+      "topArchetype": "STABLE_ROUTINE",
+      "archetypeAnnotated": [
+        "STABLE_ROUTINE"
+      ],
+      "archetypeAgrees": true,
+      "hardConstraints": [],
+      "softWeights": {
+        "vet_care": 0.100839328538,
+        "pickup_urgency": 0.112327338186,
+        "species_specialization": 0.239215366991,
+        "proximity": 0.177520812368,
+        "long_term_care": 0.370097153916
+      },
+      "ranking": [
+        {
+          "shelterId": "shelter-B",
+          "score": 0.6662842586
+        },
+        {
+          "shelterId": "shelter-A",
+          "score": 0.604245478925
+        },
+        {
+          "shelterId": "shelter-C",
+          "score": 0.602376766147
+        }
+      ],
+      "winner": "shelter-B",
+      "rawWinner": "shelter-B",
+      "runnerUp": "shelter-A",
+      "margin": 0.062038779675,
+      "nearTie": false,
+      "decisiveFactor": "species_specialization",
+      "annotatedBest": "shelter-B",
+      "expectedWinner": "shelter-B",
+      "correct": true,
+      "correctRaw": true,
+      "note": ""
+    },
+    {
+      "id": "SYN-03",
+      "classifierProbabilities": {
+        "INJURED_CRITICAL": 0.05,
+        "URGENT_TRANSIENT": 0.05,
+        "STABLE_ROUTINE": 0.9
+      },
+      "usedFallback": false,
+      "topArchetype": "STABLE_ROUTINE",
+      "archetypeAnnotated": [
+        "STABLE_ROUTINE"
+      ],
+      "archetypeAgrees": true,
+      "hardConstraints": [
+        "accepts_species:dog"
+      ],
+      "softWeights": {
+        "vet_care": 0.100839328538,
+        "pickup_urgency": 0.112327338186,
+        "species_specialization": 0.239215366991,
+        "proximity": 0.177520812368,
+        "long_term_care": 0.370097153916
+      },
+      "ranking": [
+        {
+          "shelterId": "shelter-A",
+          "score": 0.63455029375
+        },
+        {
+          "shelterId": "shelter-B",
+          "score": 0.618573420637
+        }
+      ],
+      "winner": "shelter-A",
+      "rawWinner": "shelter-A",
+      "runnerUp": "shelter-B",
+      "margin": 0.015976873113,
+      "nearTie": true,
+      "decisiveFactor": null,
+      "annotatedBest": "shelter-A",
+      "expectedWinner": "shelter-A",
+      "correct": true,
+      "correctRaw": true,
+      "note": "near-tie (margin 0.0160); tie-break applied"
+    },
+    {
+      "id": "SYN-04",
+      "classifierProbabilities": {
+        "INJURED_CRITICAL": 0.05,
+        "URGENT_TRANSIENT": 0.9,
+        "STABLE_ROUTINE": 0.05
+      },
+      "usedFallback": false,
+      "topArchetype": "URGENT_TRANSIENT",
+      "archetypeAnnotated": [
+        "URGENT_TRANSIENT"
+      ],
+      "archetypeAgrees": true,
+      "hardConstraints": [
+        "accepts_species:dog"
+      ],
+      "softWeights": {
+        "vet_care": 0.089518422541,
+        "pickup_urgency": 0.361152444493,
+        "species_specialization": 0.114748597007,
+        "proximity": 0.363953048131,
+        "long_term_care": 0.070627487829
+      },
+      "ranking": [
+        {
+          "shelterId": "shelter-C",
+          "score": 0.692541367069
+        },
+        {
+          "shelterId": "shelter-B",
+          "score": 0.642748224378
+        },
+        {
+          "shelterId": "shelter-A",
+          "score": 0.62719218389
+        }
+      ],
+      "winner": "shelter-C",
+      "rawWinner": "shelter-C",
+      "runnerUp": "shelter-B",
+      "margin": 0.049793142691,
+      "nearTie": false,
+      "decisiveFactor": "vet_care",
+      "annotatedBest": "shelter-B",
+      "expectedWinner": "shelter-B",
+      "correct": false,
+      "correctRaw": false,
+      "note": ""
+    },
+    {
+      "id": "SYN-05",
+      "classifierProbabilities": {
+        "INJURED_CRITICAL": 0.9,
+        "URGENT_TRANSIENT": 0.05,
+        "STABLE_ROUTINE": 0.05
+      },
+      "usedFallback": false,
+      "topArchetype": "INJURED_CRITICAL",
+      "archetypeAnnotated": [
+        "INJURED_CRITICAL"
+      ],
+      "archetypeAgrees": true,
+      "hardConstraints": [
+        "has_vet",
+        "accepts_species:dog"
+      ],
+      "softWeights": {
+        "vet_care": 0.499712755952,
+        "pickup_urgency": 0.171874792258,
+        "species_specialization": 0.096296180836,
+        "proximity": 0.159892787201,
+        "long_term_care": 0.072223483753
+      },
+      "ranking": [
+        {
+          "shelterId": "shelter-C",
+          "score": 0.800509130834
+        },
+        {
+          "shelterId": "shelter-B",
+          "score": 0.781945483004
+        }
+      ],
+      "winner": "shelter-B",
+      "rawWinner": "shelter-C",
+      "runnerUp": "shelter-C",
+      "margin": 0.018563647829,
+      "nearTie": true,
+      "decisiveFactor": null,
+      "annotatedBest": "shelter-B",
+      "expectedWinner": "shelter-B",
+      "correct": true,
+      "correctRaw": false,
+      "note": "near-tie (margin 0.0186); tie-break applied"
+    },
+    {
+      "id": "SYN-06",
+      "classifierProbabilities": {
+        "INJURED_CRITICAL": 0.05,
+        "URGENT_TRANSIENT": 0.05,
+        "STABLE_ROUTINE": 0.9
+      },
+      "usedFallback": false,
+      "topArchetype": "STABLE_ROUTINE",
+      "archetypeAnnotated": [
+        "STABLE_ROUTINE"
+      ],
+      "archetypeAgrees": true,
+      "hardConstraints": [
+        "accepts_species:cat"
+      ],
+      "softWeights": {
+        "vet_care": 0.100839328538,
+        "pickup_urgency": 0.112327338186,
+        "species_specialization": 0.239215366991,
+        "proximity": 0.177520812368,
+        "long_term_care": 0.370097153916
+      },
+      "ranking": [
+        {
+          "shelterId": "shelter-A",
+          "score": 0.660958634229
+        },
+        {
+          "shelterId": "shelter-B",
+          "score": 0.660958634229
+        }
+      ],
+      "winner": "shelter-A",
+      "rawWinner": "shelter-A",
+      "runnerUp": "shelter-B",
+      "margin": 0,
+      "nearTie": true,
+      "decisiveFactor": null,
+      "annotatedBest": null,
+      "expectedWinner": null,
+      "correct": true,
+      "correctRaw": null,
+      "note": "near-tie (margin 0.0000 < 0.02); tie-break rule applied: smaller shelterId"
+    },
+    {
+      "id": "SYN-07",
+      "classifierProbabilities": {
+        "INJURED_CRITICAL": 0.5,
+        "URGENT_TRANSIENT": 0.45,
+        "STABLE_ROUTINE": 0.05
+      },
+      "usedFallback": false,
+      "topArchetype": "INJURED_CRITICAL",
+      "archetypeAnnotated": [
+        "INJURED_CRITICAL",
+        "URGENT_TRANSIENT"
+      ],
+      "archetypeAgrees": true,
+      "hardConstraints": [
+        "has_vet",
+        "accepts_species:dog"
+      ],
+      "softWeights": {
+        "vet_care": 0.306680128464,
+        "pickup_urgency": 0.260946628604,
+        "species_specialization": 0.104979670799,
+        "proximity": 0.255921145285,
+        "long_term_care": 0.071472426848
+      },
+      "ranking": [
+        {
+          "shelterId": "shelter-B",
+          "score": 0.750275359404
+        }
+      ],
+      "winner": "shelter-B",
+      "rawWinner": "shelter-B",
+      "runnerUp": null,
+      "margin": null,
+      "nearTie": false,
+      "decisiveFactor": null,
+      "annotatedBest": "shelter-B",
+      "expectedWinner": "shelter-B",
+      "correct": true,
+      "correctRaw": true,
+      "note": ""
+    },
+    {
+      "id": "SYN-08",
+      "classifierProbabilities": null,
+      "usedFallback": true,
+      "topArchetype": "STABLE_ROUTINE",
+      "archetypeAnnotated": [],
+      "archetypeAgrees": null,
+      "hardConstraints": [
+        "accepts_species:dog"
+      ],
+      "softWeights": {
+        "vet_care": 0.078042121396,
+        "pickup_urgency": 0.094187775811,
+        "species_specialization": 0.254943952646,
+        "proximity": 0.167591152921,
+        "long_term_care": 0.405234997225
+      },
+      "ranking": [
+        {
+          "shelterId": "shelter-B",
+          "score": 0.744526655656
+        },
+        {
+          "shelterId": "shelter-A",
+          "score": 0.677064839204
+        }
+      ],
+      "winner": "shelter-B",
+      "rawWinner": "shelter-B",
+      "runnerUp": "shelter-A",
+      "margin": 0.067461816452,
+      "nearTie": false,
+      "decisiveFactor": "long_term_care",
+      "annotatedBest": "winner under the STABLE_ROUTINE vector",
+      "expectedWinner": "shelter-B",
+      "correct": true,
+      "correctRaw": null,
+      "note": "malformed classifier output handled by the STABLE_ROUTINE fallback"
+    }
+  ],
+  "summary": {
+    "cases": 8,
+    "archetypeAgreement": {
+      "agree": 7,
+      "of": 7
+    },
+    "winnerCorrect": {
+      "correct": 6,
+      "of": 8
+    },
+    "singleBestCases": {
+      "correctWithTieRule": 4,
+      "correctRawScore": 3,
+      "of": 6
+    },
+    "fallbackCasesHandled": {
+      "handled": 1,
+      "of": 1
+    },
+    "nearTies": [
+      "SYN-03",
+      "SYN-05",
+      "SYN-06"
+    ],
+    "decisiveFactorCounts": {
+      "pickup_urgency": 1,
+      "species_specialization": 1,
+      "vet_care": 1,
+      "long_term_care": 1
+    }
+  },
+  "resultHash": "76dfd49e7f302100c5cdd8f505e4fad1ccbac96f0768322edbb5d6e60666855d"
+}

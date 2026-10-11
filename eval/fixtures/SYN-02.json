@@ -1,0 +1,16 @@
+{
+  "id": "SYN-02",
+  "description": "Healthy secured stray rabbit; nearest shelter does not list the species; no accepts_species constraint is emitted",
+  "caseLocation": { "lat": 40.758, "lng": -73.9855 },
+  "classifierEmitsNoSpeciesConstraint": true,
+  "reportData": {
+    "species": "unknown",
+    "reporterSituation": "I found a rabbit in my yard and put it in a box inside the garage. It looks fine and is eating lettuce. I can keep it tonight.",
+    "imageAnalysis": { "species": "rabbit", "injuryIndicators": [] }
+  },
+  "bids": [
+    { "caseId": "SYN-02", "shelterId": "shelter-A", "shelterName": "Nearest, No Rabbits", "availableSlots": 4, "hasVetOnSite": false, "acceptedSpecies": ["dog", "cat"], "distanceKm": 1.5, "confidence": 0.9, "estimatedIntakeWindowMinutes": 30, "notes": "synthetic", "dataFreshness": "LIVE", "autonomyPreference": "AUTO_CONFIRM", "timestamp": "2026-10-10T12:00:00Z" },
+    { "caseId": "SYN-02", "shelterId": "shelter-B", "shelterName": "Second Nearest, Accepts Rabbits", "availableSlots": 4, "hasVetOnSite": false, "acceptedSpecies": ["dog", "cat", "rabbit"], "distanceKm": 4.0, "confidence": 0.9, "estimatedIntakeWindowMinutes": 30, "notes": "synthetic", "dataFreshness": "LIVE", "autonomyPreference": "AUTO_CONFIRM", "timestamp": "2026-10-10T12:00:00Z" },
+    { "caseId": "SYN-02", "shelterId": "shelter-C", "shelterName": "Far, Accepts Rabbits", "availableSlots": 4, "hasVetOnSite": false, "acceptedSpecies": ["dog", "cat", "rabbit"], "distanceKm": 16.0, "confidence": 0.9, "estimatedIntakeWindowMinutes": 30, "notes": "synthetic", "dataFreshness": "LIVE", "autonomyPreference": "AUTO_CONFIRM", "timestamp": "2026-10-10T12:00:00Z" }
+  ]
+}

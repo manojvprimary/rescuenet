@@ -1,0 +1,22 @@
+{
+  "id": "SYN-01",
+  "modelId": "us.anthropic.claude-sonnet-4-5-20250929-v1:0",
+  "recordedAt": "2026-10-11T01:02:30.509Z",
+  "error": null,
+  "throttled": false,
+  "rawText": "```json\n{\n  \"hardConstraints\": [\"has_vet\"],\n  \"softWeights\": {\n    \"vet_care\": 0.50,\n    \"pickup_urgency\": 0.25,\n    \"species_specialization\": 0.10,\n    \"proximity\": 0.10,\n    \"long_term_care\": 0.05\n  },\n  \"urgencyLevel\": \"CRITICAL\",\n  \"reasoning\": \"Cat has life-threatening injuries from vehicle strike with internal bleeding, paralysis, and requires immediate emergency veterinary intervention.\"\n}\n```",
+  "profile": {
+    "hardConstraints": [
+      "has_vet"
+    ],
+    "softWeights": {
+      "vet_care": 0.5,
+      "pickup_urgency": 0.25,
+      "species_specialization": 0.1,
+      "proximity": 0.1,
+      "long_term_care": 0.05
+    },
+    "urgencyLevel": "CRITICAL",
+    "reasoning": "Cat has life-threatening injuries from vehicle strike with internal bleeding, paralysis, and requires immediate emergency veterinary intervention."
+  }
+}

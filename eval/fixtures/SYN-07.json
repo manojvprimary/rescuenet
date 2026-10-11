@@ -1,0 +1,14 @@
+{
+  "id": "SYN-07",
+  "description": "Injured dog that is also loose in traffic (mixed); one near vet-equipped shelter, one nearer non-vet shelter",
+  "caseLocation": { "lat": 40.758, "lng": -73.9855 },
+  "reportData": {
+    "species": "dog",
+    "reporterSituation": "A dog was hit and is limping along the shoulder of a busy road, bleeding from a leg. I cannot hold it, it is scared and keeps moving into the lane.",
+    "imageAnalysis": { "species": "dog", "injuryIndicators": ["visible blood", "limping"] }
+  },
+  "bids": [
+    { "caseId": "SYN-07", "shelterId": "shelter-A", "shelterName": "Nearer, No Vet", "availableSlots": 4, "hasVetOnSite": false, "acceptedSpecies": ["dog", "cat"], "distanceKm": 1.5, "confidence": 0.9, "estimatedIntakeWindowMinutes": 15, "notes": "synthetic", "dataFreshness": "LIVE", "autonomyPreference": "AUTO_CONFIRM", "timestamp": "2026-10-10T12:00:00Z" },
+    { "caseId": "SYN-07", "shelterId": "shelter-B", "shelterName": "Near, Vet On Site", "availableSlots": 3, "hasVetOnSite": true, "acceptedSpecies": ["dog", "cat"], "distanceKm": 5.0, "confidence": 0.9, "estimatedIntakeWindowMinutes": 25, "notes": "synthetic", "dataFreshness": "LIVE", "autonomyPreference": "AUTO_CONFIRM", "timestamp": "2026-10-10T12:00:00Z" }
+  ]
+}

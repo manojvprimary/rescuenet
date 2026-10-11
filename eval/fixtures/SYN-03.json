@@ -1,0 +1,14 @@
+{
+  "id": "SYN-03",
+  "description": "Healthy secured stray dog, all options far (over 25 km)",
+  "caseLocation": { "lat": 40.758, "lng": -73.9855 },
+  "reportData": {
+    "species": "dog",
+    "reporterSituation": "A friendly dog followed me home. It is calm, has a collar with no tag, and is in my fenced yard. I can hold it for a day or two.",
+    "imageAnalysis": { "species": "dog", "injuryIndicators": [] }
+  },
+  "bids": [
+    { "caseId": "SYN-03", "shelterId": "shelter-A", "shelterName": "Far Shelter 27 km", "availableSlots": 4, "hasVetOnSite": true, "acceptedSpecies": ["dog", "cat"], "distanceKm": 27.0, "confidence": 0.9, "estimatedIntakeWindowMinutes": 30, "notes": "synthetic", "dataFreshness": "LIVE", "autonomyPreference": "AUTO_CONFIRM", "timestamp": "2026-10-10T12:00:00Z" },
+    { "caseId": "SYN-03", "shelterId": "shelter-B", "shelterName": "Farther Shelter 34 km", "availableSlots": 4, "hasVetOnSite": true, "acceptedSpecies": ["dog", "cat"], "distanceKm": 34.0, "confidence": 0.9, "estimatedIntakeWindowMinutes": 30, "notes": "synthetic", "dataFreshness": "LIVE", "autonomyPreference": "AUTO_CONFIRM", "timestamp": "2026-10-10T12:00:00Z" }
+  ]
+}

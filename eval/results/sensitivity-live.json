@@ -1,0 +1,1012 @@
+{
+  "perturbations": 60,
+  "maxFlips": 1,
+  "worst": [
+    {
+      "archetype": "INJURED_CRITICAL",
+      "pair": [
+        0,
+        1
+      ],
+      "direction": -1,
+      "from": 5,
+      "to": 4,
+      "cr": 0.0274836321817924,
+      "flipped": [
+        "SYN-05"
+      ]
+    },
+    {
+      "archetype": "INJURED_CRITICAL",
+      "pair": [
+        0,
+        3
+      ],
+      "direction": 1,
+      "from": 5,
+      "to": 6,
+      "cr": 0.03966233321526077,
+      "flipped": [
+        "SYN-05"
+      ]
+    },
+    {
+      "archetype": "INJURED_CRITICAL",
+      "pair": [
+        0,
+        4
+      ],
+      "direction": -1,
+      "from": 7,
+      "to": 6,
+      "cr": 0.039897571295132474,
+      "flipped": [
+        "SYN-05"
+      ]
+    },
+    {
+      "archetype": "INJURED_CRITICAL",
+      "pair": [
+        1,
+        2
+      ],
+      "direction": 1,
+      "from": 3,
+      "to": 4,
+      "cr": 0.04878255421301039,
+      "flipped": [
+        "SYN-05"
+      ]
+    },
+    {
+      "archetype": "INJURED_CRITICAL",
+      "pair": [
+        1,
+        3
+      ],
+      "direction": 1,
+      "from": 1,
+      "to": 2,
+      "cr": 0.041841731257725404,
+      "flipped": [
+        "SYN-05"
+      ]
+    },
+    {
+      "archetype": "INJURED_CRITICAL",
+      "pair": [
+        1,
+        3
+      ],
+      "direction": -1,
+      "from": 1,
+      "to": 0.5,
+      "cr": 0.05320605436878971,
+      "flipped": [
+        "SYN-01"
+      ]
+    },
+    {
+      "archetype": "INJURED_CRITICAL",
+      "pair": [
+        1,
+        4
+      ],
+      "direction": 1,
+      "from": 3,
+      "to": 4,
+      "cr": 0.03654549130434336,
+      "flipped": [
+        "SYN-05"
+      ]
+    },
+    {
+      "archetype": "INJURED_CRITICAL",
+      "pair": [
+        2,
+        3
+      ],
+      "direction": 1,
+      "from": 0.5,
+      "to": 1,
+      "cr": 0.039971218046242124,
+      "flipped": [
+        "SYN-05"
+      ]
+    },
+    {
+      "archetype": "INJURED_CRITICAL",
+      "pair": [
+        2,
+        4
+      ],
+      "direction": -1,
+      "from": 2,
+      "to": 1,
+      "cr": 0.029889296567139897,
+      "flipped": [
+        "SYN-05"
+      ]
+    },
+    {
+      "archetype": "INJURED_CRITICAL",
+      "pair": [
+        3,
+        4
+      ],
+      "direction": -1,
+      "from": 3,
+      "to": 2,
+      "cr": 0.035145335835986516,
+      "flipped": [
+        "SYN-05"
+      ]
+    },
+    {
+      "archetype": "URGENT_TRANSIENT",
+      "pair": [
+        0,
+        1
+      ],
+      "direction": 1,
+      "from": 0.2,
+      "to": 0.25,
+      "cr": 0.028727056677609844,
+      "flipped": [
+        "SYN-04"
+      ]
+    },
+    {
+      "archetype": "URGENT_TRANSIENT",
+      "pair": [
+        0,
+        2
+      ],
+      "direction": 1,
+      "from": 0.5,
+      "to": 1,
+      "cr": 0.02408838699803053,
+      "flipped": [
+        "SYN-04"
+      ]
+    },
+    {
+      "archetype": "URGENT_TRANSIENT",
+      "pair": [
+        0,
+        3
+      ],
+      "direction": 1,
+      "from": 0.2,
+      "to": 0.25,
+      "cr": 0.028727056677609844,
+      "flipped": [
+        "SYN-04"
+      ]
+    },
+    {
+      "archetype": "URGENT_TRANSIENT",
+      "pair": [
+        0,
+        4
+      ],
+      "direction": 1,
+      "from": 1,
+      "to": 2,
+      "cr": 0.02252008096723914,
+      "flipped": [
+        "SYN-04"
+      ]
+    },
+    {
+      "archetype": "URGENT_TRANSIENT",
+      "pair": [
+        1,
+        3
+      ],
+      "direction": 1,
+      "from": 1,
+      "to": 2,
+      "cr": 0.03621303272590276,
+      "flipped": [
+        "SYN-04"
+      ]
+    },
+    {
+      "archetype": "URGENT_TRANSIENT",
+      "pair": [
+        2,
+        3
+      ],
+      "direction": 1,
+      "from": 0.2,
+      "to": 0.25,
+      "cr": 0.018367575626945597,
+      "flipped": [
+        "SYN-04"
+      ]
+    },
+    {
+      "archetype": "URGENT_TRANSIENT",
+      "pair": [
+        3,
+        4
+      ],
+      "direction": -1,
+      "from": 7,
+      "to": 6,
+      "cr": 0.025017792218400992,
+      "flipped": [
+        "SYN-04"
+      ]
+    }
+  ],
+  "violating": [],
+  "passes": true,
+  "baselineWinners": {
+    "SYN-01": "shelter-B",
+    "SYN-02": "shelter-B",
+    "SYN-03": "shelter-A",
+    "SYN-04": "shelter-B",
+    "SYN-05": "shelter-B",
+    "SYN-06": "shelter-A",
+    "SYN-07": "shelter-B",
+    "SYN-08": "shelter-B"
+  },
+  "rows": [
+    {
+      "archetype": "INJURED_CRITICAL",
+      "pair": [
+        0,
+        1
+      ],
+      "direction": 1,
+      "from": 5,
+      "to": 6,
+      "cr": 0.041403418226199876,
+      "flipped": []
+    },
+    {
+      "archetype": "INJURED_CRITICAL",
+      "pair": [
+        0,
+        1
+      ],
+      "direction": -1,
+      "from": 5,
+      "to": 4,
+      "cr": 0.0274836321817924,
+      "flipped": [
+        "SYN-05"
+      ]
+    },
+    {
+      "archetype": "INJURED_CRITICAL",
+      "pair": [
+        0,
+        2
+      ],
+      "direction": 1,
+      "from": 5,
+      "to": 6,
+      "cr": 0.029987837596062317,
+      "flipped": []
+    },
+    {
+      "archetype": "INJURED_CRITICAL",
+      "pair": [
+        0,
+        2
+      ],
+      "direction": -1,
+      "from": 5,
+      "to": 4,
+      "cr": 0.041424918945931276,
+      "flipped": []
+    },
+    {
+      "archetype": "INJURED_CRITICAL",
+      "pair": [
+        0,
+        3
+      ],
+      "direction": 1,
+      "from": 5,
+      "to": 6,
+      "cr": 0.03966233321526077,
+      "flipped": [
+        "SYN-05"
+      ]
+    },
+    {
+      "archetype": "INJURED_CRITICAL",
+      "pair": [
+        0,
+        3
+      ],
+      "direction": -1,
+      "from": 5,
+      "to": 4,
+      "cr": 0.029434352255402432,
+      "flipped": []
+    },
+    {
+      "archetype": "INJURED_CRITICAL",
+      "pair": [
+        0,
+        4
+      ],
+      "direction": 1,
+      "from": 7,
+      "to": 8,
+      "cr": 0.029851722971367674,
+      "flipped": []
+    },
+    {
+      "archetype": "INJURED_CRITICAL",
+      "pair": [
+        0,
+        4
+      ],
+      "direction": -1,
+      "from": 7,
+      "to": 6,
+      "cr": 0.039897571295132474,
+      "flipped": [
+        "SYN-05"
+      ]
+    },
+    {
+      "archetype": "INJURED_CRITICAL",
+      "pair": [
+        1,
+        2
+      ],
+      "direction": 1,
+      "from": 3,
+      "to": 4,
+      "cr": 0.04878255421301039,
+      "flipped": [
+        "SYN-05"
+      ]
+    },
+    {
+      "archetype": "INJURED_CRITICAL",
+      "pair": [
+        1,
+        2
+      ],
+      "direction": -1,
+      "from": 3,
+      "to": 2,
+      "cr": 0.021815605755759866,
+      "flipped": []
+    },
+    {
+      "archetype": "INJURED_CRITICAL",
+      "pair": [
+        1,
+        3
+      ],
+      "direction": 1,
+      "from": 1,
+      "to": 2,
+      "cr": 0.041841731257725404,
+      "flipped": [
+        "SYN-05"
+      ]
+    },
+    {
+      "archetype": "INJURED_CRITICAL",
+      "pair": [
+        1,
+        3
+      ],
+      "direction": -1,
+      "from": 1,
+      "to": 0.5,
+      "cr": 0.05320605436878971,
+      "flipped": [
+        "SYN-01"
+      ]
+    },
+    {
+      "archetype": "INJURED_CRITICAL",
+      "pair": [
+        1,
+        4
+      ],
+      "direction": 1,
+      "from": 3,
+      "to": 4,
+      "cr": 0.03654549130434336,
+      "flipped": [
+        "SYN-05"
+      ]
+    },
+    {
+      "archetype": "INJURED_CRITICAL",
+      "pair": [
+        1,
+        4
+      ],
+      "direction": -1,
+      "from": 3,
+      "to": 2,
+      "cr": 0.038082194487488806,
+      "flipped": []
+    },
+    {
+      "archetype": "INJURED_CRITICAL",
+      "pair": [
+        2,
+        3
+      ],
+      "direction": 1,
+      "from": 0.5,
+      "to": 1,
+      "cr": 0.039971218046242124,
+      "flipped": [
+        "SYN-05"
+      ]
+    },
+    {
+      "archetype": "INJURED_CRITICAL",
+      "pair": [
+        2,
+        3
+      ],
+      "direction": -1,
+      "from": 0.5,
+      "to": 0.3333333333333333,
+      "cr": 0.042963402231122445,
+      "flipped": []
+    },
+    {
+      "archetype": "INJURED_CRITICAL",
+      "pair": [
+        2,
+        4
+      ],
+      "direction": 1,
+      "from": 2,
+      "to": 3,
+      "cr": 0.049437163118053774,
+      "flipped": []
+    },
+    {
+      "archetype": "INJURED_CRITICAL",
+      "pair": [
+        2,
+        4
+      ],
+      "direction": -1,
+      "from": 2,
+      "to": 1,
+      "cr": 0.029889296567139897,
+      "flipped": [
+        "SYN-05"
+      ]
+    },
+    {
+      "archetype": "INJURED_CRITICAL",
+      "pair": [
+        3,
+        4
+      ],
+      "direction": 1,
+      "from": 3,
+      "to": 4,
+      "cr": 0.03846525261971941,
+      "flipped": []
+    },
+    {
+      "archetype": "INJURED_CRITICAL",
+      "pair": [
+        3,
+        4
+      ],
+      "direction": -1,
+      "from": 3,
+      "to": 2,
+      "cr": 0.035145335835986516,
+      "flipped": [
+        "SYN-05"
+      ]
+    },
+    {
+      "archetype": "URGENT_TRANSIENT",
+      "pair": [
+        0,
+        1
+      ],
+      "direction": 1,
+      "from": 0.2,
+      "to": 0.25,
+      "cr": 0.028727056677609844,
+      "flipped": [
+        "SYN-04"
+      ]
+    },
+    {
+      "archetype": "URGENT_TRANSIENT",
+      "pair": [
+        0,
+        1
+      ],
+      "direction": -1,
+      "from": 0.2,
+      "to": 0.16666666666666666,
+      "cr": 0.020499270608414062,
+      "flipped": []
+    },
+    {
+      "archetype": "URGENT_TRANSIENT",
+      "pair": [
+        0,
+        2
+      ],
+      "direction": 1,
+      "from": 0.5,
+      "to": 1,
+      "cr": 0.02408838699803053,
+      "flipped": [
+        "SYN-04"
+      ]
+    },
+    {
+      "archetype": "URGENT_TRANSIENT",
+      "pair": [
+        0,
+        2
+      ],
+      "direction": -1,
+      "from": 0.5,
+      "to": 0.3333333333333333,
+      "cr": 0.035483195066501085,
+      "flipped": []
+    },
+    {
+      "archetype": "URGENT_TRANSIENT",
+      "pair": [
+        0,
+        3
+      ],
+      "direction": 1,
+      "from": 0.2,
+      "to": 0.25,
+      "cr": 0.028727056677609844,
+      "flipped": [
+        "SYN-04"
+      ]
+    },
+    {
+      "archetype": "URGENT_TRANSIENT",
+      "pair": [
+        0,
+        3
+      ],
+      "direction": -1,
+      "from": 0.2,
+      "to": 0.16666666666666666,
+      "cr": 0.020499270608414062,
+      "flipped": []
+    },
+    {
+      "archetype": "URGENT_TRANSIENT",
+      "pair": [
+        0,
+        4
+      ],
+      "direction": 1,
+      "from": 1,
+      "to": 2,
+      "cr": 0.02252008096723914,
+      "flipped": [
+        "SYN-04"
+      ]
+    },
+    {
+      "archetype": "URGENT_TRANSIENT",
+      "pair": [
+        0,
+        4
+      ],
+      "direction": -1,
+      "from": 1,
+      "to": 0.5,
+      "cr": 0.05223569276493835,
+      "flipped": []
+    },
+    {
+      "archetype": "URGENT_TRANSIENT",
+      "pair": [
+        1,
+        2
+      ],
+      "direction": 1,
+      "from": 5,
+      "to": 6,
+      "cr": 0.029096347188107906,
+      "flipped": []
+    },
+    {
+      "archetype": "URGENT_TRANSIENT",
+      "pair": [
+        1,
+        2
+      ],
+      "direction": -1,
+      "from": 5,
+      "to": 4,
+      "cr": 0.018367575626945597,
+      "flipped": []
+    },
+    {
+      "archetype": "URGENT_TRANSIENT",
+      "pair": [
+        1,
+        3
+      ],
+      "direction": 1,
+      "from": 1,
+      "to": 2,
+      "cr": 0.03621303272590276,
+      "flipped": [
+        "SYN-04"
+      ]
+    },
+    {
+      "archetype": "URGENT_TRANSIENT",
+      "pair": [
+        1,
+        3
+      ],
+      "direction": -1,
+      "from": 1,
+      "to": 0.5,
+      "cr": 0.03621303272590276,
+      "flipped": []
+    },
+    {
+      "archetype": "URGENT_TRANSIENT",
+      "pair": [
+        1,
+        4
+      ],
+      "direction": 1,
+      "from": 7,
+      "to": 8,
+      "cr": 0.022468062008684387,
+      "flipped": []
+    },
+    {
+      "archetype": "URGENT_TRANSIENT",
+      "pair": [
+        1,
+        4
+      ],
+      "direction": -1,
+      "from": 7,
+      "to": 6,
+      "cr": 0.025017792218400992,
+      "flipped": []
+    },
+    {
+      "archetype": "URGENT_TRANSIENT",
+      "pair": [
+        2,
+        3
+      ],
+      "direction": 1,
+      "from": 0.2,
+      "to": 0.25,
+      "cr": 0.018367575626945597,
+      "flipped": [
+        "SYN-04"
+      ]
+    },
+    {
+      "archetype": "URGENT_TRANSIENT",
+      "pair": [
+        2,
+        3
+      ],
+      "direction": -1,
+      "from": 0.2,
+      "to": 0.16666666666666666,
+      "cr": 0.029096347188107906,
+      "flipped": []
+    },
+    {
+      "archetype": "URGENT_TRANSIENT",
+      "pair": [
+        2,
+        4
+      ],
+      "direction": 1,
+      "from": 3,
+      "to": 4,
+      "cr": 0.036350051943619316,
+      "flipped": []
+    },
+    {
+      "archetype": "URGENT_TRANSIENT",
+      "pair": [
+        2,
+        4
+      ],
+      "direction": -1,
+      "from": 3,
+      "to": 2,
+      "cr": 0.013097901591603367,
+      "flipped": []
+    },
+    {
+      "archetype": "URGENT_TRANSIENT",
+      "pair": [
+        3,
+        4
+      ],
+      "direction": 1,
+      "from": 7,
+      "to": 8,
+      "cr": 0.022468062008684387,
+      "flipped": []
+    },
+    {
+      "archetype": "URGENT_TRANSIENT",
+      "pair": [
+        3,
+        4
+      ],
+      "direction": -1,
+      "from": 7,
+      "to": 6,
+      "cr": 0.025017792218400992,
+      "flipped": [
+        "SYN-04"
+      ]
+    },
+    {
+      "archetype": "STABLE_ROUTINE",
+      "pair": [
+        0,
+        1
+      ],
+      "direction": 1,
+      "from": 1,
+      "to": 2,
+      "cr": 0.048071618095049076,
+      "flipped": []
+    },
+    {
+      "archetype": "STABLE_ROUTINE",
+      "pair": [
+        0,
+        1
+      ],
+      "direction": -1,
+      "from": 1,
+      "to": 0.5,
+      "cr": 0.023264855823693482,
+      "flipped": []
+    },
+    {
+      "archetype": "STABLE_ROUTINE",
+      "pair": [
+        0,
+        2
+      ],
+      "direction": 1,
+      "from": 0.3333333333333333,
+      "to": 0.5,
+      "cr": 0.03004613459727622,
+      "flipped": []
+    },
+    {
+      "archetype": "STABLE_ROUTINE",
+      "pair": [
+        0,
+        2
+      ],
+      "direction": -1,
+      "from": 0.3333333333333333,
+      "to": 0.25,
+      "cr": 0.02136123470537983,
+      "flipped": []
+    },
+    {
+      "archetype": "STABLE_ROUTINE",
+      "pair": [
+        0,
+        3
+      ],
+      "direction": 1,
+      "from": 0.3333333333333333,
+      "to": 0.5,
+      "cr": 0.013887884470947996,
+      "flipped": []
+    },
+    {
+      "archetype": "STABLE_ROUTINE",
+      "pair": [
+        0,
+        3
+      ],
+      "direction": -1,
+      "from": 0.3333333333333333,
+      "to": 0.25,
+      "cr": 0.03314855004674655,
+      "flipped": []
+    },
+    {
+      "archetype": "STABLE_ROUTINE",
+      "pair": [
+        0,
+        4
+      ],
+      "direction": 1,
+      "from": 0.2,
+      "to": 0.25,
+      "cr": 0.02420003112257239,
+      "flipped": []
+    },
+    {
+      "archetype": "STABLE_ROUTINE",
+      "pair": [
+        0,
+        4
+      ],
+      "direction": -1,
+      "from": 0.2,
+      "to": 0.16666666666666666,
+      "cr": 0.02182919037083635,
+      "flipped": []
+    },
+    {
+      "archetype": "STABLE_ROUTINE",
+      "pair": [
+        1,
+        2
+      ],
+      "direction": 1,
+      "from": 0.3333333333333333,
+      "to": 0.5,
+      "cr": 0.023368057376179203,
+      "flipped": []
+    },
+    {
+      "archetype": "STABLE_ROUTINE",
+      "pair": [
+        1,
+        2
+      ],
+      "direction": -1,
+      "from": 0.3333333333333333,
+      "to": 0.25,
+      "cr": 0.026134990894257,
+      "flipped": []
+    },
+    {
+      "archetype": "STABLE_ROUTINE",
+      "pair": [
+        1,
+        3
+      ],
+      "direction": 1,
+      "from": 0.5,
+      "to": 1,
+      "cr": 0.027760272177034962,
+      "flipped": []
+    },
+    {
+      "archetype": "STABLE_ROUTINE",
+      "pair": [
+        1,
+        3
+      ],
+      "direction": -1,
+      "from": 0.5,
+      "to": 0.3333333333333333,
+      "cr": 0.0308051178855781,
+      "flipped": []
+    },
+    {
+      "archetype": "STABLE_ROUTINE",
+      "pair": [
+        1,
+        4
+      ],
+      "direction": 1,
+      "from": 0.3333333333333333,
+      "to": 0.5,
+      "cr": 0.04070680823468679,
+      "flipped": []
+    },
+    {
+      "archetype": "STABLE_ROUTINE",
+      "pair": [
+        1,
+        4
+      ],
+      "direction": -1,
+      "from": 0.3333333333333333,
+      "to": 0.25,
+      "cr": 0.014160643782003862,
+      "flipped": []
+    },
+    {
+      "archetype": "STABLE_ROUTINE",
+      "pair": [
+        2,
+        3
+      ],
+      "direction": 1,
+      "from": 2,
+      "to": 3,
+      "cr": 0.035918615081446545,
+      "flipped": []
+    },
+    {
+      "archetype": "STABLE_ROUTINE",
+      "pair": [
+        2,
+        3
+      ],
+      "direction": -1,
+      "from": 2,
+      "to": 1,
+      "cr": 0.01887364260004758,
+      "flipped": []
+    },
+    {
+      "archetype": "STABLE_ROUTINE",
+      "pair": [
+        2,
+        4
+      ],
+      "direction": 1,
+      "from": 0.5,
+      "to": 1,
+      "cr": 0.020271905705935525,
+      "flipped": []
+    },
+    {
+      "archetype": "STABLE_ROUTINE",
+      "pair": [
+        2,
+        4
+      ],
+      "direction": -1,
+      "from": 0.5,
+      "to": 0.3333333333333333,
+      "cr": 0.03489583694425939,
+      "flipped": []
+    },
+    {
+      "archetype": "STABLE_ROUTINE",
+      "pair": [
+        3,
+        4
+      ],
+      "direction": 1,
+      "from": 0.3333333333333333,
+      "to": 0.5,
+      "cr": 0.018889285809793595,
+      "flipped": []
+    },
+    {
+      "archetype": "STABLE_ROUTINE",
+      "pair": [
+        3,
+        4
+      ],
+      "direction": -1,
+      "from": 0.3333333333333333,
+      "to": 0.25,
+      "cr": 0.02942552353115155,
+      "flipped": []
+    }
+  ]
+}
