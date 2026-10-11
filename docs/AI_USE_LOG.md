@@ -204,6 +204,32 @@ Structured, per-instance disclosure of AI assistance, reformatted in CISC 699 We
 
 ---
 
+## Entry 19 — Implementation Sprint II: Evaluation Harness, Classifier Wiring, and Evidence
+
+- **Tool:** Claude (Anthropic, Claude Sonnet 5.5)
+- **Date / Phase:** Week 6 (2026-10-10 to 2026-10-11), Hard Stop 3
+- **Purpose:** Build and run the first validation of the Hard Stop 2 design: AHP calculator, evaluation harness over pre-registered fixtures, `WEIGHTING_MODE` wiring in `needs-profile`, live classifier and v1-baseline runs, and the evidence capture.
+- **Prompt / Task Summary:** From the approved design (Sections 5.2, 5.3, 8) and the Sprint I reflection plan, generate `lambda/shared/ahp.ts`, `match.ts`, `geo.ts`, `needs-classifier.ts`, the `needs-profile` change, `eval/` (fixtures, annotations, harness, sensitivity), the scripts, 72 new Jest tests, and the documentation updates. AI-generated code and documents. The student chose to run 42 live Bedrock calls (about $0.25) after being told the count and cost.
+- **Output Used:** All of the above, on branch `sprint-2/validation`.
+- **Affected Section / Artifact:** The repository (`lambda/`, `eval/`, `scripts/`, `test/`, docs); `docs/evidence/sprint-2/`.
+- **Human Verification:** Verified by execution rather than reading: type-check clean; 108 tests pass under Node 25.9 and Node 20.20.2; the scoring extraction is pinned by an oracle test against a verbatim copy of the original code (216 comparisons) and the v1 prompt by golden files rendered from the pre-change handler; AHP references were computed in a separate Python implementation; the fixtures and annotations were committed before the harness and their hash re-checked in a fresh clone; three repeated runs per classifier give identical result hashes. Errors found and fixed during the sprint: an expected-winner computation that skipped the tie rule (SYN-08 test failed), a double comma from a scripted edit, a nested `npx` in the evidence script that produced empty hash lines. A metric (raw-score correctness) was added after seeing the first results because the tie rule had flattered v2; it is labelled as post hoc.
+- **Final Student Revisions:** The student set the scope (three archetypes, approved by the supervisor on 2026-09-27) and authorised the live calls. The student did not read every generated line of code.
+
+---
+
+## Entry 20 — Evidence-Informed AHP Judgments (Proposed by AI, Adopted by the Student)
+
+- **Tool:** Claude (Anthropic, Claude Sonnet 5.5), with web search and page fetch
+- **Date / Phase:** Week 6 (2026-10-11), Hard Stop 3
+- **Purpose:** Replace the student's own 30-question elicitation with literature-informed judgments, at the student's request ("instead of me having to make the decisions ... derive the weights"), while keeping the student as the judge of record.
+- **Prompt / Task Summary:** Research what is known about injured-animal triage, loose-animal response priorities, and shelter capacity; propose a Saaty-scale answer for each of the 30 pairs with a per-pair rationale and source; check consistency (CR) before any harness run. The student asked for forum evidence (r/IndianPets, X); those sites could not be read by any available tool and no forum content is used.
+- **Output Used:** `eval/ahp/evidence-informed-proposal.json` (sources, 30 answers, 30 rationales) and the three judgment files saved by `scripts/ahp-adopt.ts --adopt` after the student's decision; v1 vectors in `lambda/shared/ahp-weights.json`.
+- **Affected Section / Artifact:** AHP vectors, SC2, KI-02, R-01.
+- **Human Verification:** Five sources were read directly (DoveLewis triage guide and the 2010 ASV guidelines as PDFs; Hawaii County Animal Control, Million Cat Challenge, and the University of Illinois pages as web pages); claims taken from search snippets alone were discarded or flagged (for example the 2022 ASV edition and a University of Florida quotation were not relied on). The sources support direction (which factor matters more in which case) but none supports a magnitude on the 1-9 scale; the magnitudes are the AI's reading and the proposal says so. All three matrices passed CR < 0.10 on the first attempt with no tuning, and the proposal was committed (`92373a8`) before the harness was run against it. The student was shown the full table and reasoning before deciding.
+- **Final Student Revisions:** The student reviewed the table and reasoning and adopted all 30 judgments unchanged (`93f895a`). The judgments are therefore AI-proposed and student-adopted, not the student's unaided elicitation; this is disclosed in Hard Stop 3 and in KI-02.
+
+---
+
 ## Prior AI Use (ISEM 502 / GRAD 695, narrative summary — predates this schema)
 
 AI-assisted development spanned the earlier coursework this project descends from: code and infrastructure implementation (CDK stacks, Lambda functions, GraphQL schema, mobile app), the GRAD 695 Applied Project Report and its figures, and the ISEM 502 UX Portfolio (personas, heuristic evaluation, prototypes), all drafted from student direction and reviewed by the student. No AI-generated or fabricated user-research data was presented as real at any point; where a course step assumed data unavailable to the student, the constraint was disclosed rather than simulated.

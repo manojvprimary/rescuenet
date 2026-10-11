@@ -45,9 +45,15 @@ rescuenet/
 │       ├── utils.ts            # DynamoDB client, EventBridge helper, haversine distance, shared types
 │       ├── scoring.ts          # Pure scoring helpers (species match) extracted from the arbitrator for testing
 │       ├── weights.ts          # Pure case-specific weight derivation (AHP archetype blend); not yet wired in
-│       └── ahp-weights.json    # AHP vectors per case archetype (PLACEHOLDER until Week 6 elicitation)
+│       ├── ahp-weights.json    # AHP vectors per case archetype (v1, built from the adopted judgments in eval/ahp/)
+│       ├── ahp.ts              # AHP arithmetic: judgments -> weights, lambda_max, CI, CR, one-step perturbations
+│       ├── match.ts            # Pure shelter scoring extracted verbatim from the arbitrator (used by the harness)
+│       ├── geo.ts              # Haversine distance (pure; re-exported by utils.ts)
+│       └── needs-classifier.ts # v2 classifier prompt/parser, rule-based comparison classifier, v1 prompt (moved verbatim)
 │
-├── test/                       # Jest unit tests (weights, scoring); run with `npm test`
+├── eval/                       # Evaluation harness, fixtures, annotations, AHP judgments, frozen v1 profiles, results
+├── scripts/                    # smoke test, harness CLIs, AHP elicit/adopt/build, live Bedrock freeze/classify, evidence capture
+├── test/                       # Jest tests (108); run with `npm test`
 │
 ├── mobile/                     # Expo React Native app (own package.json, deploys independently)
 │   ├── app/                    # Screens (file-based routing via Expo Router)
@@ -132,6 +138,28 @@ npm run smoke         # runs scripts/smoke-weights.ts; expect "SMOKE TEST PASSED
 Optional, needs the AWS CLI configured: `npm run synth` runs `cdk synth` to confirm all 5 stacks still build. It does not deploy.
 
 What is real and what is not at this baseline: the species-match fix and the weight-blend/fallback functions are implemented and tested; the weight vectors are **equal placeholders**, not the AHP judgments (those are elicited in Week 6); the new code is **not wired into the deployed pipeline** and nothing was deployed this sprint. See [`KNOWN_ISSUES.md`](KNOWN_ISSUES.md), [`docs/RISK_LOG.md`](docs/RISK_LOG.md), [`docs/ARCHITECTURE_NOTES.md`](docs/ARCHITECTURE_NOTES.md) and [`CONTRIBUTING.md`](CONTRIBUTING.md).
+
+### Validate the Sprint II evaluation (CISC 699 Hard Stop 3)
+
+Everything below runs offline from a clone; none of it touches AWS. Use Node 20 (`nvm use`, see `.nvmrc`).
+
+```bash
+npm ci
+npm run typecheck && npm test            # 108 tests
+npm run smoke                            # weight blend + fallback + species check
+npx ts-node scripts/run-eval.ts          # harness: 8 synthetic cases, rule-based classifier, current AHP vectors
+npx ts-node scripts/run-eval.ts --classifier file:eval/results/classifier-recorded-2026-10-11T01-12-15-757Z.json
+                                         # same cases, replaying the recorded live Bedrock classifier output
+npx ts-node scripts/compare-v1-v2.ts --classifier file:eval/results/classifier-recorded-2026-10-11T01-12-15-757Z.json
+npx ts-node scripts/run-sensitivity.ts --classifier file:eval/results/classifier-recorded-2026-10-11T01-12-15-757Z.json
+scripts/capture-evidence.sh docs/evidence/sprint-2/node20-fresh-clone.txt 20   # fresh-clone evidence under Node 20
+```
+
+What is real and what is not (current state):
+- **Works and is tested:** AHP calculator (`lambda/shared/ahp.ts`), weight blend, `WEIGHTING_MODE` in `needs-profile` (default `llm` = unchanged behaviour), the evaluation harness (`eval/`), and the sensitivity check.
+- **Live evidence, recorded once:** 7 frozen v1 profiles (`eval/frozen-v1/`) and 35 classifier calls (`eval/results/classifier-*.json`). Re-running `scripts/bedrock-eval.ts` makes real, billed Bedrock calls; the offline commands above replay the recorded output instead.
+- **Not done:** nothing is deployed; `WEIGHTING_MODE` stays `llm` in the CDK stack; the arbitrator's scoring formula is unchanged (and limits the results, see KNOWN_ISSUES KI-11); the AHP judgments are single-judge (KI-02).
+- **Pre-registration:** `eval/annotations.json` and the fixtures were committed (`fdb6171`) before the harness existed. Do not edit them to match results.
 
 ### Try it without deploying anything
 
