@@ -1,6 +1,11 @@
 import { BedrockRuntimeClient, InvokeModelCommand } from '@aws-sdk/client-bedrock-runtime';
 import { UpdateCommand } from '@aws-sdk/lib-dynamodb';
 import { ddb, NeedsProfile } from '../shared/utils';
+import { deriveWeights, loadVectors, WEIGHTS_VERSION } from '../shared/weights';
+import {
+  buildClassifierPrompt, buildV1UserPrompt, CLASSIFIER_SYSTEM_PROMPT, V1_SYSTEM_PROMPT, parseClassifierResponse, parseWeightingMode,
+  ruleBasedHardConstraints, WeightingMode,
+} from '../shared/needs-classifier';
 
 const bedrock = new BedrockRuntimeClient({ region: process.env.REGION });
 
@@ -15,7 +20,12 @@ export const handler = async (event: { detail: Record<string, unknown> }) => {
 
   let profile: NeedsProfile;
 
-  try {
+  // WEIGHTING_MODE (default 'llm') selects the weighting method. 'llm' is the original behaviour below,
+  // unchanged. 'blend' / 'top' use the archetype classifier plus AHP vectors (Hard Stop 2, Section 5.3).
+  const weightingMode = parseWeightingMode(process.env.WEIGHTING_MODE);
+  if (weightingMode !== 'llm') {
+    profile = await buildArchetypeProfile(reportData, weightingMode);
+  } else try {
     const response = await bedrock.send(new InvokeModelCommand({
       modelId:     process.env.MODEL_ID!,
       contentType: 'application/json',
@@ -23,38 +33,10 @@ export const handler = async (event: { detail: Record<string, unknown> }) => {
       body: JSON.stringify({
         anthropic_version: 'bedrock-2023-05-31',
         max_tokens: 512,
-        system: `You are a rescue case analyst. Extract a structured needs profile from an 
-animal rescue case. Respond with valid JSON only — no explanation, no markdown fences.`,
+        system: V1_SYSTEM_PROMPT,
         messages: [{
           role: 'user',
-          content: `Given this rescue case reportData, extract a needs profile for shelter matching.
-
-reportData:
-${JSON.stringify(reportData, null, 2)}
-
-Respond with exactly this JSON shape:
-{
-  "hardConstraints": ["has_vet"],
-  "softWeights": {
-    "vet_care": 0.40,
-    "pickup_urgency": 0.30,
-    "species_specialization": 0.15,
-    "proximity": 0.10,
-    "long_term_care": 0.05
-  },
-  "urgencyLevel": "HIGH",
-  "reasoning": "One sentence."
-}
-
-Rules:
-- hardConstraints: use "has_vet" if animal needs veterinary care; "accepts_species:X" for species requirement. Empty array if none.
-- softWeights must sum to exactly 1.0. All five keys required.
-  vet_care: 0 if healthy, up to 0.50 if critically injured.
-  pickup_urgency: high if reporter cannot hold animal or animal is in immediate danger.
-  species_specialization: higher for exotic/uncommon species.
-  proximity: high if animal is mobile and at risk, low if reporter has secured it.
-  long_term_care: high if animal needs extended recovery.
-- urgencyLevel: LOW | MEDIUM | HIGH | CRITICAL`,
+          content: buildV1UserPrompt(reportData),
         }],
       }),
     }));
@@ -92,6 +74,44 @@ Rules:
 
   return { statusCode: 200 };
 };
+
+// v2: the model classifies, code derives the weights. Any failure lands on the STABLE_ROUTINE AHP vector.
+async function buildArchetypeProfile(reportData: Record<string, unknown>, mode: Exclude<WeightingMode, 'llm'>): Promise<NeedsProfile> {
+  let classified = null as ReturnType<typeof parseClassifierResponse>;
+  try {
+    const response = await bedrock.send(new InvokeModelCommand({
+      modelId:     process.env.MODEL_ID!,
+      contentType: 'application/json',
+      accept:      'application/json',
+      body: JSON.stringify({
+        anthropic_version: 'bedrock-2023-05-31',
+        max_tokens: 512,
+        temperature: 0,
+        system: CLASSIFIER_SYSTEM_PROMPT,
+        messages: [{ role: 'user', content: buildClassifierPrompt(reportData) }],
+      }),
+    }));
+    const raw = JSON.parse(Buffer.from(response.body).toString());
+    classified = parseClassifierResponse((raw.content?.[0]?.text ?? '') as string);
+    if (!classified) console.warn('Classifier output failed validation — using STABLE_ROUTINE fallback');
+  } catch (err) {
+    console.error('Bedrock failed — using STABLE_ROUTINE fallback:', (err as Error).message);
+  }
+
+  const derived = deriveWeights(classified?.archetypeProbabilities ?? null, loadVectors(), mode, WEIGHTS_VERSION);
+  const injured = ruleBasedHardConstraints(reportData).includes('has_vet');
+  return {
+    // Hard constraints are never rescued or overridden by a weighted score; on failure they come from structured fields.
+    hardConstraints:        classified?.hardConstraints ?? ruleBasedHardConstraints(reportData),
+    softWeights:            derived.softWeights,
+    urgencyLevel:           classified?.urgencyLevel ?? (injured ? 'HIGH' : 'MEDIUM'),
+    reasoning:              classified?.reasoning ?? 'Classifier unavailable or invalid — STABLE_ROUTINE fallback vector.',
+    archetypeProbabilities: derived.archetypeProbabilities,
+    weightsVersion:         derived.weightsVersion,
+    weightingMode:          mode,
+    usedFallback:           derived.usedFallback,
+  };
+}
 
 function buildDefaultProfile(reportData: Record<string, unknown>): NeedsProfile {
   const imageData      = (reportData.imageAnalysis ?? {}) as Record<string, unknown>;

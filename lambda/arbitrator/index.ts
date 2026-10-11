@@ -1,13 +1,7 @@
 import { QueryCommand, PutCommand, UpdateCommand, GetCommand } from '@aws-sdk/lib-dynamodb';
-import { ddb, putEvent, haversineKm, NeedsProfile, ShelterBid, ttl1h } from '../shared/utils';
-import { extractCaseSpecies, speciesMatchScore } from '../shared/scoring';
-
-const FRESHNESS_WEIGHT: Record<string, number> = {
-  LIVE:   1.00,
-  HUMAN:  0.88,
-  SYNCED: 0.75,
-  STATIC: 0.55,
-};
+import { ddb, putEvent, NeedsProfile, ShelterBid, ttl1h } from '../shared/utils';
+import { extractCaseSpecies } from '../shared/scoring';
+import { computeMatchScore, isEligible } from '../shared/match';
 
 const BID_WINDOW_MS = parseInt(process.env.BID_WINDOW_SECONDS ?? '15', 10) * 1000;
 
@@ -108,20 +102,9 @@ async function scoreAndAssign(caseId: string) {
   // Enforce hard constraints
   const { hardConstraints, softWeights } = needsProfile;
   const eligible = bids.filter(bid => {
-    for (const c of hardConstraints) {
-      if (c === 'has_vet' && !bid.hasVetOnSite && !bid.vetCanBeArranged) {
-        console.log(`  ${bid.shelterId} excluded: fails has_vet`);
-        return false;
-      }
-      if (c.startsWith('accepts_species:')) {
-        const sp = c.split(':')[1];
-        if (bid.acceptedSpecies && !bid.acceptedSpecies.includes(sp)) {
-          console.log(`  ${bid.shelterId} excluded: does not accept ${sp}`);
-          return false;
-        }
-      }
-    }
-    return true;
+    const ok = isEligible(bid, hardConstraints);
+    if (!ok) console.log(`  ${bid.shelterId} excluded: fails a hard constraint (${hardConstraints.join(', ')})`);
+    return ok;
   });
 
   if (eligible.length === 0) {
@@ -187,33 +170,6 @@ async function scoreAndAssign(caseId: string) {
     autonomyPreference: winner.autonomyPreference,
     timestamp:          now,
   });
-}
-
-// ── Case-relative match scoring ────────────────────────────────────────────
-function computeMatchScore(
-  bid:         ShelterBid,
-  caseLoc:     { lat: number; lng: number },
-  shelterLoc:  Partial<{ lat: number; lng: number }>,
-  weights:     NeedsProfile['softWeights'],
-  caseSpecies?: string,
-): number {
-  const vetScore   = bid.hasVetOnSite ? 1.00 : bid.vetCanBeArranged ? 0.60 : 0.00;
-  const slotsNorm  = Math.min((bid.availableSlots ?? 0) / 5, 1.0);
-  const windowNorm = Math.max(0, 1 - (bid.estimatedIntakeWindowMinutes ?? 60) / 120);
-  const urgScore   = (slotsNorm + windowNorm) / 2;
-  const specScore  = speciesMatchScore(bid.acceptedSpecies, caseSpecies);
-
-  const dist     = bid.distanceKm ?? haversineKm(caseLoc?.lat, caseLoc?.lng, shelterLoc?.lat, shelterLoc?.lng);
-  const proxScore = Math.max(0, 1 - dist / 30);
-  const ltcScore  = slotsNorm;
-
-  const raw = vetScore   * weights.vet_care               +
-              urgScore   * weights.pickup_urgency          +
-              specScore  * weights.species_specialization  +
-              proxScore  * weights.proximity               +
-              ltcScore   * weights.long_term_care;
-
-  return raw * bid.confidence * (FRESHNESS_WEIGHT[bid.dataFreshness] ?? 0.55);
 }
 
 async function escalate(caseId: string, reason: string) {
