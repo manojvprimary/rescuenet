@@ -1,0 +1,22 @@
+{
+  "id": "SYN-05",
+  "modelId": "us.anthropic.claude-sonnet-4-5-20250929-v1:0",
+  "recordedAt": "2026-10-11T01:02:42.455Z",
+  "error": null,
+  "throttled": false,
+  "rawText": "```json\n{\n  \"hardConstraints\": [\"has_vet\"],\n  \"softWeights\": {\n    \"vet_care\": 0.50,\n    \"pickup_urgency\": 0.25,\n    \"species_specialization\": 0.10,\n    \"proximity\": 0.10,\n    \"long_term_care\": 0.05\n  },\n  \"urgencyLevel\": \"HIGH\",\n  \"reasoning\": \"Dog has open wound with active bleeding and mobility impairment requiring immediate veterinary intervention.\"\n}\n```",
+  "profile": {
+    "hardConstraints": [
+      "has_vet"
+    ],
+    "softWeights": {
+      "vet_care": 0.5,
+      "pickup_urgency": 0.25,
+      "species_specialization": 0.1,
+      "proximity": 0.1,
+      "long_term_care": 0.05
+    },
+    "urgencyLevel": "HIGH",
+    "reasoning": "Dog has open wound with active bleeding and mobility impairment requiring immediate veterinary intervention."
+  }
+}

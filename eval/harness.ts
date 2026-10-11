@@ -45,6 +45,8 @@ export const ruleClassifier: Classify = f => {
 /** Replays recorded classifier output (for example from a live Bedrock run), so a live run can be re-scored offline. */
 export function recordedClassifier(recorded: Record<string, { modelOutput: unknown; hardConstraints: string[] }>): Classify {
   return f => {
+    // Fixtures that inject a fault (SYN-08) never reach the model, so there is nothing to replay for them.
+    if (f.injectClassifierOutput !== undefined) return { modelOutput: f.injectClassifierOutput, hardConstraints: [] };
     const r = recorded[f.id];
     if (!r) throw new Error(`no recorded classifier output for ${f.id}`);
     return r;

@@ -1,0 +1,22 @@
+{
+  "id": "SYN-06",
+  "modelId": "us.anthropic.claude-sonnet-4-5-20250929-v1:0",
+  "recordedAt": "2026-10-11T01:02:45.851Z",
+  "error": null,
+  "throttled": false,
+  "rawText": "```json\n{\n  \"hardConstraints\": [\"accepts_species:cat\"],\n  \"softWeights\": {\n    \"vet_care\": 0.10,\n    \"pickup_urgency\": 0.15,\n    \"species_specialization\": 0.20,\n    \"proximity\": 0.25,\n    \"long_term_care\": 0.30\n  },\n  \"urgencyLevel\": \"LOW\",\n  \"reasoning\": \"Healthy, well-fed cat in stable situation with no injuries and reporter providing temporary support without time pressure.\"\n}\n```",
+  "profile": {
+    "hardConstraints": [
+      "accepts_species:cat"
+    ],
+    "softWeights": {
+      "vet_care": 0.1,
+      "pickup_urgency": 0.15,
+      "species_specialization": 0.2,
+      "proximity": 0.25,
+      "long_term_care": 0.3
+    },
+    "urgencyLevel": "LOW",
+    "reasoning": "Healthy, well-fed cat in stable situation with no injuries and reporter providing temporary support without time pressure."
+  }
+}
