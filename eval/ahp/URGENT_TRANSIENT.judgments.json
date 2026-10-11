@@ -1,0 +1,78 @@
+{
+  "archetype": "URGENT_TRANSIENT",
+  "judge": "Manoj Venkatachalaiah (sole judge)",
+  "elicitedAt": "2026-10-11T18:47:19.490Z",
+  "factors": [
+    "vet_care",
+    "pickup_urgency",
+    "species_specialization",
+    "proximity",
+    "long_term_care"
+  ],
+  "judgments": [
+    {
+      "i": 0,
+      "j": 1,
+      "value": 0.2
+    },
+    {
+      "i": 0,
+      "j": 2,
+      "value": 0.5
+    },
+    {
+      "i": 0,
+      "j": 3,
+      "value": 0.2
+    },
+    {
+      "i": 0,
+      "j": 4,
+      "value": 1
+    },
+    {
+      "i": 1,
+      "j": 2,
+      "value": 5
+    },
+    {
+      "i": 1,
+      "j": 3,
+      "value": 1
+    },
+    {
+      "i": 1,
+      "j": 4,
+      "value": 7
+    },
+    {
+      "i": 2,
+      "j": 3,
+      "value": 0.2
+    },
+    {
+      "i": 2,
+      "j": 4,
+      "value": 3
+    },
+    {
+      "i": 3,
+      "j": 4,
+      "value": 7
+    }
+  ],
+  "result": {
+    "weights": [
+      0.06472340845784345,
+      0.3869231949949252,
+      0.10851245854785722,
+      0.3869231949949252,
+      0.052917743004448924
+    ],
+    "lambdaMax": 5.103401089383811,
+    "ci": 0.02585027234595283,
+    "cr": 0.023080600308886454,
+    "acceptable": true
+  },
+  "note": "Adopted by the student from the evidence-informed proposal (eval/ahp/evidence-informed-proposal.json); sources and per-pair reasoning are in that file. Single judge. CR below 0.10 shows internal consistency only."
+}

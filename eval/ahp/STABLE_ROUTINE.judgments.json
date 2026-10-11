@@ -1,0 +1,78 @@
+{
+  "archetype": "STABLE_ROUTINE",
+  "judge": "Manoj Venkatachalaiah (sole judge)",
+  "elicitedAt": "2026-10-11T18:47:19.490Z",
+  "factors": [
+    "vet_care",
+    "pickup_urgency",
+    "species_specialization",
+    "proximity",
+    "long_term_care"
+  ],
+  "judgments": [
+    {
+      "i": 0,
+      "j": 1,
+      "value": 1
+    },
+    {
+      "i": 0,
+      "j": 2,
+      "value": 0.3333333333333333
+    },
+    {
+      "i": 0,
+      "j": 3,
+      "value": 0.3333333333333333
+    },
+    {
+      "i": 0,
+      "j": 4,
+      "value": 0.2
+    },
+    {
+      "i": 1,
+      "j": 2,
+      "value": 0.3333333333333333
+    },
+    {
+      "i": 1,
+      "j": 3,
+      "value": 0.5
+    },
+    {
+      "i": 1,
+      "j": 4,
+      "value": 0.3333333333333333
+    },
+    {
+      "i": 2,
+      "j": 3,
+      "value": 2
+    },
+    {
+      "i": 2,
+      "j": 4,
+      "value": 0.5
+    },
+    {
+      "i": 3,
+      "j": 4,
+      "value": 0.3333333333333333
+    }
+  ],
+  "result": {
+    "weights": [
+      0.07804212139629522,
+      0.09418777581058584,
+      0.2549439526464604,
+      0.16759115292128005,
+      0.40523499722537853
+    ],
+    "lambdaMax": 5.097542633496346,
+    "ci": 0.02438565837408646,
+    "cr": 0.021772909262577196,
+    "acceptable": true
+  },
+  "note": "Adopted by the student from the evidence-informed proposal (eval/ahp/evidence-informed-proposal.json); sources and per-pair reasoning are in that file. Single judge. CR below 0.10 shows internal consistency only."
+}
