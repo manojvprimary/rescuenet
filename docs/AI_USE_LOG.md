@@ -230,6 +230,19 @@ Structured, per-instance disclosure of AI assistance, reformatted in CISC 699 We
 
 ---
 
+## Entry 21 — Hard Stop 3 Validation Package (This Document)
+
+- **Tool:** Claude (Anthropic, Claude Sonnet 5.5)
+- **Date / Phase:** Week 6 (2026-10-11), Hard Stop 3: Early Implementation Validation Package
+- **Purpose:** Assemble the submission from the repository's own files and evidence, and write the interpretation memo.
+- **Prompt / Task Summary:** Generate this document, its two figures, and its tables from the committed results files (eval/results, eval/ahp, docs/evidence/sprint-2, git history). Every number in the tables is read programmatically from those files by the generator rather than typed. AI-generated text and figures.
+- **Output Used:** This document, submitted to Canvas as the third hard-stop deliverable.
+- **Affected Section / Artifact:** The whole package; the AI log (Section 1, Appendix A); the engineering log entry for Week 6.
+- **Human Verification:** Pages were rendered and inspected; each headline figure was cross-checked against the fresh-clone evidence file (test count, result hashes, annotation hash). Two corrections to my own work are disclosed in Sections 6 and 7 (the raw-score metric added after seeing results; the capture script bug). The interpretation memo states what the evidence does not show. Reddit and X could not be read and are not cited.
+- **Final Student Revisions:** The student set the scope, authorised the 42 live calls and the push to GitHub, and adopted the AHP judgments after reading the full table. Any edits the student makes to this document before submitting are not reflected in this entry.
+
+---
+
 ## Prior AI Use (ISEM 502 / GRAD 695, narrative summary — predates this schema)
 
 AI-assisted development spanned the earlier coursework this project descends from: code and infrastructure implementation (CDK stacks, Lambda functions, GraphQL schema, mobile app), the GRAD 695 Applied Project Report and its figures, and the ISEM 502 UX Portfolio (personas, heuristic evaluation, prototypes), all drafted from student direction and reviewed by the student. No AI-generated or fabricated user-research data was presented as real at any point; where a course step assumed data unavailable to the student, the constraint was disclosed rather than simulated.
