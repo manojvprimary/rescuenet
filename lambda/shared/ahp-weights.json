@@ -1,7 +1,7 @@
 {
   "version": "v1-elicited-20261011-a785f618",
   "status": "ELICITED_ALL_THREE",
-  "note": "Elicited from the student's own pairwise judgments (eval/ahp/*.judgments.json), single judge. Elicited: INJURED_CRITICAL, URGENT_TRANSIENT, STABLE_ROUTINE. Still equal placeholders: none.",
+  "note": "Built from the student's pairwise judgments in eval/ahp/*.judgments.json (single judge; adopted from the evidence-informed proposal in eval/ahp/evidence-informed-proposal.json, see each file's note). Judged: INJURED_CRITICAL, URGENT_TRANSIENT, STABLE_ROUTINE. Still equal placeholders: none.",
   "factors": [
     "vet_care",
     "pickup_urgency",

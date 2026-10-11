@@ -19,7 +19,7 @@ const out = {
   status: elicited.length === 0 ? 'PLACEHOLDER_NOT_ELICITED' : placeholders.length === 0 ? 'ELICITED_ALL_THREE' : 'PARTIAL_ELICITATION',
   note: elicited.length === 0
     ? 'Equal vectors. These are NOT the student\'s AHP judgments.'
-    : `Elicited from the student's own pairwise judgments (eval/ahp/*.judgments.json), single judge. Elicited: ${elicited.join(', ') || 'none'}. Still equal placeholders: ${placeholders.join(', ') || 'none'}.`,
+    : `Built from the student's pairwise judgments in eval/ahp/*.judgments.json (single judge; adopted from the evidence-informed proposal in eval/ahp/evidence-informed-proposal.json, see each file's note). Judged: ${elicited.join(', ') || 'none'}. Still equal placeholders: ${placeholders.join(', ') || 'none'}.`,
   factors: [...FACTORS],
   consistency: Object.fromEntries(elicited.map(a => [a, { cr: stored[a]!.result.cr, lambdaMax: stored[a]!.result.lambdaMax, elicitedAt: stored[a]!.elicitedAt }])),
   vectors: Object.fromEntries(ARCHETYPES.map(a => [a, FACTORS.map(f => vectors[a][f])])),

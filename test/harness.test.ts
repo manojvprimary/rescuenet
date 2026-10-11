@@ -1,5 +1,5 @@
 import { loadAnnotations, loadFixtures, NEAR_TIE_MARGIN, ruleClassifier, runEvaluation } from '../eval/harness';
-import { VectorSet, loadVectors, WEIGHTS_VERSION } from '../lambda/shared/weights';
+import { VectorSet } from '../lambda/shared/weights';
 
 // Illustrative vectors for mechanism tests ONLY. They are not the student's elicited judgments and the
 // tests below assert structure and invariants, never that these vectors produce the "right" winners.
@@ -87,7 +87,8 @@ describe('harness behavior', () => {
     expect(s5.ranking.map(x => x.shelterId)).not.toContain('shelter-A');
   });
   it('different vectors change the weights case by case (the blend is case-specific), and equal vectors do not', () => {
-    const equal = run(loadVectors(), WEIGHTS_VERSION);
+    const E = Object.fromEntries(['INJURED_CRITICAL', 'URGENT_TRANSIENT', 'STABLE_ROUTINE'].map(a => [a, { vet_care: 0.2, pickup_urgency: 0.2, species_specialization: 0.2, proximity: 0.2, long_term_care: 0.2 }])) as VectorSet;
+    const equal = run(E, 'equal-test');
     const distinct = new Set(equal.results.map(x => JSON.stringify(x.softWeights)));
     expect(distinct.size).toBe(1);   // placeholder equal vectors: every case gets the same weights
     const illustrative = run();

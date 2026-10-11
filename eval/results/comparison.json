@@ -1,0 +1,166 @@
+{
+  "classifier": "file:eval/results/classifier-recorded-2026-10-11T01-12-15-757Z.json",
+  "weightsVersion": "v1-elicited-20261011-a785f618",
+  "rows": [
+    {
+      "id": "SYN-01",
+      "annotatedBest": "shelter-A",
+      "v1Winner": "shelter-B",
+      "v2Winner": "shelter-B",
+      "v1Matches": false,
+      "v2Matches": false,
+      "v1RawWinner": "shelter-B",
+      "v2RawWinner": "shelter-B",
+      "v1MatchesRaw": false,
+      "v2MatchesRaw": false,
+      "disagree": false,
+      "v1Weights": {
+        "vet_care": 0.5,
+        "pickup_urgency": 0.25,
+        "species_specialization": 0.1,
+        "proximity": 0.1,
+        "long_term_care": 0.05
+      }
+    },
+    {
+      "id": "SYN-02",
+      "annotatedBest": "shelter-B",
+      "v1Winner": "shelter-B",
+      "v2Winner": "shelter-B",
+      "v1Matches": true,
+      "v2Matches": true,
+      "v1RawWinner": "shelter-B",
+      "v2RawWinner": "shelter-B",
+      "v1MatchesRaw": true,
+      "v2MatchesRaw": true,
+      "disagree": false,
+      "v1Weights": {
+        "vet_care": 0.15,
+        "pickup_urgency": 0.2,
+        "species_specialization": 0.4,
+        "proximity": 0.15,
+        "long_term_care": 0.1
+      }
+    },
+    {
+      "id": "SYN-03",
+      "annotatedBest": "shelter-A",
+      "v1Winner": "shelter-A",
+      "v2Winner": "shelter-A",
+      "v1Matches": true,
+      "v2Matches": true,
+      "v1RawWinner": "shelter-A",
+      "v2RawWinner": "shelter-A",
+      "v1MatchesRaw": true,
+      "v2MatchesRaw": true,
+      "disagree": false,
+      "v1Weights": {
+        "vet_care": 0.05,
+        "pickup_urgency": 0.2,
+        "species_specialization": 0.15,
+        "proximity": 0.15,
+        "long_term_care": 0.45
+      }
+    },
+    {
+      "id": "SYN-04",
+      "annotatedBest": "shelter-B",
+      "v1Winner": "shelter-C",
+      "v2Winner": "shelter-B",
+      "v1Matches": false,
+      "v2Matches": true,
+      "v1RawWinner": "shelter-C",
+      "v2RawWinner": "shelter-C",
+      "v1MatchesRaw": false,
+      "v2MatchesRaw": false,
+      "disagree": true,
+      "v1Weights": {
+        "vet_care": 0.1,
+        "pickup_urgency": 0.5,
+        "species_specialization": 0.05,
+        "proximity": 0.3,
+        "long_term_care": 0.05
+      }
+    },
+    {
+      "id": "SYN-05",
+      "annotatedBest": "shelter-B",
+      "v1Winner": "shelter-C",
+      "v2Winner": "shelter-B",
+      "v1Matches": false,
+      "v2Matches": true,
+      "v1RawWinner": "shelter-C",
+      "v2RawWinner": "shelter-C",
+      "v1MatchesRaw": false,
+      "v2MatchesRaw": false,
+      "disagree": true,
+      "v1Weights": {
+        "vet_care": 0.5,
+        "pickup_urgency": 0.25,
+        "species_specialization": 0.1,
+        "proximity": 0.1,
+        "long_term_care": 0.05
+      }
+    },
+    {
+      "id": "SYN-06",
+      "annotatedBest": null,
+      "v1Winner": "shelter-A",
+      "v2Winner": "shelter-A",
+      "v1Matches": null,
+      "v2Matches": null,
+      "v1RawWinner": "shelter-A",
+      "v2RawWinner": "shelter-A",
+      "v1MatchesRaw": null,
+      "v2MatchesRaw": null,
+      "disagree": false,
+      "v1Weights": {
+        "vet_care": 0.1,
+        "pickup_urgency": 0.15,
+        "species_specialization": 0.2,
+        "proximity": 0.25,
+        "long_term_care": 0.3
+      }
+    },
+    {
+      "id": "SYN-07",
+      "annotatedBest": "shelter-B",
+      "v1Winner": "shelter-B",
+      "v2Winner": "shelter-B",
+      "v1Matches": true,
+      "v2Matches": true,
+      "v1RawWinner": "shelter-B",
+      "v2RawWinner": "shelter-B",
+      "v1MatchesRaw": true,
+      "v2MatchesRaw": true,
+      "disagree": false,
+      "v1Weights": {
+        "vet_care": 0.45,
+        "pickup_urgency": 0.35,
+        "species_specialization": 0.05,
+        "proximity": 0.1,
+        "long_term_care": 0.05
+      }
+    },
+    {
+      "id": "SYN-08",
+      "annotatedBest": "winner under the STABLE_ROUTINE vector",
+      "v1Winner": null,
+      "v2Winner": "shelter-B",
+      "v1Matches": null,
+      "v2Matches": null,
+      "v1RawWinner": null,
+      "v2RawWinner": "shelter-B",
+      "v1MatchesRaw": null,
+      "v2MatchesRaw": null,
+      "disagree": false,
+      "v1Weights": null
+    }
+  ],
+  "v1Correct": 3,
+  "v2Correct": 5,
+  "v1CorrectRaw": 3,
+  "v2CorrectRaw": 3,
+  "of": 6,
+  "disagreements": 2
+}

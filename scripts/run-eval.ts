@@ -45,6 +45,7 @@ for (const r of report.results) {
 const s = report.summary;
 console.log(`\narchetype agreement: ${s.archetypeAgreement.agree} of ${s.archetypeAgreement.of}`);
 console.log(`winner matches annotation: ${s.winnerCorrect.correct} of ${s.winnerCorrect.of}`);
+console.log(`single-best cases (${s.singleBestCases.of}): ${s.singleBestCases.correctWithTieRule} correct with the pre-registered tie rule, ${s.singleBestCases.correctRawScore} correct by raw top score alone`);
 console.log(`classifier-failure cases handled: ${s.fallbackCasesHandled.handled} of ${s.fallbackCasesHandled.of}`);
 console.log(`near-ties: ${s.nearTies.join(', ') || 'none'}`);
 console.log(`decisive factor counts: ${JSON.stringify(s.decisiveFactorCounts)}`);

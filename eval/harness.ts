@@ -63,7 +63,8 @@ export interface CaseResult {
   hardConstraints: string[];
   softWeights: Record<Factor, number>;
   ranking: Array<{ shelterId: string; score: number }>;
-  winner: string | null;
+  winner: string | null;                 // after the pre-registered near-tie rule
+  rawWinner: string | null;              // highest score with no tie rule (added after the first results; see report)
   runnerUp: string | null;
   margin: number | null;
   nearTie: boolean;
@@ -71,6 +72,7 @@ export interface CaseResult {
   annotatedBest: string | null;
   expectedWinner: string | null;         // annotatedBest, or the computed STABLE_ROUTINE winner for fallback cases
   correct: boolean;
+  correctRaw: boolean | null;            // rawWinner equals the annotated best; null where no single best shelter is annotated
   note: string;
 }
 
@@ -78,6 +80,7 @@ export interface Summary {
   cases: number;
   archetypeAgreement: { agree: number; of: number };
   winnerCorrect: { correct: number; of: number };
+  singleBestCases: { correctWithTieRule: number; correctRawScore: number; of: number };
   fallbackCasesHandled: { handled: number; of: number };
   nearTies: string[];
   decisiveFactorCounts: Record<string, number>;
@@ -179,6 +182,7 @@ function runCase(f: Fixture, a: Annotation, classify: Classify, vectors: VectorS
     softWeights: Object.fromEntries(FACTORS.map(k => [k, round(derived.softWeights[k])])) as Record<Factor, number>,
     ranking: ranked.map(r => ({ shelterId: r.shelterId, score: round(r.matchScore) })),
     winner,
+    rawWinner: ranked[0]?.shelterId ?? null,
     runnerUp,
     margin: margin === null ? null : round(margin),
     nearTie,
@@ -186,6 +190,7 @@ function runCase(f: Fixture, a: Annotation, classify: Classify, vectors: VectorS
     annotatedBest: a.bestShelter,
     expectedWinner,
     correct,
+    correctRaw: a.nearTie || a.expectFallback || !a.bestShelter ? null : ranked[0]?.shelterId === a.bestShelter,
     note,
   };
 }
@@ -221,6 +226,11 @@ export function runEvaluation(o: RunOptions): RunReport {
     cases: results.length,
     archetypeAgreement: { agree: agreeable.filter(r => r.archetypeAgrees).length, of: agreeable.length },
     winnerCorrect: { correct: results.filter(r => r.correct).length, of: results.length },
+    singleBestCases: {
+      correctWithTieRule: results.filter(r => r.correctRaw !== null && r.correct).length,
+      correctRawScore: results.filter(r => r.correctRaw === true).length,
+      of: results.filter(r => r.correctRaw !== null).length,
+    },
     fallbackCasesHandled: { handled: fallbackCases.filter(r => r.correct).length, of: fallbackCases.length },
     nearTies: results.filter(r => r.nearTie).map(r => r.id),
     decisiveFactorCounts: decisive,
@@ -263,18 +273,22 @@ export interface ComparisonRow {
   v2Winner: string | null;
   v1Matches: boolean | null;
   v2Matches: boolean | null;
+  v1RawWinner: string | null;
+  v2RawWinner: string | null;
+  v1MatchesRaw: boolean | null;
+  v2MatchesRaw: boolean | null;
   disagree: boolean;
   v1Weights: Record<Factor, number> | null;
 }
 
 /** Winner under a frozen v1 profile for each fixture (null if the v1 profile could not be recorded for that case). */
-export function runFrozenV1(frozen: FrozenV1[], fixtures: Fixture[] = loadFixtures()): Record<string, string | null> {
+export function runFrozenV1(frozen: FrozenV1[], fixtures: Fixture[] = loadFixtures(), raw = false): Record<string, string | null> {
   const out: Record<string, string | null> = {};
   for (const f of fixtures) {
     const fz = frozen.find(x => x.id === f.id);
     if (!fz || !fz.profile) { out[f.id] = null; continue; }
     const ranked = rankBids(f.bids, fz.profile, f.caseLocation, {}, extractCaseSpecies(f.reportData));
-    out[f.id] = pickWinner(ranked).winner;
+    out[f.id] = raw ? (ranked[0]?.shelterId ?? null) : pickWinner(ranked).winner;
   }
   return out;
 }
@@ -282,7 +296,7 @@ export function runFrozenV1(frozen: FrozenV1[], fixtures: Fixture[] = loadFixtur
 /** Cases with a single annotated best shelter (excludes the near-tie case and the fallback case, which have no single annotated winner). */
 const hasSingleBest = (a: Annotation) => !a.nearTie && !a.expectFallback && !!a.bestShelter;
 
-export function compareV1V2(v1: Record<string, string | null>, v2: RunReport, annotations: Annotations = loadAnnotations(), frozen: FrozenV1[] = []): { rows: ComparisonRow[]; v1Correct: number; v2Correct: number; of: number; disagreements: number } {
+export function compareV1V2(v1: Record<string, string | null>, v2: RunReport, annotations: Annotations = loadAnnotations(), frozen: FrozenV1[] = [], v1Raw: Record<string, string | null> = v1): { rows: ComparisonRow[]; v1Correct: number; v2Correct: number; v1CorrectRaw: number; v2CorrectRaw: number; of: number; disagreements: number } {
   const rows: ComparisonRow[] = v2.results.map(r => {
     const a = annotations.cases[r.id];
     const single = hasSingleBest(a);
@@ -294,6 +308,10 @@ export function compareV1V2(v1: Record<string, string | null>, v2: RunReport, an
       v2Winner: r.winner,
       v1Matches: single ? (v1w === null ? null : v1w === a.bestShelter) : null,
       v2Matches: single ? r.winner === a.bestShelter : null,
+      v1RawWinner: v1Raw[r.id] ?? null,
+      v2RawWinner: r.rawWinner,
+      v1MatchesRaw: single ? (v1Raw[r.id] == null ? null : v1Raw[r.id] === a.bestShelter) : null,
+      v2MatchesRaw: single ? r.rawWinner === a.bestShelter : null,
       disagree: v1w !== null && v1w !== r.winner,
       v1Weights: frozen.find(x => x.id === r.id)?.profile?.softWeights ?? null,
     };
@@ -303,6 +321,8 @@ export function compareV1V2(v1: Record<string, string | null>, v2: RunReport, an
     rows,
     v1Correct: scored.filter(r => r.v1Matches === true).length,
     v2Correct: scored.filter(r => r.v2Matches === true).length,
+    v1CorrectRaw: scored.filter(r => r.v1MatchesRaw === true).length,
+    v2CorrectRaw: scored.filter(r => r.v2MatchesRaw === true).length,
     of: scored.length,
     disagreements: rows.filter(r => r.disagree).length,
   };
