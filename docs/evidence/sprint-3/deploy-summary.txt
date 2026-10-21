@@ -1,0 +1,8 @@
+# Deployment summary: RescueNetLambda stack only (scrubbed: no account id, ARNs, or webhook URL)
+Command: npx cdk deploy RescueNetLambda --exclusively --require-approval never
+Source commit: 6219f97 (main)
+Read-only 'cdk diff' beforehand: 13 AWS::Lambda::Function changes (new code + new environment variable WEIGHTING_MODE) and, in the API stack (NOT deployed), one AppSync API key expiry date.
+No IAM, table, event-rule, or bus changes.
+Result: UPDATE_COMPLETE, deployment time 26.72 s.
+Functions updated (13): ArbitratorFn, CaseStreamPublisherFn, ConfirmHandlerFn, DedupAgentFn, GeocodingAgentFn, GetCasePhotosFn, ImageAgentFn, IntakeFn, ListNearbyCasesFn, NeedsProfileFn, SlackWebhookFn, Tier1AgentFn, Tier2AgentFn
+Default after deploy: WEIGHTING_MODE=llm on every function (behaviour unchanged).

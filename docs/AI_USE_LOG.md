@@ -243,6 +243,32 @@ Structured, per-instance disclosure of AI assistance, reformatted in CISC 699 We
 
 ---
 
+## Entry 22 — Midpoint: Non-Production Deployment, Measurement, and Demo Scripts
+
+- **Tool:** Claude (Anthropic, Claude Sonnet 5.5)
+- **Date / Phase:** Week 7 (2026-10-18 to 2026-10-21), Midpoint Demo and Adjustment Memo
+- **Purpose:** Produce the deployment-level evidence that Hard Stop 3 lacked: deploy the v2 code behind `WEIGHTING_MODE`, measure latency, errors, and rollback on the deployed pipeline, and make the live demo scripts work end to end.
+- **Prompt / Task Summary:** Run a read-only `cdk diff`; snapshot the deployed functions; deploy the Lambda stack only; write `scripts/measure-v2.py` (13 cases: 6 under `llm`, 6 under `blend`, rollback, 1 verification case) and `scripts/demo-e2e.sh` / `scripts/demo-v2-live.ts`; run them against the student's AWS account. AI-generated scripts and operation of the AWS CLI.
+- **Output Used:** The deployed state, `docs/evidence/sprint-3/` (pre-deploy snapshot, scrubbed deploy summary, `measure-v2.json`), and the three scripts.
+- **Affected Section / Artifact:** The deployed `RescueNetLambda` stack (13 functions: new code plus one environment variable, default unchanged); the midpoint package.
+- **Human Verification:** The diff was read before deploying (functions only; no IAM, table, or rule changes; the one API-key expiry change was left undeployed by deploying only the Lambda stack). A post-deploy end-to-end run under the unchanged `llm` default passed before any measurement. The measurement read the stored case records and the functions' own CloudWatch REPORT lines rather than relying on the script's printed output; 13 of 13 cases reached ASSIGNED and no error lines appeared in the nine pipeline functions' logs. Rollback was verified by running a case afterwards and checking the stored profile carried no v2 fields. Problems found along the way: the older `scripts/demo.sh` simulated a retired in-app Q&A and could not complete (replaced); my first demo script could not parse the intake response; the first measurement run died on an AWS clock-skew error when the laptop slept (retries added, run repeated from the start; the five cases from the aborted run remain in the table as test data).
+- **Final Student Revisions:** I asked the student whether to deploy and which feature to name as the cut. The student declined the question prompt and instead told me, in chat, to go ahead without waiting and report afterwards, and said they did not mind which feature was cut. I therefore chose the options I had recommended (deploy, measure, roll back; cut the fairness check). The student has not reviewed the deployment steps or the scripts line by line.
+
+---
+
+## Entry 23 — Midpoint Package (Memo and Slide-Supported Demo)
+
+- **Tool:** Claude (Anthropic, Claude Sonnet 5.5)
+- **Date / Phase:** Week 7 (2026-10-21), Midpoint Demo and Adjustment Memo
+- **Purpose:** Assemble the midpoint submission: adjustment memo, slide-supported demo with captured evidence, current-state architecture figure, and updated backlog.
+- **Prompt / Task Summary:** Generate the memo, the deck, and the figure from the repository's own evidence files (results JSON, `measure-v2.json`, the Hard Stop 3 feedback, the requirement and success-criteria tables from Hard Stop 2); every number is read from a file by the generator rather than typed. AI-generated text, tables, and figure.
+- **Output Used:** The memo and the deck, submitted to Canvas.
+- **Affected Section / Artifact:** The whole package; `ENGINEERING_LOG.md` Week 7; the backlog and issue log.
+- **Human Verification:** Pages and slides were rendered and inspected; each figure was cross-checked against `docs/evidence/sprint-3/measure-v2.json` and the Hard Stop 3 evidence file. The memo states what the deployment evidence does not show (one dominant shelter in the demo roster, no isolated environment, no independent review).
+- **Final Student Revisions:** The student set the scope and delegated the choice of the feature to cut. Any edits the student makes before submitting are not reflected here. This package was prepared after the Oct 18 deadline had passed.
+
+---
+
 ## Prior AI Use (ISEM 502 / GRAD 695, narrative summary — predates this schema)
 
 AI-assisted development spanned the earlier coursework this project descends from: code and infrastructure implementation (CDK stacks, Lambda functions, GraphQL schema, mobile app), the GRAD 695 Applied Project Report and its figures, and the ISEM 502 UX Portfolio (personas, heuristic evaluation, prototypes), all drafted from student direction and reviewed by the student. No AI-generated or fabricated user-research data was presented as real at any point; where a course step assumed data unavailable to the student, the constraint was disclosed rather than simulated.

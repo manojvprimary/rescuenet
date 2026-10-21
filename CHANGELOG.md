@@ -2,6 +2,20 @@
 
 Format: newest first. Versions are git tags. Each entry lists what changed and what was deliberately not changed.
 
+## v0.3.0-midpoint (2026-10-21) — CISC 699 Midpoint Demo and Adjustment Memo
+
+### Added
+- `scripts/demo-e2e.sh`: live end-to-end demo for the current tier-1 + tier-2 Slack architecture (replaces the stale `scripts/demo.sh`).
+- `scripts/demo-v2-live.ts`: one real Bedrock classification through the v2 weighting and production scoring, no deployment.
+- `scripts/measure-v2.py`: latency / error / rollback measurement across `WEIGHTING_MODE` values.
+- `docs/evidence/sprint-3/`: pre-deploy snapshot, scrubbed deploy summary, measurement results.
+
+### Changed
+- **Deployed** the `RescueNetLambda` stack (13 functions: current code and the `WEIGHTING_MODE` environment variable, default `llm`). Behaviour is unchanged by default; v2 is selectable by setting the variable.
+
+### Not changed (deliberately)
+- `WEIGHTING_MODE` stays `llm`: v2 is not promoted. The API stack was not deployed.
+
 ## v0.2.0-validation (2026-10-11) — CISC 699 Hard Stop 3
 
 ### Added

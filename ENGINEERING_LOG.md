@@ -133,3 +133,20 @@ A running, dated record of decisions, findings, and changes made during the CISC
 **Supervisor.** No new contact. As the student decided on 2026-09-27, further supervisor email is replaced by documenting in the assignments; the package cites the Sep 26-27 exchange and says no meeting took place for Hard Stop 3.
 
 **Not done.** Nothing deployed; no non-production latency or error-rate run; `WEIGHTING_MODE` stays `llm`; no real case; no second annotator or judge; Bedrock console quota check still outstanding.
+
+---
+
+## Week 7 — 2026-10-18 to 2026-10-21 (Midpoint Demo and Adjustment Memo)
+
+**Context.** Hard Stop 3 scored 90/100. The instructor's top deduction was the missing non-production deployment of the new path; the Week 7 plan in Hard Stop 2 had also promised a latency and error-rate run with the flag on.
+
+**Done.** Read-only `cdk diff`, pre-deploy snapshot, then a deploy of the Lambda stack only (13 functions, 27 s; code plus `WEIGHTING_MODE`, default `llm`). Regression check with the unchanged default, then `scripts/measure-v2.py`: 6 cases under `llm`, 6 under `blend`, rollback, 1 verification case. Results in `docs/evidence/sprint-3/measure-v2.json`. Replaced the stale `scripts/demo.sh` with `scripts/demo-e2e.sh` and added `scripts/demo-v2-live.ts`.
+
+**Results (counts, one deployed environment, 13 cases).** 13 of 13 reached ASSIGNED; 0 error lines across the nine pipeline functions. Median seconds from submission to a scored assignment: `llm` 24.7, `blend` 24.1, after rollback 24.2 (all between 23.0 and 29.2, target about 30). needs-profile Lambda duration: median 3.7 s under `llm`, 3.3 s under `blend`. Rollback took 7.3 s (an environment-variable change) and the next case stored no v2 fields. Winners were identical in both modes for all three scenarios.
+
+**What this does not show.** All six scenarios picked the same shelter because the seeded roster has one dominant shelter (large capacity, vet, wide radius), so this run cannot say whether blend routes better. It was the only environment (the demo account, no real users), not an isolated one. Every block started on freshly reconfigured functions (cold start counted separately). Sample is small. The per-case weights under `blend` and `llm` are similar in shape.
+
+**Corrections made during the sprint.** `scripts/demo.sh` was stale (retired in-app Q&A); the first `demo-e2e.sh` mis-parsed the intake response; the first measurement run crashed on an AWS clock-skew error when the machine slept, so I added retries and incremental saves and repeated the run from the start (five aborted-run cases remain in the cases table). I noticed only after several hours that the Oct 18 deadline had passed; the package is therefore late.
+
+**Decisions.** The feature named as the cut if the project falls behind after Week 8 is the fairness-by-shelter-characteristic check (NFR7). The student delegated this choice. Deployment and rollback were chosen by me from the options I recommended, on the student's instruction to proceed without waiting.
+

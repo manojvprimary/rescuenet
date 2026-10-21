@@ -1,0 +1,675 @@
+{
+  "generatedAt": "2026-10-21T01:04:31.945613Z",
+  "rollbackConfigSeconds": 7.3,
+  "cases": [
+    {
+      "caseId": "93e15495-4f19-4983-93c8-c8acdf7e3a2a",
+      "scenario": "injured_loose",
+      "mode": "llm",
+      "lat": 40.705,
+      "lng": -73.992,
+      "startedMs": 1792544290020,
+      "endedMs": 1792544320866,
+      "finalStatus": "ASSIGNED",
+      "secondsToAwaitingConfirmation": 29.160424947738647,
+      "secondsToAssigned": 30.48055410385132,
+      "winner": "shelter-manhattan-acc",
+      "eligibleBids": [
+        {
+          "shelterId": "shelter-manhattan-acc",
+          "score": 0.867
+        }
+      ],
+      "needsProfile": {
+        "urgencyLevel": "CRITICAL",
+        "hardConstraints": [
+          "has_vet"
+        ],
+        "softWeights": {
+          "long_term_care": 0.05,
+          "pickup_urgency": 0.35,
+          "proximity": 0.1,
+          "species_specialization": 0.05,
+          "vet_care": 0.45
+        },
+        "weightingMode": null,
+        "weightsVersion": null,
+        "archetypeProbabilities": null,
+        "usedFallback": null
+      }
+    },
+    {
+      "caseId": "bd39491b-3b31-4000-8891-914e86774b1f",
+      "scenario": "injured_loose",
+      "mode": "llm",
+      "lat": 40.723,
+      "lng": -73.992,
+      "startedMs": 1792544320866,
+      "endedMs": 1792544347631,
+      "finalStatus": "ASSIGNED",
+      "secondsToAwaitingConfirmation": 25.279067993164062,
+      "secondsToAssigned": 26.39541482925415,
+      "winner": "shelter-manhattan-acc",
+      "eligibleBids": [
+        {
+          "shelterId": "shelter-manhattan-acc",
+          "score": 0.8727
+        }
+      ],
+      "needsProfile": {
+        "urgencyLevel": "CRITICAL",
+        "hardConstraints": [
+          "has_vet"
+        ],
+        "softWeights": {
+          "long_term_care": 0.05,
+          "pickup_urgency": 0.35,
+          "proximity": 0.1,
+          "species_specialization": 0.05,
+          "vet_care": 0.45
+        },
+        "weightingMode": null,
+        "weightsVersion": null,
+        "archetypeProbabilities": null,
+        "usedFallback": null
+      }
+    },
+    {
+      "caseId": "85d1739a-721f-434e-a2ad-6836953e6dc6",
+      "scenario": "injured",
+      "mode": "llm",
+      "lat": 40.741,
+      "lng": -73.992,
+      "startedMs": 1792544347632,
+      "endedMs": 1792544373949,
+      "finalStatus": "ASSIGNED",
+      "secondsToAwaitingConfirmation": 24.840058088302612,
+      "secondsToAssigned": 25.958621978759766,
+      "winner": "shelter-manhattan-acc",
+      "eligibleBids": [
+        {
+          "shelterId": "shelter-manhattan-acc",
+          "score": 0.9093
+        }
+      ],
+      "needsProfile": {
+        "urgencyLevel": "CRITICAL",
+        "hardConstraints": [
+          "has_vet"
+        ],
+        "softWeights": {
+          "long_term_care": 0.1,
+          "pickup_urgency": 0.25,
+          "proximity": 0.05,
+          "species_specialization": 0.1,
+          "vet_care": 0.5
+        },
+        "weightingMode": null,
+        "weightsVersion": null,
+        "archetypeProbabilities": null,
+        "usedFallback": null
+      }
+    },
+    {
+      "caseId": "9e3b1c9f-3ef3-4fa6-b010-dbca23d4a99f",
+      "scenario": "injured",
+      "mode": "llm",
+      "lat": 40.759,
+      "lng": -73.992,
+      "startedMs": 1792544373950,
+      "endedMs": 1792544400330,
+      "finalStatus": "ASSIGNED",
+      "secondsToAwaitingConfirmation": 24.658320903778076,
+      "secondsToAssigned": 26.006491899490356,
+      "winner": "shelter-manhattan-acc",
+      "eligibleBids": [
+        {
+          "shelterId": "shelter-manhattan-acc",
+          "score": 0.8969
+        },
+        {
+          "shelterId": "shelter-midtown-humane",
+          "score": 0.789
+        }
+      ],
+      "needsProfile": {
+        "urgencyLevel": "CRITICAL",
+        "hardConstraints": [
+          "has_vet"
+        ],
+        "softWeights": {
+          "long_term_care": 0.1,
+          "pickup_urgency": 0.25,
+          "proximity": 0.05,
+          "species_specialization": 0.1,
+          "vet_care": 0.5
+        },
+        "weightingMode": null,
+        "weightsVersion": null,
+        "archetypeProbabilities": null,
+        "usedFallback": null
+      }
+    },
+    {
+      "caseId": "fe0abb8d-5b65-4b55-a126-f5d3f9eff870",
+      "scenario": "loose",
+      "mode": "llm",
+      "lat": 40.777,
+      "lng": -73.992,
+      "startedMs": 1792544400331,
+      "endedMs": 1792544424815,
+      "finalStatus": "ASSIGNED",
+      "secondsToAwaitingConfirmation": 23.043816804885864,
+      "secondsToAssigned": 24.114973783493042,
+      "winner": "shelter-manhattan-acc",
+      "eligibleBids": [
+        {
+          "shelterId": "shelter-manhattan-acc",
+          "score": 0.8392
+        },
+        {
+          "shelterId": "shelter-soho-second-chance",
+          "score": 0.6032
+        }
+      ],
+      "needsProfile": {
+        "urgencyLevel": "CRITICAL",
+        "hardConstraints": [
+          "accepts_species:dog"
+        ],
+        "softWeights": {
+          "long_term_care": 0.05,
+          "pickup_urgency": 0.5,
+          "proximity": 0.3,
+          "species_specialization": 0.05,
+          "vet_care": 0.1
+        },
+        "weightingMode": null,
+        "weightsVersion": null,
+        "archetypeProbabilities": null,
+        "usedFallback": null
+      }
+    },
+    {
+      "caseId": "bd7d63c9-02f0-49fe-95e8-505dc577a14c",
+      "scenario": "loose",
+      "mode": "llm",
+      "lat": 40.795,
+      "lng": -73.992,
+      "startedMs": 1792544424815,
+      "endedMs": 1792544450751,
+      "finalStatus": "ASSIGNED",
+      "secondsToAwaitingConfirmation": 24.50873303413391,
+      "secondsToAssigned": 25.550570964813232,
+      "winner": "shelter-manhattan-acc",
+      "eligibleBids": [
+        {
+          "shelterId": "shelter-manhattan-acc",
+          "score": 0.85
+        },
+        {
+          "shelterId": "shelter-soho-second-chance",
+          "score": 0.5839
+        }
+      ],
+      "needsProfile": {
+        "urgencyLevel": "CRITICAL",
+        "hardConstraints": [
+          "accepts_species:dog"
+        ],
+        "softWeights": {
+          "long_term_care": 0.05,
+          "pickup_urgency": 0.5,
+          "proximity": 0.25,
+          "species_specialization": 0.05,
+          "vet_care": 0.15
+        },
+        "weightingMode": null,
+        "weightsVersion": null,
+        "archetypeProbabilities": null,
+        "usedFallback": null
+      }
+    },
+    {
+      "caseId": "b5838794-0c89-4f82-b132-e542a92a9041",
+      "scenario": "injured_loose",
+      "mode": "blend",
+      "lat": 40.705,
+      "lng": -73.945,
+      "startedMs": 1792544457981,
+      "endedMs": 1792544482915,
+      "finalStatus": "ASSIGNED",
+      "secondsToAwaitingConfirmation": 23.22548508644104,
+      "secondsToAssigned": 24.569510221481323,
+      "winner": "shelter-manhattan-acc",
+      "eligibleBids": [
+        {
+          "shelterId": "shelter-manhattan-acc",
+          "score": 0.839
+        }
+      ],
+      "needsProfile": {
+        "urgencyLevel": "HIGH",
+        "hardConstraints": [
+          "has_vet",
+          "accepts_species:dog"
+        ],
+        "softWeights": {
+          "long_term_care": 0.07175407318722561,
+          "pickup_urgency": 0.22754468997413446,
+          "proximity": 0.21991051100358222,
+          "species_specialization": 0.10172336206312141,
+          "vet_care": 0.3790673637719364
+        },
+        "weightingMode": "blend",
+        "weightsVersion": "v1-elicited-20261011-a785f618",
+        "archetypeProbabilities": {
+          "INJURED_CRITICAL": 0.65,
+          "STABLE_ROUTINE": 0.05,
+          "URGENT_TRANSIENT": 0.3
+        },
+        "usedFallback": false
+      }
+    },
+    {
+      "caseId": "a187c5de-823b-418f-beaf-27f137746cc9",
+      "scenario": "injured_loose",
+      "mode": "blend",
+      "lat": 40.723,
+      "lng": -73.945,
+      "startedMs": 1792544482915,
+      "endedMs": 1792544507724,
+      "finalStatus": "ASSIGNED",
+      "secondsToAwaitingConfirmation": 23.28946876525879,
+      "secondsToAssigned": 24.428781032562256,
+      "winner": "shelter-manhattan-acc",
+      "eligibleBids": [
+        {
+          "shelterId": "shelter-manhattan-acc",
+          "score": 0.8529
+        }
+      ],
+      "needsProfile": {
+        "urgencyLevel": "HIGH",
+        "hardConstraints": [
+          "has_vet",
+          "accepts_species:dog"
+        ],
+        "softWeights": {
+          "long_term_care": 0.07175407318722561,
+          "pickup_urgency": 0.22754468997413446,
+          "proximity": 0.21991051100358222,
+          "species_specialization": 0.10172336206312141,
+          "vet_care": 0.3790673637719364
+        },
+        "weightingMode": "blend",
+        "weightsVersion": "v1-elicited-20261011-a785f618",
+        "archetypeProbabilities": {
+          "INJURED_CRITICAL": 0.65,
+          "STABLE_ROUTINE": 0.05,
+          "URGENT_TRANSIENT": 0.3
+        },
+        "usedFallback": false
+      }
+    },
+    {
+      "caseId": "17c4e53d-74f7-4c22-90e3-1f3e1ffae250",
+      "scenario": "injured",
+      "mode": "blend",
+      "lat": 40.741,
+      "lng": -73.945,
+      "startedMs": 1792544507726,
+      "endedMs": 1792544533768,
+      "finalStatus": "ASSIGNED",
+      "secondsToAwaitingConfirmation": 24.630685091018677,
+      "secondsToAssigned": 25.68874502182007,
+      "winner": "shelter-manhattan-acc",
+      "eligibleBids": [
+        {
+          "shelterId": "shelter-manhattan-acc",
+          "score": 0.9273
+        },
+        {
+          "shelterId": "shelter-midtown-humane",
+          "score": 0.8534
+        }
+      ],
+      "needsProfile": {
+        "urgencyLevel": "CRITICAL",
+        "hardConstraints": [
+          "has_vet",
+          "accepts_species:cat"
+        ],
+        "softWeights": {
+          "long_term_care": 0.07231736586648571,
+          "pickup_urgency": 0.16074081271494656,
+          "proximity": 0.1478892424400465,
+          "species_specialization": 0.09521074459096787,
+          "vet_care": 0.5238418343875534
+        },
+        "weightingMode": "blend",
+        "weightsVersion": "v1-elicited-20261011-a785f618",
+        "archetypeProbabilities": {
+          "INJURED_CRITICAL": 0.95,
+          "STABLE_ROUTINE": 0.05,
+          "URGENT_TRANSIENT": 0
+        },
+        "usedFallback": false
+      }
+    },
+    {
+      "caseId": "9e8fd49c-df8d-48fd-8dbe-c52bc430a648",
+      "scenario": "injured",
+      "mode": "blend",
+      "lat": 40.759,
+      "lng": -73.945,
+      "startedMs": 1792544533768,
+      "endedMs": 1792544559979,
+      "finalStatus": "ASSIGNED",
+      "secondsToAwaitingConfirmation": 24.61599898338318,
+      "secondsToAssigned": 25.861382722854614,
+      "winner": "shelter-manhattan-acc",
+      "eligibleBids": [
+        {
+          "shelterId": "shelter-manhattan-acc",
+          "score": 0.9369
+        },
+        {
+          "shelterId": "shelter-midtown-humane",
+          "score": 0.8583
+        }
+      ],
+      "needsProfile": {
+        "urgencyLevel": "CRITICAL",
+        "hardConstraints": [
+          "has_vet",
+          "accepts_species:cat"
+        ],
+        "softWeights": {
+          "long_term_care": 0.07231736586648571,
+          "pickup_urgency": 0.16074081271494656,
+          "proximity": 0.1478892424400465,
+          "species_specialization": 0.09521074459096787,
+          "vet_care": 0.5238418343875534
+        },
+        "weightingMode": "blend",
+        "weightsVersion": "v1-elicited-20261011-a785f618",
+        "archetypeProbabilities": {
+          "INJURED_CRITICAL": 0.95,
+          "STABLE_ROUTINE": 0.05,
+          "URGENT_TRANSIENT": 0
+        },
+        "usedFallback": false
+      }
+    },
+    {
+      "caseId": "49569f42-7c44-4e97-a622-0c986ad083ff",
+      "scenario": "loose",
+      "mode": "blend",
+      "lat": 40.777,
+      "lng": -73.945,
+      "startedMs": 1792544559980,
+      "endedMs": 1792544585970,
+      "finalStatus": "ASSIGNED",
+      "secondsToAwaitingConfirmation": 24.574280977249146,
+      "secondsToAssigned": 25.648669958114624,
+      "winner": "shelter-manhattan-acc",
+      "eligibleBids": [
+        {
+          "shelterId": "shelter-manhattan-acc",
+          "score": 0.8656
+        },
+        {
+          "shelterId": "shelter-soho-second-chance",
+          "score": 0.6362
+        }
+      ],
+      "needsProfile": {
+        "urgencyLevel": "HIGH",
+        "hardConstraints": [
+          "accepts_species:dog"
+        ],
+        "softWeights": {
+          "long_term_care": 0.07053360571549541,
+          "pickup_urgency": 0.3722864240357082,
+          "proximity": 0.37595659289124295,
+          "species_specialization": 0.11583403325278738,
+          "vet_care": 0.06538934410476605
+        },
+        "weightingMode": "blend",
+        "weightsVersion": "v1-elicited-20261011-a785f618",
+        "archetypeProbabilities": {
+          "INJURED_CRITICAL": 0,
+          "STABLE_ROUTINE": 0.05,
+          "URGENT_TRANSIENT": 0.95
+        },
+        "usedFallback": false
+      }
+    },
+    {
+      "caseId": "d02750ce-1e24-46e8-8375-8b3a1de40925",
+      "scenario": "loose",
+      "mode": "blend",
+      "lat": 40.795,
+      "lng": -73.945,
+      "startedMs": 1792544585971,
+      "endedMs": 1792544610965,
+      "finalStatus": "ASSIGNED",
+      "secondsToAwaitingConfirmation": 23.57609987258911,
+      "secondsToAssigned": 24.634588956832886,
+      "winner": "shelter-manhattan-acc",
+      "eligibleBids": [
+        {
+          "shelterId": "shelter-manhattan-acc",
+          "score": 0.8861
+        },
+        {
+          "shelterId": "shelter-soho-second-chance",
+          "score": 0.597
+        }
+      ],
+      "needsProfile": {
+        "urgencyLevel": "HIGH",
+        "hardConstraints": [
+          "accepts_species:dog"
+        ],
+        "softWeights": {
+          "long_term_care": 0.07053360571549541,
+          "pickup_urgency": 0.3722864240357082,
+          "proximity": 0.37595659289124295,
+          "species_specialization": 0.11583403325278738,
+          "vet_care": 0.06538934410476605
+        },
+        "weightingMode": "blend",
+        "weightsVersion": "v1-elicited-20261011-a785f618",
+        "archetypeProbabilities": {
+          "INJURED_CRITICAL": 0,
+          "STABLE_ROUTINE": 0.05,
+          "URGENT_TRANSIENT": 0.95
+        },
+        "usedFallback": false
+      }
+    },
+    {
+      "caseId": "7ab58efd-4bfb-4e8f-b80b-4b006bafd1b1",
+      "scenario": "injured_loose",
+      "mode": "llm-after-rollback",
+      "lat": 40.8115,
+      "lng": -73.968,
+      "startedMs": 1792544618309,
+      "endedMs": 1792544644089,
+      "finalStatus": "ASSIGNED",
+      "secondsToAwaitingConfirmation": 24.185842752456665,
+      "secondsToAssigned": 25.42995285987854,
+      "winner": "shelter-manhattan-acc",
+      "eligibleBids": [
+        {
+          "shelterId": "shelter-manhattan-acc",
+          "score": 0.8922
+        }
+      ],
+      "needsProfile": {
+        "urgencyLevel": "CRITICAL",
+        "hardConstraints": [
+          "has_vet"
+        ],
+        "softWeights": {
+          "long_term_care": 0.05,
+          "pickup_urgency": 0.35,
+          "proximity": 0.1,
+          "species_specialization": 0.05,
+          "vet_care": 0.45
+        },
+        "weightingMode": null,
+        "weightsVersion": null,
+        "archetypeProbabilities": null,
+        "usedFallback": null
+      }
+    }
+  ],
+  "needsProfileReports": [
+    {
+      "ts": 1792544298647,
+      "durationMs": 3975.72,
+      "maxMemMB": 100,
+      "initMs": 439.71
+    },
+    {
+      "ts": 1792544326767,
+      "durationMs": 4194.9,
+      "maxMemMB": 102,
+      "initMs": null
+    },
+    {
+      "ts": 1792544352627,
+      "durationMs": 3338.24,
+      "maxMemMB": 102,
+      "initMs": null
+    },
+    {
+      "ts": 1792544354017,
+      "durationMs": 3977.57,
+      "maxMemMB": 100,
+      "initMs": 444.1
+    },
+    {
+      "ts": 1792544379248,
+      "durationMs": 3639.89,
+      "maxMemMB": 102,
+      "initMs": null
+    },
+    {
+      "ts": 1792544379536,
+      "durationMs": 4180.65,
+      "maxMemMB": 102,
+      "initMs": null
+    },
+    {
+      "ts": 1792544404988,
+      "durationMs": 3384.8,
+      "maxMemMB": 102,
+      "initMs": null
+    },
+    {
+      "ts": 1792544405419,
+      "durationMs": 3845.68,
+      "maxMemMB": 102,
+      "initMs": null
+    },
+    {
+      "ts": 1792544428826,
+      "durationMs": 2687.45,
+      "maxMemMB": 102,
+      "initMs": null
+    },
+    {
+      "ts": 1792544429104,
+      "durationMs": 3011.52,
+      "maxMemMB": 102,
+      "initMs": null
+    },
+    {
+      "ts": 1792544464569,
+      "durationMs": 4804.1,
+      "maxMemMB": 100,
+      "initMs": 414.2
+    },
+    {
+      "ts": 1792544487370,
+      "durationMs": 3320.01,
+      "maxMemMB": 102,
+      "initMs": null
+    },
+    {
+      "ts": 1792544488650,
+      "durationMs": 3862.61,
+      "maxMemMB": 100,
+      "initMs": 445.76
+    },
+    {
+      "ts": 1792544511768,
+      "durationMs": 2805.31,
+      "maxMemMB": 102,
+      "initMs": null
+    },
+    {
+      "ts": 1792544512833,
+      "durationMs": 3945.07,
+      "maxMemMB": 102,
+      "initMs": null
+    },
+    {
+      "ts": 1792544538170,
+      "durationMs": 2886.13,
+      "maxMemMB": 102,
+      "initMs": null
+    },
+    {
+      "ts": 1792544563948,
+      "durationMs": 2756.97,
+      "maxMemMB": 102,
+      "initMs": null
+    },
+    {
+      "ts": 1792544564132,
+      "durationMs": 3065.92,
+      "maxMemMB": 102,
+      "initMs": null
+    },
+    {
+      "ts": 1792544590652,
+      "durationMs": 3371.67,
+      "maxMemMB": 102,
+      "initMs": null
+    },
+    {
+      "ts": 1792544590669,
+      "durationMs": 3372.94,
+      "maxMemMB": 102,
+      "initMs": null
+    },
+    {
+      "ts": 1792544623675,
+      "durationMs": 3645.54,
+      "maxMemMB": 101,
+      "initMs": 429.18
+    },
+    {
+      "ts": 1792544624396,
+      "durationMs": 4286.79,
+      "maxMemMB": 100,
+      "initMs": 456.76
+    }
+  ],
+  "errorLines": {
+    "intake": [],
+    "needs-profile": [],
+    "image-agent": [],
+    "geocoding-agent": [],
+    "dedup-agent": [],
+    "tier1-agent": [],
+    "tier2-agent": [],
+    "arbitrator": [],
+    "confirmation-handler": []
+  }
+}

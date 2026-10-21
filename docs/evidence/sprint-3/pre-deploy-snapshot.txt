@@ -1,0 +1,10 @@
+# Pre-deploy snapshot, 2026-10-18 10:54:56 EDT
+# git HEAD: 6219f97233d4e6fc1cdf4bad55503c9d4f71bdf1
+rescuenet-intake	MSUHxltilGkQMzZOjFAdApXtdPRW2Z36xAE4lqQPSIg=	2026-08-01T14:49:29.000+0000	nodejs20.x	256	30	None
+rescuenet-needs-profile	nvuhto3w68raJ6U44K6OJw26KSvBDSjMbY+bJCicybE=	2026-08-01T05:46:48.000+0000	nodejs20.x	256	30	None
+rescuenet-arbitrator	tqrT4coSibcc/17iWNKiswVKzCJFaEXsOVQvyHGiobA=	2026-08-01T05:46:49.000+0000	nodejs20.x	256	60	None
+rescuenet-tier1-agent	cVlxVgFBMHPQDeF4ZOQcAPp+lxNUrOtlk/CR6EJtTYY=	2026-08-01T05:46:49.000+0000	nodejs20.x	256	30	None
+rescuenet-tier2-agent	0cmTjp7FEaP6pekMNKRGXSbdHzC1q/NSRuMTKaZGBtU=	2026-08-01T05:46:49.000+0000	nodejs20.x	256	30	None
+rescuenet-confirmation-handler	xpd3IrmFO0nsHT1mdAOMps9BE2f7AfBDhxzBIt53710=	2026-08-01T05:46:48.000+0000	nodejs20.x	256	30	None
+rescuenet-dedup-agent	Z9+bLcgdlPryRgFR6T4GGgxx54BTylpUZpWQxTiVu2w=	2026-08-01T16:21:49.000+0000	nodejs20.x	256	30	None
+# case count: 4
