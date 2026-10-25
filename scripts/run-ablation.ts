@@ -65,5 +65,5 @@ console.log(`  H4 (control correct in all cells): ${S.controlsAllCorrect ? 'HOLD
 const out = arg('out', path.join('eval', 'results', PROD_BIDS ? 'ablation-posthoc-production-bids.json' : 'ablation.json'));
 const report = { provenance: { commit: git('rev-parse HEAD'), annotationsSet1: sha('eval/annotations.json'), annotationsSet2: sha('eval/annotations-set2.json'), recorded: specs.map(s => s.recordedFile) }, summary: S, rows };
 const body = JSON.stringify(report, null, 2);
-fs.writeFileSync(path.join(repo, out), body + '\n');
+fs.writeFileSync(path.isAbsolute(out) ? out : path.join(repo, out), body + '\n');
 console.log(`\nresult hash: ${createHash('sha256').update(JSON.stringify({ S, rows })).digest('hex')}\nwrote ${out}`);
