@@ -1,0 +1,22 @@
+{
+  "id": "SYN-15",
+  "modelId": "us.anthropic.claude-sonnet-4-5-20250929-v1:0",
+  "recordedAt": "2026-10-25T09:49:51.988Z",
+  "error": null,
+  "throttled": false,
+  "rawText": "```json\n{\n  \"hardConstraints\": [\"accepts_species:dog\"],\n  \"softWeights\": {\n    \"vet_care\": 0.05,\n    \"pickup_urgency\": 0.40,\n    \"species_specialization\": 0.10,\n    \"proximity\": 0.35,\n    \"long_term_care\": 0.10\n  },\n  \"urgencyLevel\": \"MEDIUM\",\n  \"reasoning\": \"Healthy dog is temporarily secured but reporter can only hold for one day, requiring prompt pickup within 24 hours.\"\n}\n```",
+  "profile": {
+    "hardConstraints": [
+      "accepts_species:dog"
+    ],
+    "softWeights": {
+      "vet_care": 0.05,
+      "pickup_urgency": 0.4,
+      "species_specialization": 0.1,
+      "proximity": 0.35,
+      "long_term_care": 0.1
+    },
+    "urgencyLevel": "MEDIUM",
+    "reasoning": "Healthy dog is temporarily secured but reporter can only hold for one day, requiring prompt pickup within 24 hours."
+  }
+}

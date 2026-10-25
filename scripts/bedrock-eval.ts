@@ -4,7 +4,7 @@
 //   npx ts-node scripts/bedrock-eval.ts --freeze-v1           one v1 call per fixture  -> eval/frozen-v1/<ID>.json
 //   npx ts-node scripts/bedrock-eval.ts --classify --repeats 5   v2 classifier, temperature 0, N calls per fixture
 //                                                              -> eval/results/classifier-<stamp>.json (+ recorded replay file)
-//   add --dry to print the plan and the number of calls without calling anything.
+//   add --set 2 for the second evaluation set (eval/fixtures-set2); add --dry to print the plan and the number of calls without calling anything.
 import { BedrockRuntimeClient, InvokeModelCommand } from '@aws-sdk/client-bedrock-runtime';
 import * as fs from 'fs';
 import * as path from 'path';
@@ -17,7 +17,9 @@ const has = (f: string) => process.argv.includes(`--${f}`);
 const val = (f: string, d: string) => { const i = process.argv.indexOf(`--${f}`); return i >= 0 ? process.argv[i + 1] : d; };
 const region = process.env.REGION ?? process.env.AWS_REGION ?? process.env.AWS_DEFAULT_REGION ?? 'us-east-1';
 const client = new BedrockRuntimeClient({ region });
-const fixtures = loadFixtures().filter(f => f.injectClassifierOutput === undefined);  // SYN-08 injects a fault; no call needed
+const setNo = val('set', '1');   // --set 2 targets eval/fixtures-set2 and writes set-2 file names, leaving the set-1 evidence untouched
+const tag = setNo === '2' ? 'set2-' : '';
+const fixtures = loadFixtures(setNo === '2' ? path.join('eval', 'fixtures-set2') : undefined).filter(f => f.injectClassifierOutput === undefined);  // SYN-08 injects a fault; no call needed
 
 type Outcome = { text: string | null; error: string | null; throttled: boolean; ms: number };
 async function call(system: string, user: string, temperature?: number): Promise<Outcome> {
@@ -40,7 +42,7 @@ async function call(system: string, user: string, temperature?: number): Promise
   if (has('freeze-v1')) {
     console.log(`v1 freeze: ${fixtures.length} calls, model ${MODEL_ID}, region ${region}${has('dry') ? ' (DRY RUN, no calls)' : ''}`);
     if (has('dry')) return;
-    const dir = path.join('eval', 'frozen-v1'); fs.mkdirSync(dir, { recursive: true });
+    const dir = path.join('eval', setNo === '2' ? 'frozen-v1-set2' : 'frozen-v1'); fs.mkdirSync(dir, { recursive: true });
     for (const f of fixtures) {
       const o = await call(V1_SYSTEM_PROMPT, buildV1UserPrompt(f.reportData));
       let profile: unknown = null;
@@ -71,9 +73,9 @@ async function call(system: string, user: string, temperature?: number): Promise
     const stamp = new Date().toISOString().replace(/[:.]/g, '-');
     fs.mkdirSync(path.join('eval', 'results'), { recursive: true });
     const recorded = Object.fromEntries(Object.entries(runs).map(([id, rs]) => { const first = rs.find(r => r.parsed); return [id, first ? { modelOutput: first.parsed!.archetypeProbabilities, hardConstraints: first.parsed!.hardConstraints } : { modelOutput: null, hardConstraints: [] }]; }));
-    fs.writeFileSync(path.join('eval', 'results', `classifier-${stamp}.json`), JSON.stringify({ modelId: MODEL_ID, region, temperature: 0, repeats, stability, runs }, null, 2) + '\n');
-    fs.writeFileSync(path.join('eval', 'results', `classifier-recorded-${stamp}.json`), JSON.stringify(recorded, null, 2) + '\n');
-    console.log(`\nwrote eval/results/classifier-${stamp}.json and classifier-recorded-${stamp}.json`);
+    fs.writeFileSync(path.join('eval', 'results', `classifier-${tag}${stamp}.json`), JSON.stringify({ modelId: MODEL_ID, region, temperature: 0, repeats, stability, runs }, null, 2) + '\n');
+    fs.writeFileSync(path.join('eval', 'results', `classifier-${tag}recorded-${stamp}.json`), JSON.stringify(recorded, null, 2) + '\n');
+    console.log(`\nwrote eval/results/classifier-${tag}${stamp}.json and classifier-${tag}recorded-${stamp}.json`);
     return;
   }
   console.log('Usage: --freeze-v1 | --classify [--repeats N]   (add --dry to print the plan only)');

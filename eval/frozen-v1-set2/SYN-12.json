@@ -1,0 +1,22 @@
+{
+  "id": "SYN-12",
+  "modelId": "us.anthropic.claude-sonnet-4-5-20250929-v1:0",
+  "recordedAt": "2026-10-25T09:49:42.850Z",
+  "error": null,
+  "throttled": false,
+  "rawText": "```json\n{\n  \"hardConstraints\": [\"accepts_species:dog\"],\n  \"softWeights\": {\n    \"vet_care\": 0.15,\n    \"pickup_urgency\": 0.50,\n    \"species_specialization\": 0.05,\n    \"proximity\": 0.25,\n    \"long_term_care\": 0.05\n  },\n  \"urgencyLevel\": \"CRITICAL\",\n  \"reasoning\": \"Dog is in immediate life-threatening danger near highway traffic and reporter cannot secure it, requiring immediate pickup response.\"\n}\n```",
+  "profile": {
+    "hardConstraints": [
+      "accepts_species:dog"
+    ],
+    "softWeights": {
+      "vet_care": 0.15,
+      "pickup_urgency": 0.5,
+      "species_specialization": 0.05,
+      "proximity": 0.25,
+      "long_term_care": 0.05
+    },
+    "urgencyLevel": "CRITICAL",
+    "reasoning": "Dog is in immediate life-threatening danger near highway traffic and reporter cannot secure it, requiring immediate pickup response."
+  }
+}

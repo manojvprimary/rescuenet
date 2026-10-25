@@ -1,0 +1,23 @@
+{
+  "id": "SYN-09",
+  "modelId": "us.anthropic.claude-sonnet-4-5-20250929-v1:0",
+  "recordedAt": "2026-10-25T09:49:33.975Z",
+  "error": null,
+  "throttled": false,
+  "rawText": "```json\n{\n  \"hardConstraints\": [\"has_vet\", \"accepts_species:cat\"],\n  \"softWeights\": {\n    \"vet_care\": 0.50,\n    \"pickup_urgency\": 0.30,\n    \"species_specialization\": 0.05,\n    \"proximity\": 0.10,\n    \"long_term_care\": 0.05\n  },\n  \"urgencyLevel\": \"CRITICAL\",\n  \"reasoning\": \"Cat is critically injured from car collision with visible bleeding and inability to stand, requiring immediate veterinary intervention.\"\n}\n```",
+  "profile": {
+    "hardConstraints": [
+      "has_vet",
+      "accepts_species:cat"
+    ],
+    "softWeights": {
+      "vet_care": 0.5,
+      "pickup_urgency": 0.3,
+      "species_specialization": 0.05,
+      "proximity": 0.1,
+      "long_term_care": 0.05
+    },
+    "urgencyLevel": "CRITICAL",
+    "reasoning": "Cat is critically injured from car collision with visible bleeding and inability to stand, requiring immediate veterinary intervention."
+  }
+}

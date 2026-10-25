@@ -1,0 +1,85 @@
+{
+  "SYN-09": {
+    "modelOutput": {
+      "INJURED_CRITICAL": 0.95,
+      "URGENT_TRANSIENT": 0.05,
+      "STABLE_ROUTINE": 0
+    },
+    "hardConstraints": [
+      "has_vet",
+      "accepts_species:cat"
+    ]
+  },
+  "SYN-10": {
+    "modelOutput": {
+      "INJURED_CRITICAL": 0.85,
+      "URGENT_TRANSIENT": 0,
+      "STABLE_ROUTINE": 0.15
+    },
+    "hardConstraints": [
+      "has_vet",
+      "accepts_species:dog"
+    ]
+  },
+  "SYN-11": {
+    "modelOutput": {
+      "INJURED_CRITICAL": 0,
+      "URGENT_TRANSIENT": 0.95,
+      "STABLE_ROUTINE": 0.05
+    },
+    "hardConstraints": [
+      "accepts_species:dog"
+    ]
+  },
+  "SYN-12": {
+    "modelOutput": {
+      "INJURED_CRITICAL": 0,
+      "URGENT_TRANSIENT": 1,
+      "STABLE_ROUTINE": 0
+    },
+    "hardConstraints": [
+      "accepts_species:dog"
+    ]
+  },
+  "SYN-13": {
+    "modelOutput": {
+      "INJURED_CRITICAL": 0,
+      "URGENT_TRANSIENT": 0,
+      "STABLE_ROUTINE": 1
+    },
+    "hardConstraints": [
+      "accepts_species:rabbit"
+    ]
+  },
+  "SYN-14": {
+    "modelOutput": {
+      "INJURED_CRITICAL": 0,
+      "URGENT_TRANSIENT": 0,
+      "STABLE_ROUTINE": 1
+    },
+    "hardConstraints": [
+      "accepts_species:cat"
+    ]
+  },
+  "SYN-15": {
+    "modelOutput": {
+      "INJURED_CRITICAL": 0,
+      "URGENT_TRANSIENT": 0,
+      "STABLE_ROUTINE": 1
+    },
+    "hardConstraints": [
+      "accepts_species:dog"
+    ]
+  },
+  "SYN-16": {
+    "modelOutput": {
+      "INJURED_CRITICAL": 0.85,
+      "URGENT_TRANSIENT": 0,
+      "STABLE_ROUTINE": 0.15
+    },
+    "hardConstraints": [
+      "has_vet",
+      "accepts_species:cat"
+    ]
+  }
+}

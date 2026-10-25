@@ -1,0 +1,555 @@
+{
+  "modelId": "us.anthropic.claude-sonnet-4-5-20250929-v1:0",
+  "region": "us-east-1",
+  "temperature": 0,
+  "repeats": 3,
+  "stability": {
+    "SYN-09": {
+      "valid": 3,
+      "of": 3,
+      "throttled": 0,
+      "maxSpread": 0,
+      "topArchetypes": [
+        "INJURED_CRITICAL",
+        "INJURED_CRITICAL",
+        "INJURED_CRITICAL"
+      ]
+    },
+    "SYN-10": {
+      "valid": 3,
+      "of": 3,
+      "throttled": 0,
+      "maxSpread": 0,
+      "topArchetypes": [
+        "INJURED_CRITICAL",
+        "INJURED_CRITICAL",
+        "INJURED_CRITICAL"
+      ]
+    },
+    "SYN-11": {
+      "valid": 3,
+      "of": 3,
+      "throttled": 0,
+      "maxSpread": 0,
+      "topArchetypes": [
+        "URGENT_TRANSIENT",
+        "URGENT_TRANSIENT",
+        "URGENT_TRANSIENT"
+      ]
+    },
+    "SYN-12": {
+      "valid": 3,
+      "of": 3,
+      "throttled": 0,
+      "maxSpread": 0,
+      "topArchetypes": [
+        "URGENT_TRANSIENT",
+        "URGENT_TRANSIENT",
+        "URGENT_TRANSIENT"
+      ]
+    },
+    "SYN-13": {
+      "valid": 3,
+      "of": 3,
+      "throttled": 0,
+      "maxSpread": 0,
+      "topArchetypes": [
+        "STABLE_ROUTINE",
+        "STABLE_ROUTINE",
+        "STABLE_ROUTINE"
+      ]
+    },
+    "SYN-14": {
+      "valid": 3,
+      "of": 3,
+      "throttled": 0,
+      "maxSpread": 0,
+      "topArchetypes": [
+        "STABLE_ROUTINE",
+        "STABLE_ROUTINE",
+        "STABLE_ROUTINE"
+      ]
+    },
+    "SYN-15": {
+      "valid": 3,
+      "of": 3,
+      "throttled": 0,
+      "maxSpread": 0,
+      "topArchetypes": [
+        "STABLE_ROUTINE",
+        "STABLE_ROUTINE",
+        "STABLE_ROUTINE"
+      ]
+    },
+    "SYN-16": {
+      "valid": 3,
+      "of": 3,
+      "throttled": 0,
+      "maxSpread": 0,
+      "topArchetypes": [
+        "INJURED_CRITICAL",
+        "INJURED_CRITICAL",
+        "INJURED_CRITICAL"
+      ]
+    }
+  },
+  "runs": {
+    "SYN-09": [
+      {
+        "parsed": {
+          "hardConstraints": [
+            "has_vet",
+            "accepts_species:cat"
+          ],
+          "archetypeProbabilities": {
+            "INJURED_CRITICAL": 0.95,
+            "URGENT_TRANSIENT": 0.05,
+            "STABLE_ROUTINE": 0
+          },
+          "urgencyLevel": "CRITICAL",
+          "reasoning": "Cat hit by car with visible bleeding and inability to stand requires immediate veterinary intervention."
+        },
+        "rawText": "```json\n{\n  \"hardConstraints\": [\"has_vet\", \"accepts_species:cat\"],\n  \"archetypeProbabilities\": { \"INJURED_CRITICAL\": 0.95, \"URGENT_TRANSIENT\": 0.05, \"STABLE_ROUTINE\": 0.00 },\n  \"urgencyLevel\": \"CRITICAL\",\n  \"reasoning\": \"Cat hit by car with visible bleeding and inability to stand requires immediate veterinary intervention.\"\n}\n```",
+        "error": null,
+        "throttled": false,
+        "ms": 2506
+      },
+      {
+        "parsed": {
+          "hardConstraints": [
+            "has_vet",
+            "accepts_species:cat"
+          ],
+          "archetypeProbabilities": {
+            "INJURED_CRITICAL": 0.95,
+            "URGENT_TRANSIENT": 0.05,
+            "STABLE_ROUTINE": 0
+          },
+          "urgencyLevel": "CRITICAL",
+          "reasoning": "Cat hit by car with visible bleeding and inability to stand requires immediate veterinary intervention."
+        },
+        "rawText": "```json\n{\n  \"hardConstraints\": [\"has_vet\", \"accepts_species:cat\"],\n  \"archetypeProbabilities\": { \"INJURED_CRITICAL\": 0.95, \"URGENT_TRANSIENT\": 0.05, \"STABLE_ROUTINE\": 0.00 },\n  \"urgencyLevel\": \"CRITICAL\",\n  \"reasoning\": \"Cat hit by car with visible bleeding and inability to stand requires immediate veterinary intervention.\"\n}\n```",
+        "error": null,
+        "throttled": false,
+        "ms": 2921
+      },
+      {
+        "parsed": {
+          "hardConstraints": [
+            "has_vet",
+            "accepts_species:cat"
+          ],
+          "archetypeProbabilities": {
+            "INJURED_CRITICAL": 0.95,
+            "URGENT_TRANSIENT": 0.05,
+            "STABLE_ROUTINE": 0
+          },
+          "urgencyLevel": "CRITICAL",
+          "reasoning": "Cat hit by car with visible bleeding and inability to stand requires immediate veterinary intervention."
+        },
+        "rawText": "```json\n{\n  \"hardConstraints\": [\"has_vet\", \"accepts_species:cat\"],\n  \"archetypeProbabilities\": { \"INJURED_CRITICAL\": 0.95, \"URGENT_TRANSIENT\": 0.05, \"STABLE_ROUTINE\": 0.00 },\n  \"urgencyLevel\": \"CRITICAL\",\n  \"reasoning\": \"Cat hit by car with visible bleeding and inability to stand requires immediate veterinary intervention.\"\n}\n```",
+        "error": null,
+        "throttled": false,
+        "ms": 2666
+      }
+    ],
+    "SYN-10": [
+      {
+        "parsed": {
+          "hardConstraints": [
+            "has_vet",
+            "accepts_species:dog"
+          ],
+          "archetypeProbabilities": {
+            "INJURED_CRITICAL": 0.85,
+            "URGENT_TRANSIENT": 0,
+            "STABLE_ROUTINE": 0.15
+          },
+          "urgencyLevel": "HIGH",
+          "reasoning": "Dog has deep cut with active bleeding and limping but is secured by reporter, requiring immediate veterinary treatment."
+        },
+        "rawText": "```json\n{\n  \"hardConstraints\": [\"has_vet\", \"accepts_species:dog\"],\n  \"archetypeProbabilities\": { \"INJURED_CRITICAL\": 0.85, \"URGENT_TRANSIENT\": 0.0, \"STABLE_ROUTINE\": 0.15 },\n  \"urgencyLevel\": \"HIGH\",\n  \"reasoning\": \"Dog has deep cut with active bleeding and limping but is secured by reporter, requiring immediate veterinary treatment.\"\n}\n```",
+        "error": null,
+        "throttled": false,
+        "ms": 2764
+      },
+      {
+        "parsed": {
+          "hardConstraints": [
+            "has_vet",
+            "accepts_species:dog"
+          ],
+          "archetypeProbabilities": {
+            "INJURED_CRITICAL": 0.85,
+            "URGENT_TRANSIENT": 0,
+            "STABLE_ROUTINE": 0.15
+          },
+          "urgencyLevel": "HIGH",
+          "reasoning": "Dog has deep cut with active bleeding and limping but is secured by reporter, requiring immediate veterinary treatment."
+        },
+        "rawText": "```json\n{\n  \"hardConstraints\": [\"has_vet\", \"accepts_species:dog\"],\n  \"archetypeProbabilities\": { \"INJURED_CRITICAL\": 0.85, \"URGENT_TRANSIENT\": 0.0, \"STABLE_ROUTINE\": 0.15 },\n  \"urgencyLevel\": \"HIGH\",\n  \"reasoning\": \"Dog has deep cut with active bleeding and limping but is secured by reporter, requiring immediate veterinary treatment.\"\n}\n```",
+        "error": null,
+        "throttled": false,
+        "ms": 2646
+      },
+      {
+        "parsed": {
+          "hardConstraints": [
+            "has_vet",
+            "accepts_species:dog"
+          ],
+          "archetypeProbabilities": {
+            "INJURED_CRITICAL": 0.85,
+            "URGENT_TRANSIENT": 0,
+            "STABLE_ROUTINE": 0.15
+          },
+          "urgencyLevel": "HIGH",
+          "reasoning": "Dog has deep cut with active bleeding and limping but is secured by reporter, requiring immediate veterinary treatment."
+        },
+        "rawText": "```json\n{\n  \"hardConstraints\": [\"has_vet\", \"accepts_species:dog\"],\n  \"archetypeProbabilities\": { \"INJURED_CRITICAL\": 0.85, \"URGENT_TRANSIENT\": 0.0, \"STABLE_ROUTINE\": 0.15 },\n  \"urgencyLevel\": \"HIGH\",\n  \"reasoning\": \"Dog has deep cut with active bleeding and limping but is secured by reporter, requiring immediate veterinary treatment.\"\n}\n```",
+        "error": null,
+        "throttled": false,
+        "ms": 2578
+      }
+    ],
+    "SYN-11": [
+      {
+        "parsed": {
+          "hardConstraints": [
+            "accepts_species:dog"
+          ],
+          "archetypeProbabilities": {
+            "INJURED_CRITICAL": 0,
+            "URGENT_TRANSIENT": 0.95,
+            "STABLE_ROUTINE": 0.05
+          },
+          "urgencyLevel": "HIGH",
+          "reasoning": "Healthy dog running loose near road creates urgent transient situation due to traffic danger and inability to secure the animal."
+        },
+        "rawText": "```json\n{\n  \"hardConstraints\": [\"accepts_species:dog\"],\n  \"archetypeProbabilities\": { \"INJURED_CRITICAL\": 0.0, \"URGENT_TRANSIENT\": 0.95, \"STABLE_ROUTINE\": 0.05 },\n  \"urgencyLevel\": \"HIGH\",\n  \"reasoning\": \"Healthy dog running loose near road creates urgent transient situation due to traffic danger and inability to secure the animal.\"\n}\n```",
+        "error": null,
+        "throttled": false,
+        "ms": 2702
+      },
+      {
+        "parsed": {
+          "hardConstraints": [
+            "accepts_species:dog"
+          ],
+          "archetypeProbabilities": {
+            "INJURED_CRITICAL": 0,
+            "URGENT_TRANSIENT": 0.95,
+            "STABLE_ROUTINE": 0.05
+          },
+          "urgencyLevel": "HIGH",
+          "reasoning": "Healthy dog running loose near road creates urgent transient situation due to traffic danger and inability to secure the animal."
+        },
+        "rawText": "```json\n{\n  \"hardConstraints\": [\"accepts_species:dog\"],\n  \"archetypeProbabilities\": { \"INJURED_CRITICAL\": 0.0, \"URGENT_TRANSIENT\": 0.95, \"STABLE_ROUTINE\": 0.05 },\n  \"urgencyLevel\": \"HIGH\",\n  \"reasoning\": \"Healthy dog running loose near road creates urgent transient situation due to traffic danger and inability to secure the animal.\"\n}\n```",
+        "error": null,
+        "throttled": false,
+        "ms": 2784
+      },
+      {
+        "parsed": {
+          "hardConstraints": [
+            "accepts_species:dog"
+          ],
+          "archetypeProbabilities": {
+            "INJURED_CRITICAL": 0,
+            "URGENT_TRANSIENT": 0.95,
+            "STABLE_ROUTINE": 0.05
+          },
+          "urgencyLevel": "HIGH",
+          "reasoning": "Healthy dog running loose near road creates urgent transient situation due to traffic danger and inability to secure the animal."
+        },
+        "rawText": "```json\n{\n  \"hardConstraints\": [\"accepts_species:dog\"],\n  \"archetypeProbabilities\": { \"INJURED_CRITICAL\": 0.0, \"URGENT_TRANSIENT\": 0.95, \"STABLE_ROUTINE\": 0.05 },\n  \"urgencyLevel\": \"HIGH\",\n  \"reasoning\": \"Healthy dog running loose near road creates urgent transient situation due to traffic danger and inability to secure the animal.\"\n}\n```",
+        "error": null,
+        "throttled": false,
+        "ms": 2601
+      }
+    ],
+    "SYN-12": [
+      {
+        "parsed": {
+          "hardConstraints": [
+            "accepts_species:dog"
+          ],
+          "archetypeProbabilities": {
+            "INJURED_CRITICAL": 0,
+            "URGENT_TRANSIENT": 1,
+            "STABLE_ROUTINE": 0
+          },
+          "urgencyLevel": "HIGH",
+          "reasoning": "Healthy dog loose near highway traffic that reporter cannot secure presents immediate danger requiring urgent capture."
+        },
+        "rawText": "```json\n{\n  \"hardConstraints\": [\"accepts_species:dog\"],\n  \"archetypeProbabilities\": { \"INJURED_CRITICAL\": 0.0, \"URGENT_TRANSIENT\": 1.0, \"STABLE_ROUTINE\": 0.0 },\n  \"urgencyLevel\": \"HIGH\",\n  \"reasoning\": \"Healthy dog loose near highway traffic that reporter cannot secure presents immediate danger requiring urgent capture.\"\n}\n```",
+        "error": null,
+        "throttled": false,
+        "ms": 2761
+      },
+      {
+        "parsed": {
+          "hardConstraints": [
+            "accepts_species:dog"
+          ],
+          "archetypeProbabilities": {
+            "INJURED_CRITICAL": 0,
+            "URGENT_TRANSIENT": 1,
+            "STABLE_ROUTINE": 0
+          },
+          "urgencyLevel": "HIGH",
+          "reasoning": "Healthy dog loose near highway traffic that reporter cannot secure presents immediate danger requiring urgent capture."
+        },
+        "rawText": "```json\n{\n  \"hardConstraints\": [\"accepts_species:dog\"],\n  \"archetypeProbabilities\": { \"INJURED_CRITICAL\": 0.0, \"URGENT_TRANSIENT\": 1.0, \"STABLE_ROUTINE\": 0.0 },\n  \"urgencyLevel\": \"HIGH\",\n  \"reasoning\": \"Healthy dog loose near highway traffic that reporter cannot secure presents immediate danger requiring urgent capture.\"\n}\n```",
+        "error": null,
+        "throttled": false,
+        "ms": 2881
+      },
+      {
+        "parsed": {
+          "hardConstraints": [
+            "accepts_species:dog"
+          ],
+          "archetypeProbabilities": {
+            "INJURED_CRITICAL": 0,
+            "URGENT_TRANSIENT": 1,
+            "STABLE_ROUTINE": 0
+          },
+          "urgencyLevel": "HIGH",
+          "reasoning": "Healthy dog loose near highway traffic that reporter cannot secure presents immediate danger requiring urgent capture."
+        },
+        "rawText": "```json\n{\n  \"hardConstraints\": [\"accepts_species:dog\"],\n  \"archetypeProbabilities\": { \"INJURED_CRITICAL\": 0.0, \"URGENT_TRANSIENT\": 1.0, \"STABLE_ROUTINE\": 0.0 },\n  \"urgencyLevel\": \"HIGH\",\n  \"reasoning\": \"Healthy dog loose near highway traffic that reporter cannot secure presents immediate danger requiring urgent capture.\"\n}\n```",
+        "error": null,
+        "throttled": false,
+        "ms": 2585
+      }
+    ],
+    "SYN-13": [
+      {
+        "parsed": {
+          "hardConstraints": [
+            "accepts_species:rabbit"
+          ],
+          "archetypeProbabilities": {
+            "INJURED_CRITICAL": 0,
+            "URGENT_TRANSIENT": 0,
+            "STABLE_ROUTINE": 1
+          },
+          "urgencyLevel": "LOW",
+          "reasoning": "The rabbit is secured in a box, eating, appears healthy with no injury indicators, and the reporter can keep it overnight."
+        },
+        "rawText": "```json\n{\n  \"hardConstraints\": [\"accepts_species:rabbit\"],\n  \"archetypeProbabilities\": { \"INJURED_CRITICAL\": 0.0, \"URGENT_TRANSIENT\": 0.0, \"STABLE_ROUTINE\": 1.0 },\n  \"urgencyLevel\": \"LOW\",\n  \"reasoning\": \"The rabbit is secured in a box, eating, appears healthy with no injury indicators, and the reporter can keep it overnight.\"\n}\n```",
+        "error": null,
+        "throttled": false,
+        "ms": 2398
+      },
+      {
+        "parsed": {
+          "hardConstraints": [
+            "accepts_species:rabbit"
+          ],
+          "archetypeProbabilities": {
+            "INJURED_CRITICAL": 0,
+            "URGENT_TRANSIENT": 0,
+            "STABLE_ROUTINE": 1
+          },
+          "urgencyLevel": "LOW",
+          "reasoning": "The rabbit is secured in a box, eating, appears healthy with no injury indicators, and the reporter can keep it overnight."
+        },
+        "rawText": "```json\n{\n  \"hardConstraints\": [\"accepts_species:rabbit\"],\n  \"archetypeProbabilities\": { \"INJURED_CRITICAL\": 0.0, \"URGENT_TRANSIENT\": 0.0, \"STABLE_ROUTINE\": 1.0 },\n  \"urgencyLevel\": \"LOW\",\n  \"reasoning\": \"The rabbit is secured in a box, eating, appears healthy with no injury indicators, and the reporter can keep it overnight.\"\n}\n```",
+        "error": null,
+        "throttled": false,
+        "ms": 2325
+      },
+      {
+        "parsed": {
+          "hardConstraints": [
+            "accepts_species:rabbit"
+          ],
+          "archetypeProbabilities": {
+            "INJURED_CRITICAL": 0,
+            "URGENT_TRANSIENT": 0,
+            "STABLE_ROUTINE": 1
+          },
+          "urgencyLevel": "LOW",
+          "reasoning": "The rabbit is secured in a box, eating, appears healthy with no injury indicators, and the reporter can keep it overnight."
+        },
+        "rawText": "```json\n{\n  \"hardConstraints\": [\"accepts_species:rabbit\"],\n  \"archetypeProbabilities\": { \"INJURED_CRITICAL\": 0.0, \"URGENT_TRANSIENT\": 0.0, \"STABLE_ROUTINE\": 1.0 },\n  \"urgencyLevel\": \"LOW\",\n  \"reasoning\": \"The rabbit is secured in a box, eating, appears healthy with no injury indicators, and the reporter can keep it overnight.\"\n}\n```",
+        "error": null,
+        "throttled": false,
+        "ms": 2519
+      }
+    ],
+    "SYN-14": [
+      {
+        "parsed": {
+          "hardConstraints": [
+            "accepts_species:cat"
+          ],
+          "archetypeProbabilities": {
+            "INJURED_CRITICAL": 0,
+            "URGENT_TRANSIENT": 0,
+            "STABLE_ROUTINE": 1
+          },
+          "urgencyLevel": "LOW",
+          "reasoning": "Healthy cat in stable location with reporter able to monitor for days presents no immediate danger or medical need."
+        },
+        "rawText": "```json\n{\n  \"hardConstraints\": [\"accepts_species:cat\"],\n  \"archetypeProbabilities\": { \"INJURED_CRITICAL\": 0.0, \"URGENT_TRANSIENT\": 0.0, \"STABLE_ROUTINE\": 1.0 },\n  \"urgencyLevel\": \"LOW\",\n  \"reasoning\": \"Healthy cat in stable location with reporter able to monitor for days presents no immediate danger or medical need.\"\n}\n```",
+        "error": null,
+        "throttled": false,
+        "ms": 2618
+      },
+      {
+        "parsed": {
+          "hardConstraints": [
+            "accepts_species:cat"
+          ],
+          "archetypeProbabilities": {
+            "INJURED_CRITICAL": 0,
+            "URGENT_TRANSIENT": 0,
+            "STABLE_ROUTINE": 1
+          },
+          "urgencyLevel": "LOW",
+          "reasoning": "Healthy cat in stable location with reporter able to monitor for days presents no immediate danger or medical need."
+        },
+        "rawText": "```json\n{\n  \"hardConstraints\": [\"accepts_species:cat\"],\n  \"archetypeProbabilities\": { \"INJURED_CRITICAL\": 0.0, \"URGENT_TRANSIENT\": 0.0, \"STABLE_ROUTINE\": 1.0 },\n  \"urgencyLevel\": \"LOW\",\n  \"reasoning\": \"Healthy cat in stable location with reporter able to monitor for days presents no immediate danger or medical need.\"\n}\n```",
+        "error": null,
+        "throttled": false,
+        "ms": 3431
+      },
+      {
+        "parsed": {
+          "hardConstraints": [
+            "accepts_species:cat"
+          ],
+          "archetypeProbabilities": {
+            "INJURED_CRITICAL": 0,
+            "URGENT_TRANSIENT": 0,
+            "STABLE_ROUTINE": 1
+          },
+          "urgencyLevel": "LOW",
+          "reasoning": "Healthy cat in stable location with reporter able to monitor for days presents no immediate danger or medical need."
+        },
+        "rawText": "```json\n{\n  \"hardConstraints\": [\"accepts_species:cat\"],\n  \"archetypeProbabilities\": { \"INJURED_CRITICAL\": 0.0, \"URGENT_TRANSIENT\": 0.0, \"STABLE_ROUTINE\": 1.0 },\n  \"urgencyLevel\": \"LOW\",\n  \"reasoning\": \"Healthy cat in stable location with reporter able to monitor for days presents no immediate danger or medical need.\"\n}\n```",
+        "error": null,
+        "throttled": false,
+        "ms": 2733
+      }
+    ],
+    "SYN-15": [
+      {
+        "parsed": {
+          "hardConstraints": [
+            "accepts_species:dog"
+          ],
+          "archetypeProbabilities": {
+            "INJURED_CRITICAL": 0,
+            "URGENT_TRANSIENT": 0,
+            "STABLE_ROUTINE": 1
+          },
+          "urgencyLevel": "LOW",
+          "reasoning": "Friendly dog is secured in fenced yard, calm, unhurt, and reporter can hold it for a day with no immediate danger."
+        },
+        "rawText": "```json\n{\n  \"hardConstraints\": [\"accepts_species:dog\"],\n  \"archetypeProbabilities\": { \"INJURED_CRITICAL\": 0.0, \"URGENT_TRANSIENT\": 0.0, \"STABLE_ROUTINE\": 1.0 },\n  \"urgencyLevel\": \"LOW\",\n  \"reasoning\": \"Friendly dog is secured in fenced yard, calm, unhurt, and reporter can hold it for a day with no immediate danger.\"\n}\n```",
+        "error": null,
+        "throttled": false,
+        "ms": 2473
+      },
+      {
+        "parsed": {
+          "hardConstraints": [
+            "accepts_species:dog"
+          ],
+          "archetypeProbabilities": {
+            "INJURED_CRITICAL": 0,
+            "URGENT_TRANSIENT": 0,
+            "STABLE_ROUTINE": 1
+          },
+          "urgencyLevel": "LOW",
+          "reasoning": "Friendly dog is secured in fenced yard, calm, unhurt, and reporter can hold it for a day with no immediate danger."
+        },
+        "rawText": "```json\n{\n  \"hardConstraints\": [\"accepts_species:dog\"],\n  \"archetypeProbabilities\": { \"INJURED_CRITICAL\": 0.0, \"URGENT_TRANSIENT\": 0.0, \"STABLE_ROUTINE\": 1.0 },\n  \"urgencyLevel\": \"LOW\",\n  \"reasoning\": \"Friendly dog is secured in fenced yard, calm, unhurt, and reporter can hold it for a day with no immediate danger.\"\n}\n```",
+        "error": null,
+        "throttled": false,
+        "ms": 2367
+      },
+      {
+        "parsed": {
+          "hardConstraints": [
+            "accepts_species:dog"
+          ],
+          "archetypeProbabilities": {
+            "INJURED_CRITICAL": 0,
+            "URGENT_TRANSIENT": 0,
+            "STABLE_ROUTINE": 1
+          },
+          "urgencyLevel": "LOW",
+          "reasoning": "Friendly, uninjured dog is secured in a fenced yard with reporter able to hold it for a day."
+        },
+        "rawText": "```json\n{\n  \"hardConstraints\": [\"accepts_species:dog\"],\n  \"archetypeProbabilities\": { \"INJURED_CRITICAL\": 0.0, \"URGENT_TRANSIENT\": 0.0, \"STABLE_ROUTINE\": 1.0 },\n  \"urgencyLevel\": \"LOW\",\n  \"reasoning\": \"Friendly, uninjured dog is secured in a fenced yard with reporter able to hold it for a day.\"\n}\n```",
+        "error": null,
+        "throttled": false,
+        "ms": 2411
+      }
+    ],
+    "SYN-16": [
+      {
+        "parsed": {
+          "hardConstraints": [
+            "has_vet",
+            "accepts_species:cat"
+          ],
+          "archetypeProbabilities": {
+            "INJURED_CRITICAL": 0.85,
+            "URGENT_TRANSIENT": 0,
+            "STABLE_ROUTINE": 0.15
+          },
+          "urgencyLevel": "CRITICAL",
+          "reasoning": "Cat has badly injured bleeding leg requiring immediate veterinary attention, but reporter can stay with the animal making it secured."
+        },
+        "rawText": "```json\n{\n  \"hardConstraints\": [\"has_vet\", \"accepts_species:cat\"],\n  \"archetypeProbabilities\": { \"INJURED_CRITICAL\": 0.85, \"URGENT_TRANSIENT\": 0.0, \"STABLE_ROUTINE\": 0.15 },\n  \"urgencyLevel\": \"CRITICAL\",\n  \"reasoning\": \"Cat has badly injured bleeding leg requiring immediate veterinary attention, but reporter can stay with the animal making it secured.\"\n}\n```",
+        "error": null,
+        "throttled": false,
+        "ms": 2590
+      },
+      {
+        "parsed": {
+          "hardConstraints": [
+            "has_vet",
+            "accepts_species:cat"
+          ],
+          "archetypeProbabilities": {
+            "INJURED_CRITICAL": 0.85,
+            "URGENT_TRANSIENT": 0,
+            "STABLE_ROUTINE": 0.15
+          },
+          "urgencyLevel": "CRITICAL",
+          "reasoning": "Cat has badly injured bleeding leg requiring immediate veterinary attention, but reporter can stay with the animal making it secured."
+        },
+        "rawText": "```json\n{\n  \"hardConstraints\": [\"has_vet\", \"accepts_species:cat\"],\n  \"archetypeProbabilities\": { \"INJURED_CRITICAL\": 0.85, \"URGENT_TRANSIENT\": 0.0, \"STABLE_ROUTINE\": 0.15 },\n  \"urgencyLevel\": \"CRITICAL\",\n  \"reasoning\": \"Cat has badly injured bleeding leg requiring immediate veterinary attention, but reporter can stay with the animal making it secured.\"\n}\n```",
+        "error": null,
+        "throttled": false,
+        "ms": 2481
+      },
+      {
+        "parsed": {
+          "hardConstraints": [
+            "has_vet",
+            "accepts_species:cat"
+          ],
+          "archetypeProbabilities": {
+            "INJURED_CRITICAL": 0.85,
+            "URGENT_TRANSIENT": 0,
+            "STABLE_ROUTINE": 0.15
+          },
+          "urgencyLevel": "CRITICAL",
+          "reasoning": "Cat has badly injured bleeding leg requiring immediate veterinary attention, but reporter can stay with the animal making it secured."
+        },
+        "rawText": "```json\n{\n  \"hardConstraints\": [\"has_vet\", \"accepts_species:cat\"],\n  \"archetypeProbabilities\": { \"INJURED_CRITICAL\": 0.85, \"URGENT_TRANSIENT\": 0.0, \"STABLE_ROUTINE\": 0.15 },\n  \"urgencyLevel\": \"CRITICAL\",\n  \"reasoning\": \"Cat has badly injured bleeding leg requiring immediate veterinary attention, but reporter can stay with the animal making it secured.\"\n}\n```",
+        "error": null,
+        "throttled": false,
+        "ms": 2580
+      }
+    ]
+  }
+}
