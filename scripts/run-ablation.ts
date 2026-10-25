@@ -18,7 +18,15 @@ const specs: SetSpec[] = [
   { name: 'set1', fixturesDir: 'eval/fixtures', annotationsFile: 'eval/annotations.json', frozenDir: 'eval/frozen-v1', recordedFile: latest('eval/results', /^classifier-recorded-/) },
   { name: 'set2', fixturesDir: 'eval/fixtures-set2', annotationsFile: 'eval/annotations-set2.json', frozenDir: 'eval/frozen-v1-set2', recordedFile: latest('eval/results', /^classifier-set2-recorded-/) },
 ];
-const sets = specs.map(sp => ({ name: sp.name, ...loadSet(repo, sp, loadFixtures, loadAnnotations) }));
+// POST-HOC variant (not pre-registered): --production-bids drops bids with no open slots, because the tier-1 agent never submits
+// them in production (lambda/tier1-agent/index.ts: 'No available slots'). The pre-registered run keeps every fixture bid as written.
+const PROD_BIDS = process.argv.includes('--production-bids');
+const sets = specs.map(sp => {
+  const loaded = loadSet(repo, sp, loadFixtures, loadAnnotations);
+  if (PROD_BIDS) loaded.cases = loaded.cases.map(c => ({ ...c, fixture: { ...c.fixture, bids: c.fixture.bids.filter(b => (b.availableSlots ?? 0) > 0) } }));
+  return { name: sp.name, ...loaded };
+});
+if (PROD_BIDS) console.log('*** POST-HOC VARIANT: zero-slot bids removed as production would (not the pre-registered run) ***\n');
 const rows = runGrid(sets);
 const S = summarize(rows);
 const L = (id: string) => id.replace('shelter-', '');
@@ -54,7 +62,7 @@ console.log(`  H2 (F1 >= F0 under every method, strictly better under one): ${h2
 console.log(`  H3 (blend >= v1 under F0): ${S.correct[key('F0', 'blend')] >= S.correct[key('F0', 'v1')] ? 'HOLDS' : 'DOES NOT HOLD'}`);
 console.log(`  H4 (control correct in all cells): ${S.controlsAllCorrect ? 'HOLDS' : 'FAILS: a cell is broken, interpret nothing from it'}`);
 
-const out = arg('out', path.join('eval', 'results', 'ablation.json'));
+const out = arg('out', path.join('eval', 'results', PROD_BIDS ? 'ablation-posthoc-production-bids.json' : 'ablation.json'));
 const report = { provenance: { commit: git('rev-parse HEAD'), annotationsSet1: sha('eval/annotations.json'), annotationsSet2: sha('eval/annotations-set2.json'), recorded: specs.map(s => s.recordedFile) }, summary: S, rows };
 const body = JSON.stringify(report, null, 2);
 fs.writeFileSync(path.join(repo, out), body + '\n');
