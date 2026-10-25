@@ -1,0 +1,9 @@
+Annotation approval record (set 2)
+Recorded: 2026-10-25 05:55:32 EDT
+File: eval/annotations-set2.json
+sha256: 7cd50b1da150a31abefaa3b47e3191396842e99230758d7a1323456487cc8b23
+Committed at: fe064ca (before any ablation run); pre-registration committed at 70c3835
+Student decision: "approve all" (chat message, 2026-10-25), given after the student was sent the full annotation file and asked to approve or amend each of the 8 cases.
+Changes requested by the student: none.
+Note: the annotations were written by the AI assistant. The student's approval is the human review step; it does not make the annotations independent of the AI's reasoning, and no second annotator has reviewed them.
+Ablation run status at the time of this record: NOT YET RUN.
