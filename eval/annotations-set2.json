@@ -1,0 +1,73 @@
+{
+  "version": 1,
+  "set": 2,
+  "source": "Written by the AI assistant (Claude) from stated animal needs, BEFORE any result existed for these cases, and committed before any ablation run. The student reviews and may amend them before the first run; any change after the first run is recorded as a post-hoc disagreement, not silently applied.",
+  "annotator": "Drafted by Claude; approval by the student pending at the time of this commit",
+  "selectionRules": "Each case has exactly two eligible shelters after the hard constraints; no near-tie is intended; the stated need decides the answer. SYN-16 is a control that every method should get right.",
+  "cases": {
+    "SYN-09": {
+      "archetype": [
+        "INJURED_CRITICAL"
+      ],
+      "bestShelter": "shelter-B",
+      "tests": "vet on site versus proximity",
+      "rationale": "A bleeding animal that cannot stand needs a vet immediately. Only B has one on site; A can merely arrange one. 3 km more travel is worth it."
+    },
+    "SYN-10": {
+      "archetype": [
+        "INJURED_CRITICAL"
+      ],
+      "bestShelter": "shelter-B",
+      "tests": "intake speed versus proximity",
+      "rationale": "Both have a vet. A is 1.7 km closer but has a 90-minute intake wait; B takes the animal in 20 minutes. Time to treatment is shorter at B."
+    },
+    "SYN-11": {
+      "archetype": [
+        "URGENT_TRANSIENT"
+      ],
+      "bestShelter": "shelter-A",
+      "tests": "proximity versus capacity",
+      "rationale": "The dog is near a road, so reaching it fast matters most. A is 4.5 km nearer and has 2 slots, which is enough for one animal. Extra capacity at B is not needed."
+    },
+    "SYN-12": {
+      "archetype": [
+        "URGENT_TRANSIENT"
+      ],
+      "bestShelter": "shelter-A",
+      "tests": "proximity and immediate intake versus capacity",
+      "rationale": "Highway danger. A is 1 km away with intake in 10 minutes; one slot is enough. B is farther and slower."
+    },
+    "SYN-13": {
+      "archetype": [
+        "STABLE_ROUTINE"
+      ],
+      "bestShelter": "shelter-B",
+      "tests": "species match versus proximity",
+      "rationale": "The animal is safe and will stay a while. A shelter that does not take rabbits cannot house it properly, however near. B accepts rabbits."
+    },
+    "SYN-14": {
+      "archetype": [
+        "STABLE_ROUTINE"
+      ],
+      "bestShelter": "shelter-B",
+      "tests": "capacity for a longer stay versus proximity",
+      "rationale": "No urgency. A has one slot left; B has room, and a short extra distance matters little for a safe animal."
+    },
+    "SYN-15": {
+      "archetype": [
+        "STABLE_ROUTINE"
+      ],
+      "bestShelter": "shelter-B",
+      "tests": "data freshness and confidence versus proximity",
+      "rationale": "A's capacity figures are stale and low-confidence, so its 4 slots may not exist. B's are live and high-confidence for 0.8 km more."
+    },
+    "SYN-16": {
+      "archetype": [
+        "INJURED_CRITICAL"
+      ],
+      "bestShelter": "shelter-A",
+      "tests": "control",
+      "rationale": "Identical shelters except distance (2 km versus 12 km): the nearer one is better under any sensible method. If a method fails this, the method is broken."
+    }
+  }
+}

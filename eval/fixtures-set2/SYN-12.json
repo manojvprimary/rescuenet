@@ -1,0 +1,54 @@
+{
+  "id": "SYN-12",
+  "description": "Loose dog on a highway ramp; very close shelter with 1 slot and immediate intake, farther roomy shelter with a slower intake",
+  "caseLocation": {
+    "lat": 40.758,
+    "lng": -73.9855
+  },
+  "reportData": {
+    "species": "dog",
+    "reporterSituation": "A dog keeps darting toward traffic on the highway ramp. I cannot hold it. No visible injuries.",
+    "imageAnalysis": {
+      "species": "dog",
+      "injuryIndicators": []
+    }
+  },
+  "bids": [
+    {
+      "caseId": "SYN-12",
+      "shelterId": "shelter-A",
+      "shelterName": "Close, 1 slot, immediate intake",
+      "availableSlots": 1,
+      "hasVetOnSite": false,
+      "acceptedSpecies": [
+        "dog",
+        "cat"
+      ],
+      "distanceKm": 1.0,
+      "confidence": 0.9,
+      "estimatedIntakeWindowMinutes": 10,
+      "notes": "synthetic",
+      "dataFreshness": "LIVE",
+      "autonomyPreference": "AUTO_CONFIRM",
+      "timestamp": "2026-10-25T10:00:00Z"
+    },
+    {
+      "caseId": "SYN-12",
+      "shelterId": "shelter-B",
+      "shelterName": "Farther, spacious, slower intake",
+      "availableSlots": 6,
+      "hasVetOnSite": true,
+      "acceptedSpecies": [
+        "dog",
+        "cat"
+      ],
+      "distanceKm": 3.0,
+      "confidence": 0.9,
+      "estimatedIntakeWindowMinutes": 40,
+      "notes": "synthetic",
+      "dataFreshness": "LIVE",
+      "autonomyPreference": "AUTO_CONFIRM",
+      "timestamp": "2026-10-25T10:00:00Z"
+    }
+  ]
+}

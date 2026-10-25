@@ -1,0 +1,54 @@
+{
+  "id": "SYN-14",
+  "description": "Healthy secured cat; nearer shelter is nearly full, farther shelter has room for a longer stay",
+  "caseLocation": {
+    "lat": 40.758,
+    "lng": -73.9855
+  },
+  "reportData": {
+    "species": "cat",
+    "reporterSituation": "A calm, healthy cat has been around my porch for days. I can keep an eye on her for a day or two.",
+    "imageAnalysis": {
+      "species": "cat",
+      "injuryIndicators": []
+    }
+  },
+  "bids": [
+    {
+      "caseId": "SYN-14",
+      "shelterId": "shelter-A",
+      "shelterName": "Nearer, nearly full",
+      "availableSlots": 1,
+      "hasVetOnSite": false,
+      "acceptedSpecies": [
+        "dog",
+        "cat"
+      ],
+      "distanceKm": 3.0,
+      "confidence": 0.9,
+      "estimatedIntakeWindowMinutes": 30,
+      "notes": "synthetic",
+      "dataFreshness": "LIVE",
+      "autonomyPreference": "AUTO_CONFIRM",
+      "timestamp": "2026-10-25T10:00:00Z"
+    },
+    {
+      "caseId": "SYN-14",
+      "shelterId": "shelter-B",
+      "shelterName": "Farther, roomy",
+      "availableSlots": 5,
+      "hasVetOnSite": false,
+      "acceptedSpecies": [
+        "dog",
+        "cat"
+      ],
+      "distanceKm": 5.0,
+      "confidence": 0.9,
+      "estimatedIntakeWindowMinutes": 30,
+      "notes": "synthetic",
+      "dataFreshness": "LIVE",
+      "autonomyPreference": "AUTO_CONFIRM",
+      "timestamp": "2026-10-25T10:00:00Z"
+    }
+  ]
+}

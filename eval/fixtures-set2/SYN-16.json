@@ -1,0 +1,57 @@
+{
+  "id": "SYN-16",
+  "description": "Control: injured cat, two identical vet-equipped shelters, one much nearer",
+  "caseLocation": {
+    "lat": 40.758,
+    "lng": -73.9855
+  },
+  "reportData": {
+    "species": "cat",
+    "reporterSituation": "A cat has a badly injured leg and is bleeding. I am with her and can stay.",
+    "imageAnalysis": {
+      "species": "cat",
+      "injuryIndicators": [
+        "visible blood",
+        "limping"
+      ]
+    }
+  },
+  "bids": [
+    {
+      "caseId": "SYN-16",
+      "shelterId": "shelter-A",
+      "shelterName": "Near, vet on site",
+      "availableSlots": 4,
+      "hasVetOnSite": true,
+      "acceptedSpecies": [
+        "dog",
+        "cat"
+      ],
+      "distanceKm": 2.0,
+      "confidence": 0.9,
+      "estimatedIntakeWindowMinutes": 30,
+      "notes": "synthetic",
+      "dataFreshness": "LIVE",
+      "autonomyPreference": "AUTO_CONFIRM",
+      "timestamp": "2026-10-25T10:00:00Z"
+    },
+    {
+      "caseId": "SYN-16",
+      "shelterId": "shelter-B",
+      "shelterName": "Far, vet on site",
+      "availableSlots": 4,
+      "hasVetOnSite": true,
+      "acceptedSpecies": [
+        "dog",
+        "cat"
+      ],
+      "distanceKm": 12.0,
+      "confidence": 0.9,
+      "estimatedIntakeWindowMinutes": 30,
+      "notes": "synthetic",
+      "dataFreshness": "LIVE",
+      "autonomyPreference": "AUTO_CONFIRM",
+      "timestamp": "2026-10-25T10:00:00Z"
+    }
+  ]
+}

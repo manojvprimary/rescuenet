@@ -1,0 +1,56 @@
+{
+  "id": "SYN-13",
+  "description": "Healthy secured rabbit; near shelter does not take rabbits (no species constraint emitted), far shelter does",
+  "caseLocation": {
+    "lat": 40.758,
+    "lng": -73.9855
+  },
+  "reportData": {
+    "species": "unknown",
+    "reporterSituation": "I found a rabbit in my yard and put it in a box in the garage. It is eating and looks fine. I can keep it tonight.",
+    "imageAnalysis": {
+      "species": "rabbit",
+      "injuryIndicators": []
+    }
+  },
+  "bids": [
+    {
+      "caseId": "SYN-13",
+      "shelterId": "shelter-A",
+      "shelterName": "Near, no rabbits",
+      "availableSlots": 3,
+      "hasVetOnSite": false,
+      "acceptedSpecies": [
+        "dog",
+        "cat"
+      ],
+      "distanceKm": 2.0,
+      "confidence": 0.9,
+      "estimatedIntakeWindowMinutes": 30,
+      "notes": "synthetic",
+      "dataFreshness": "LIVE",
+      "autonomyPreference": "AUTO_CONFIRM",
+      "timestamp": "2026-10-25T10:00:00Z"
+    },
+    {
+      "caseId": "SYN-13",
+      "shelterId": "shelter-B",
+      "shelterName": "Far, accepts rabbits",
+      "availableSlots": 3,
+      "hasVetOnSite": false,
+      "acceptedSpecies": [
+        "dog",
+        "cat",
+        "rabbit"
+      ],
+      "distanceKm": 7.0,
+      "confidence": 0.9,
+      "estimatedIntakeWindowMinutes": 30,
+      "notes": "synthetic",
+      "dataFreshness": "LIVE",
+      "autonomyPreference": "AUTO_CONFIRM",
+      "timestamp": "2026-10-25T10:00:00Z"
+    }
+  ],
+  "classifierEmitsNoSpeciesConstraint": true
+}

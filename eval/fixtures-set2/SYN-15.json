@@ -1,0 +1,54 @@
+{
+  "id": "SYN-15",
+  "description": "Healthy secured dog; closest shelter reports stale data at low confidence, slightly farther shelter reports live data",
+  "caseLocation": {
+    "lat": 40.758,
+    "lng": -73.9855
+  },
+  "reportData": {
+    "species": "dog",
+    "reporterSituation": "A friendly dog followed me home and is in my fenced yard. It is calm and unhurt. I can hold it for a day.",
+    "imageAnalysis": {
+      "species": "dog",
+      "injuryIndicators": []
+    }
+  },
+  "bids": [
+    {
+      "caseId": "SYN-15",
+      "shelterId": "shelter-A",
+      "shelterName": "Closest, stale data",
+      "availableSlots": 4,
+      "hasVetOnSite": false,
+      "acceptedSpecies": [
+        "dog",
+        "cat"
+      ],
+      "distanceKm": 1.2,
+      "confidence": 0.6,
+      "estimatedIntakeWindowMinutes": 30,
+      "notes": "synthetic",
+      "dataFreshness": "STATIC",
+      "autonomyPreference": "AUTO_CONFIRM",
+      "timestamp": "2026-10-25T10:00:00Z"
+    },
+    {
+      "caseId": "SYN-15",
+      "shelterId": "shelter-B",
+      "shelterName": "Slightly farther, live data",
+      "availableSlots": 4,
+      "hasVetOnSite": false,
+      "acceptedSpecies": [
+        "dog",
+        "cat"
+      ],
+      "distanceKm": 2.0,
+      "confidence": 0.95,
+      "estimatedIntakeWindowMinutes": 30,
+      "notes": "synthetic",
+      "dataFreshness": "LIVE",
+      "autonomyPreference": "AUTO_CONFIRM",
+      "timestamp": "2026-10-25T10:00:00Z"
+    }
+  ]
+}
