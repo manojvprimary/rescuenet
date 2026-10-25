@@ -1,0 +1,192 @@
+# Hard Stop 4 ablation evidence (fresh clone, Node 20)
+Captured: 2026-10-25 13:33:48 EDT
+Source: git clone of the local repository at commit 229a2596b508795265d2a8737fbb9bb7d2a48b52 on branch sprint-4/ablation
+Machine: Darwin arm64, default node v25.9.0; Node used below: v20.20.2
+
+$ npm ci
+
+added 348 packages, and audited 368 packages in 3s
+
+35 packages are looking for funding
+  run `npm fund` for details
+
+3 vulnerabilities (1 moderate, 1 high, 1 critical)
+
+To address issues that do not require attention, run:
+  npm audit fix
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+Run `npm audit` for details.
+exit code: 0
+
+$ npm run typecheck
+
+> rescuenet@1.0.0 typecheck
+> tsc --noEmit
+
+exit code: 0
+
+$ npm test
+
+> rescuenet@1.0.0 test
+> jest
+
+PASS test/ahp.test.ts (13.599 s)
+PASS test/harness.test.ts (13.937 s)
+PASS test/match.test.ts (13.944 s)
+PASS test/needs-profile.test.ts (14.134 s)
+  ● Console
+
+    console.log
+      Needs profile agent for case c1
+
+      at handler (lambda/needs-profile/index.ts:18:11)
+
+    console.log
+      Needs profile for c1: {"hardConstraints":["has_vet"],"softWeights":{"vet_care":0.4,"pickup_urgency":0.3,"species_specialization":0.15,"proximity":0.1,"long_term_care":0.05},"urgencyLevel":"HIGH","reasoning":"x"}
+
+      at handler (lambda/needs-profile/index.ts:47:13)
+
+    console.log
+      Needs profile agent for case c1
+
+      at handler (lambda/needs-profile/index.ts:18:11)
+
+    console.log
+      Needs profile agent for case c1
+
+      at handler (lambda/needs-profile/index.ts:18:11)
+
+    console.warn
+      Classifier output failed validation — using STABLE_ROUTINE fallback
+
+      94 |     const raw = JSON.parse(Buffer.from(response.body).toString());
+      95 |     classified = parseClassifierResponse((raw.content?.[0]?.text ?? '') as string);
+    > 96 |     if (!classified) console.warn('Classifier output failed validation — using STABLE_ROUTINE fallback');
+         |                              ^
+      97 |   } catch (err) {
+      98 |     console.error('Bedrock failed — using STABLE_ROUTINE fallback:', (err as Error).message);
+      99 |   }
+
+      at buildArchetypeProfile (lambda/needs-profile/index.ts:96:30)
+      at handler (lambda/needs-profile/index.ts:27:15)
+      at Object.<anonymous> (test/needs-profile.test.ts:137:5)
+
+    console.log
+      Needs profile agent for case c1
+
+      at handler (lambda/needs-profile/index.ts:18:11)
+
+    console.error
+      Bedrock failed — using STABLE_ROUTINE fallback: ThrottlingException
+
+       96 |     if (!classified) console.warn('Classifier output failed validation — using STABLE_ROUTINE fallback');
+       97 |   } catch (err) {
+    >  98 |     console.error('Bedrock failed — using STABLE_ROUTINE fallback:', (err as Error).message);
+          |             ^
+       99 |   }
+      100 |
+      101 |   const derived = deriveWeights(classified?.archetypeProbabilities ?? null, loadVectors(), mode, WEIGHTS_VERSION);
+
+      at buildArchetypeProfile (lambda/needs-profile/index.ts:98:13)
+      at handler (lambda/needs-profile/index.ts:27:15)
+      at Object.<anonymous> (test/needs-profile.test.ts:147:5)
+
+    console.log
+      Needs profile agent for case c1
+
+      at handler (lambda/needs-profile/index.ts:18:11)
+
+    console.log
+      Needs profile agent for case c1
+
+      at handler (lambda/needs-profile/index.ts:18:11)
+
+    console.log
+      Needs profile for c1: {"hardConstraints":[],"softWeights":{"vet_care":0.2,"pickup_urgency":0.2,"species_specialization":0.2,"proximity":0.2,"long_term_care":0.2},"urgencyLevel":"LOW","reasoning":"r"}
+
+      at handler (lambda/needs-profile/index.ts:47:13)
+
+PASS test/sensitivity.test.ts (14.146 s)
+PASS test/weights.test.ts (14.193 s)
+PASS test/ablation.test.ts (14.184 s)
+PASS test/scoring.test.ts
+
+Test Suites: 8 passed, 8 total
+Tests:       122 passed, 122 total
+Snapshots:   0 total
+Time:        15.238 s
+Ran all test suites.
+exit code: 0
+
+# Repeated execution of the pre-registered ablation: three runs, result hashes must be identical
+run 1: result hash: 45369f37a0ab9a73839786df69899be8d87f1b474a17d964218dcd2fe2af947b
+run 2: result hash: 45369f37a0ab9a73839786df69899be8d87f1b474a17d964218dcd2fe2af947b
+run 3: result hash: 45369f37a0ab9a73839786df69899be8d87f1b474a17d964218dcd2fe2af947b
+# Post-hoc variant (zero-slot bids removed), three runs
+run 1: result hash: fe3c7416c0e2f68730c3f492445e49d4b4e3f28258f558e971a01451e98a2d82
+run 2: result hash: fe3c7416c0e2f68730c3f492445e49d4b4e3f28258f558e971a01451e98a2d82
+run 3: result hash: fe3c7416c0e2f68730c3f492445e49d4b4e3f28258f558e971a01451e98a2d82
+
+# Full pre-registered output
+provenance: commit 229a259; annotations set1 666684ddda, set2 7cd50b1da1; classifier classifier-recorded-2026-10-11T01-12-15-757Z.json + classifier-set2-recorded-2026-10-25T09-50-59-925Z.json
+
+cases in grid: 14 (informative non-control: 12; controls: 1); excluded as uninformative or unannotated-best: SYN-06, SYN-07, SYN-08
+
+Correct (raw top = annotated best) out of 12 informative cases, with Wilson 95% interval
+                          equal             v1                blend             top               
+F0 production formula     7/12 (0.32-0.81)  7/12 (0.32-0.81)  7/12 (0.32-0.81)  7/12 (0.32-0.81)  
+F1 capacity counted once  7/12 (0.32-0.81)  9/12 (0.47-0.91)  10/12 (0.55-0.95) 10/12 (0.55-0.95) 
+F2 distance scale 10 km   7/12 (0.32-0.81)  8/12 (0.39-0.86)  8/12 (0.39-0.86)  9/12 (0.47-0.91)  
+F3 capacity once + 10 km  8/12 (0.39-0.86)  10/12 (0.55-0.95) 11/12 (0.65-0.99) 11/12 (0.65-0.99) 
+
+Per-case winners (annotated best in brackets); columns are F | weighting method
+case    best  F0 equal F0 v1    F0 blend F0 top   F1 equal F1 v1    F1 blend F1 top   F2 equal F2 v1    F2 blend F2 top   F3 equal F3 v1    F3 blend F3 top   
+SYN-01  A     B X      B X      B X      B X      B X      A ok     A ok     A ok     A ok     A ok     A ok     A ok     A ok     A ok     A ok     A ok     
+SYN-02  B     B ok     B ok     B ok     B ok     B ok     B ok     B ok     B ok     B ok     B ok     B ok     B ok     B ok     B ok     B ok     B ok     
+SYN-03  A     A ok     A ok     A ok     A ok     A ok     A ok     A ok     A ok     A ok     A ok     A ok     A ok     A ok     A ok     A ok     A ok     
+SYN-04  B     C X      C X      C X      C X      C X      A X      A X      A X      C X      A X      A X      A X      A X      A X      A X      A X      
+SYN-05  B     C X      C X      C X      C X      C X      B ok     B ok     B ok     C X      C X      C X      B ok     B ok     B ok     B ok     B ok     
+SYN-07  B     B ok     B ok     B ok     B ok     B ok     B ok     B ok     B ok     B ok     B ok     B ok     B ok     B ok     B ok     B ok     B ok       (decided by a constraint)
+SYN-09  B     B ok     B ok     B ok     B ok     B ok     B ok     B ok     B ok     B ok     B ok     B ok     B ok     B ok     B ok     B ok     B ok     
+SYN-10  B     B ok     B ok     B ok     B ok     B ok     B ok     B ok     B ok     B ok     B ok     B ok     B ok     B ok     B ok     B ok     B ok     
+SYN-11  A     B X      B X      B X      B X      B X      B X      B X      B X      B X      B X      B X      B X      B X      A ok     A ok     A ok     
+SYN-12  A     B X      B X      B X      B X      B X      B X      A ok     A ok     B X      B X      B X      B X      B X      B X      A ok     A ok     
+SYN-13  B     B ok     B ok     B ok     B ok     B ok     B ok     B ok     B ok     A X      B ok     B ok     B ok     A X      B ok     B ok     B ok     
+SYN-14  B     B ok     B ok     B ok     B ok     B ok     B ok     B ok     B ok     B ok     B ok     B ok     B ok     B ok     B ok     B ok     B ok     
+SYN-15  B     B ok     B ok     B ok     B ok     B ok     B ok     B ok     B ok     B ok     B ok     B ok     B ok     B ok     B ok     B ok     B ok     
+SYN-16* A     A ok     A ok     A ok     A ok     A ok     A ok     A ok     A ok     A ok     A ok     A ok     A ok     A ok     A ok     A ok     A ok     
+(* = control)
+
+H1: share of one-factor-only cell pairs whose winner differs
+  swapping the WEIGHTING METHOD (formula fixed): 11.1% of 288 pairs; cases where it ever changes the winner: 6 of 12
+  swapping the SCORING FORMULA (weights fixed): 20.8% of 288 pairs; cases where it ever changes the winner: 6 of 12
+  => H1 SUPPORTED (formula swaps change winners more often)
+
+H2/H3 contrasts (informative cases; discordant pairs; exact two-sided sign test, uncorrected)
+  F1 vs F0 under equal               only-first-right 0, only-second-right 0, p = 1.000
+  F1 vs F0 under v1                  only-first-right 2, only-second-right 0, p = 0.500
+  F1 vs F0 under blend               only-first-right 3, only-second-right 0, p = 0.250
+  F1 vs F0 under top                 only-first-right 3, only-second-right 0, p = 0.250
+  blend vs v1 under F0               only-first-right 0, only-second-right 0, p = 1.000
+  blend vs equal under F0            only-first-right 0, only-second-right 0, p = 1.000
+  v1 vs equal under F0               only-first-right 0, only-second-right 0, p = 1.000
+  H2 (F1 >= F0 under every method, strictly better under one): SUPPORTED
+  H3 (blend >= v1 under F0): HOLDS
+  H4 (control correct in all cells): HOLDS
+
+result hash: 45369f37a0ab9a73839786df69899be8d87f1b474a17d964218dcd2fe2af947b
+wrote /var/folders/sg/bd12qyls789gqyvmckly3p8r0000gn/T/tmp.spycAT5cXz/abl-full.json
+
+# Pre-registration checks: each annotation file is byte-identical to the commit that first added it
+eval/annotations.json first added in fdb6171 2026-10-10 06:04:07 -0400
+  at that commit: 666684ddda4b67cd14eb570eded19539dcf9b8a3e73096b987cb2f60071dbe22
+  now           : 666684ddda4b67cd14eb570eded19539dcf9b8a3e73096b987cb2f60071dbe22
+eval/annotations-set2.json first added in fe064ca 2026-10-25 05:49:03 -0400
+  at that commit: 7cd50b1da150a31abefaa3b47e3191396842e99230758d7a1323456487cc8b23
+  now           : 7cd50b1da150a31abefaa3b47e3191396842e99230758d7a1323456487cc8b23
+pre-registration document first committed: 70c3835 2026-10-25 05:53:50 -0400
+first commit of the ablation code:        70c3835 2026-10-25 05:53:50 -0400
+ablation results first committed:         59bb42d 2026-10-25 13:31:34 -0400

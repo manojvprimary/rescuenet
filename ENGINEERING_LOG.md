@@ -150,3 +150,19 @@ A running, dated record of decisions, findings, and changes made during the CISC
 
 **Decisions.** The feature named as the cut if the project falls behind after Week 8 is the fairness-by-shelter-characteristic check (NFR7). The student delegated this choice. Deployment and rollback were chosen by me from the options I recommended, on the student's instruction to proceed without waiting.
 
+---
+
+## Week 8 — 2026-10-25 (Hard Stop 4: Midpoint Technical Evidence Review)
+
+**Question.** Does the scoring formula or the weighting method limit routing correctness? (Hard Stop 3 Priority 4.)
+
+**Done.** Eight new cases and annotations committed first (`fe064ca`); 32 live Bedrock calls (8 frozen v1 profiles; 24 classifier calls, all valid, none throttled, no spread across repeats); pre-registration and runner committed before any result (`70c3835`); the 4x4 ablation run; a labelled post-hoc variant; clean-clone evidence under Node 20. The student reviewed and approved the annotations ("approve all").
+
+**Results (counts, 12 informative cases, raw top score).** Under the production formula every weighting method, including equal weights, gets 7 of 12. Counting capacity once gives 9 (v1), 10 (blend) and 10 (top) of 12 and still 7 with equal weights. Counting capacity once and using a 10 km distance scale gives 10, 11 and 11, and 8 with equal weights. Changing the formula changes the winner in 20.8% of one-factor-only cell pairs; changing the weighting method in 11.1%. No contrast is statistically distinguishable at this sample size (smallest exact p = 0.25 in the pre-registered run). Post-hoc, dropping bids production never sends: best cell 12 of 12.
+
+**Reading.** Weights only matter once the formula lets them; under the production formula the weighting method is invisible. Blend equals top almost everywhere and beats v1 by one case at most.
+
+**Corrections and cautions.** SYN-04 contains a bid production never sends (found from the output, confirmed in the code, not edited); the evidence script printed empty hash lines until I fixed an absolute-path bug in the runner; the formula variants and set-2 cases share an author and a purpose, so their result is a lead, not validation.
+
+**Not done.** Independent annotator or judge; a real case; expert-proposed formula variants; the student-led code review and the recorded walkthrough (the student's parts, due before submission); promotion of v2.
+

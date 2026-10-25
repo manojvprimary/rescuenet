@@ -2,6 +2,18 @@
 
 Format: newest first. Versions are git tags. Each entry lists what changed and what was deliberately not changed.
 
+## v0.4.0-ablation (2026-10-25) — CISC 699 Hard Stop 4
+
+### Added
+- `eval/fixtures-set2/` and `eval/annotations-set2.json`: eight new cases, committed before any run.
+- `docs/ABLATION_PREREGISTRATION.md`, `eval/ablation.ts`, `scripts/run-ablation.ts`: the 4x4 formula-by-weighting ablation, exact sign test, Wilson intervals; 14 tests.
+- `eval/frozen-v1-set2/`, set-2 recorded classifier output: 32 live calls.
+- `scripts/capture-evidence-ablation.sh` and `docs/evidence/sprint-4/`: clean-clone evidence, repeat-run hashes, annotation-approval record.
+- `docs/STUDENT_REVIEW_GUIDE.md`: questions for the student-led code review.
+
+### Not changed (deliberately)
+- The production scoring formula and the deployed system. The ablation compares variants offline; nothing was promoted.
+
 ## v0.3.0-midpoint (2026-10-21) — CISC 699 Midpoint Demo and Adjustment Memo
 
 ### Added

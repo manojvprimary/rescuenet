@@ -1,6 +1,6 @@
 # Risk and Issue Log
 
-Maintained by: Manoj Venkatachalaiah (sole developer, so every owner is the same person; owner is recorded as a role placeholder for when a second annotator or evaluator joins). Last updated: 2026-10-21 (midpoint, after the non-production deployment and measurement).1.0-baseline`).
+Maintained by: Manoj Venkatachalaiah (sole developer, so every owner is the same person; owner is recorded as a role placeholder for when a second annotator or evaluator joins). Last updated: 2026-10-25 (Hard Stop 4, after the pre-registered ablation).1.0-baseline`).
 
 Severity: **H** = could invalidate a success criterion or break the live system; **M** = degrades evidence quality or schedule; **L** = cosmetic or contained. Status: Open, Mitigating, Closed, Accepted.
 
@@ -19,6 +19,7 @@ Severity: **H** = could invalidate a success criterion or break the live system;
 | R-09 | Scope creep into the shelter portal or geocoding fix before success criteria are met. | L | Hard gate: stretch goals only after SC1-SC4 pass; geocoding tracked as issue #3. | Developer | Mitigating |
 | R-10 | The near-tie rule (smaller shelterId within 0.02) is arbitrary and correlated with the annotations in these fixtures, so it can make results look better than raw scoring. | M | Both numbers reported (5 of 6 with the rule, 3 of 6 by raw score, v1 = 3 of 6 either way); the rule was pre-registered, the raw metric added after seeing results and labelled so (KI-12). | Developer | Accepted (disclosed) |
 | R-11 | Near one-hot classifier probabilities make `blend` act like `top`, undercutting the design's continuous-weights claim. | M | Reported as a limitation (KI-13); revisit prompt or calibration at the midpoint. | Developer | Open |
+| R-12 | The formula variants (F1 to F3) and the second case set are the AI assistant's hypotheses and were designed around the same trade-offs, so a good score under them is not independent evidence that they are the right formula. | M | Reported with that caveat; results shown separately for set 1 (student-annotated first) and set 2; no recommendation to change production; expert-proposed variants and a second annotator planned (B-03). | Developer | Open |
 
 ## Issues (found and tracked)
 

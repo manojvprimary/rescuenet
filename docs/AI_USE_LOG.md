@@ -269,6 +269,32 @@ Structured, per-instance disclosure of AI assistance, reformatted in CISC 699 We
 
 ---
 
+## Entry 24 — Hard Stop 4: Pre-Registered Ablation, Second Case Set, and Live Calls
+
+- **Tool:** Claude (Anthropic, Claude Sonnet 5.5)
+- **Date / Phase:** Week 8 (2026-10-25), Hard Stop 4
+- **Purpose:** Answer the question the Hard Stop 3 feedback left open (does the scoring formula or the weighting method limit routing correctness?) with a controlled, pre-registered ablation.
+- **Prompt / Task Summary:** Write eight new evaluation cases and their annotations; run 32 live Bedrock calls (8 frozen v1 profiles, 24 temperature-0 classifier calls); write the pre-registration (question, 4x4 design, hypotheses, decision rules, limits); implement the grid runner, its statistics (exact sign test, Wilson intervals) and 14 tests on synthetic inputs; run it; run a labelled post-hoc variant; capture clean-clone evidence. AI-generated cases, annotations, formula variants, code, and analysis.
+- **Output Used:** `eval/fixtures-set2/`, `eval/annotations-set2.json`, `docs/ABLATION_PREREGISTRATION.md`, `eval/ablation.ts`, `scripts/run-ablation.ts`, `eval/results/ablation*.json`, `docs/evidence/sprint-4/`.
+- **Affected Section / Artifact:** The Hard Stop 4 package; KI-11 (now tested); the backlog items B-01 and B-02.
+- **Human Verification:** Order of events is recorded in git: set-2 cases and annotations were committed (`fe064ca`) before any ablation code, and the pre-registration with the runner (`70c3835`) before any result; the run itself used only committed files. The runner's production formula is pinned to the arbitrator's scoring by a test; tests used synthetic inputs only so no result was visible before the pre-registration. Clean-clone evidence under Node 20: 122 tests pass and three runs give identical result hashes for both the pre-registered and the post-hoc variants; both annotation files are byte-identical to the commits that added them. Problems found: the zero-slot bid in set-1 case SYN-04 is one the tier-1 agent never sends in production (found from the ablation output and confirmed in the code; reported, not edited); the clean-clone script initially printed empty hash lines because the runner mishandled absolute output paths (found by reading the output, fixed, re-run). Limits stated in the document: the formula variants and the set-2 cases were written by the same AI and aimed at the same trade-offs, so a good score for them is a lead, not independent validation.
+- **Final Student Revisions:** The student read the eight set-2 annotations and replied "approve all" (recorded in `docs/evidence/sprint-4/annotation-approval.txt`); no change was requested. The student had not yet done the code review in `docs/STUDENT_REVIEW_GUIDE.md` when this entry was written.
+
+---
+
+## Entry 25 — Hard Stop 4 Technical Evidence Review (This Document and the Walkthrough Script)
+
+- **Tool:** Claude (Anthropic, Claude Sonnet 5.5)
+- **Date / Phase:** Week 8 (2026-10-25), Hard Stop 4
+- **Purpose:** Assemble the evidence review and the recorded-walkthrough script from the repository's own files.
+- **Prompt / Task Summary:** Generate the document, its figures and tables from the committed results (`eval/results/ablation*.json`, `docs/evidence/sprint-4/`, the measurement and midpoint files); write a 10-minute walkthrough script. Every number in the tables is read from a file by the generator. AI-generated text, tables, and figures.
+- **Output Used:** The submitted document and the script the student uses for the recording.
+- **Affected Section / Artifact:** The whole package; the engineering log (Week 8).
+- **Human Verification:** Pages were rendered and inspected; headline numbers were cross-checked against the clean-clone evidence file. The student-review section contains only what the student wrote; it is not filled in by the AI.
+- **Final Student Revisions:** To be recorded by the student. Any edits made after this entry was written are not reflected here.
+
+---
+
 ## Prior AI Use (ISEM 502 / GRAD 695, narrative summary — predates this schema)
 
 AI-assisted development spanned the earlier coursework this project descends from: code and infrastructure implementation (CDK stacks, Lambda functions, GraphQL schema, mobile app), the GRAD 695 Applied Project Report and its figures, and the ISEM 502 UX Portfolio (personas, heuristic evaluation, prototypes), all drafted from student direction and reviewed by the student. No AI-generated or fabricated user-research data was presented as real at any point; where a course step assumed data unavailable to the student, the constraint was disclosed rather than simulated.
