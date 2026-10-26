@@ -62,4 +62,6 @@ Student, after the simpler explanation: "yes, it's ok to leave those cases out o
 (Student decision recorded: alphabetical tie-break is acceptable for now; a proper tie-breaker such as distance or a shelter's past responsiveness is a future feature.)
 
 ## Item 5: the ablation hypotheses and five AHP judgments
-(awaiting the student's answers)
+**Q1. Part A (the hypotheses H1 to H4 and the formula variants) and Part B (five of the weakest-supported AHP judgments): agree, disagree or unsure, and why?**
+Student: "item 5 looks good to me"
+(AI note: this is a general approval. It does not justify, challenge, or change any of the five AHP judgments individually, and it does not say whether the formula variants would satisfy someone who knows shelters. Those parts were not separately answered, so the five AHP judgments remain AI-proposed and student-adopted without an individual review.)
