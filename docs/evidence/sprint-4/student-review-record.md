@@ -51,4 +51,14 @@ Student: "acceptable"
 (Student decisions recorded: the strict parser is acceptable for now. Future idea raised by the student: temporary emergency options, where a shelter that would not normally take a species can treat injuries or hold the animal until a suitable shelter confirms. Injury detection must not depend only on photo analysis: free text must count, because free text is the reason the input exists. The arbitrator's hard-coded default profile is acceptable.)
 
 ## Item 4: the evaluation harness tie rule (`eval/harness.ts`, `pickWinner`)
+**Q1. The tie rule gives a near-tie (within 0.02) to the alphabetically smaller shelter id. Keep it, or report near-ties as undecided?**
+Student: "we should have an ultimate tie breaker like distance or how well shelters have responded previously - maybe as a future feature. for now alphabetical works"
+
+**Q2. The ablation excludes cases decided entirely by a hard constraint (only one eligible shelter). Right call?**
+Student: "unclear."
+(AI note: the question was not clear. It was re-asked in simpler terms: such cases give every method the same answer, so counting them would raise all scores equally and say nothing about the weights.)
+
+(Student decision recorded: alphabetical tie-break is acceptable for now; a proper tie-breaker such as distance or a shelter's past responsiveness is a future feature.)
+
+## Item 5: the ablation hypotheses and five AHP judgments
 (awaiting the student's answers)
