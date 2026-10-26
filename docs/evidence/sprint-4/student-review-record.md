@@ -39,4 +39,16 @@ Student: "ok to rescale them as long as the original ratios are retained"
 (Student decision recorded: when the classifier output is unusable, treat the case as highest severity (INJURED_CRITICAL), not as STABLE_ROUTINE. This reverses the design in Hard Stop 2, Section 5.3, and is not yet implemented: it will change `FALLBACK_ARCHETYPE`, the SYN-08 expectation, the tests, and the deployed function. Rescaling is acceptable because dividing by the total keeps the ratios exactly.)
 
 ## Item 3: the classifier path (`needs-profile` v2, `parseClassifierResponse`, and the failure handling)
+**Q1. The parser rejects `accepts_species:Dog` (capital D) and discards the whole response. Too strict, about right, or too loose?**
+Student: "yes this is alright for now, but we should look into temporary options where a shelter that wouldn't normally take in dogs would be willing to at least treat injuries if any or hold for a while until another shelter confirms they can take it in"
+
+**Q2. On failure the fallback looks for injuries only in the photo analysis, so a text-only report ("bleeding, can't stand") would not require a vet. Should a failed classifier always require a vet?**
+Student: "not a failed classifier but can we not do only photo analysis - it's the whole reason we have free text input"
+
+**Q3. If the AI call hangs, the function times out and the arbitrator falls back to a hard-coded profile with no constraints. Acceptable?**
+Student: "acceptable"
+
+(Student decisions recorded: the strict parser is acceptable for now. Future idea raised by the student: temporary emergency options, where a shelter that would not normally take a species can treat injuries or hold the animal until a suitable shelter confirms. Injury detection must not depend only on photo analysis: free text must count, because free text is the reason the input exists. The arbitrator's hard-coded default profile is acceptable.)
+
+## Item 4: the evaluation harness tie rule (`eval/harness.ts`, `pickWinner`)
 (awaiting the student's answers)
