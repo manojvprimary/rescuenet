@@ -57,6 +57,7 @@ Student: "we should have an ultimate tie breaker like distance or how well shelt
 **Q2. The ablation excludes cases decided entirely by a hard constraint (only one eligible shelter). Right call?**
 Student: "unclear."
 (AI note: the question was not clear. It was re-asked in simpler terms: such cases give every method the same answer, so counting them would raise all scores equally and say nothing about the weights.)
+Student, after the simpler explanation: "yes, it's ok to leave those cases out of comparison"
 
 (Student decision recorded: alphabetical tie-break is acceptable for now; a proper tie-breaker such as distance or a shelter's past responsiveness is a future feature.)
 
