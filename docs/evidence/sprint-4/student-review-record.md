@@ -14,3 +14,18 @@ Student (as a question): "whats a confidence score for a shelter where do we get
 Student (as a question): "shouldn't other factors like injuries dictate this? are we using static weights and not having the agent "smartly" manage them?"
 
 **Q4. Anything unclear?** (not answered separately; the questions above show what the student wanted explained)
+
+### Follow-up on Item 1 (after the AI answered the student's questions)
+
+AI's answers, recorded as the AI's (not the student's): the tier-1 `confidence` and `estimatedIntakeWindowMinutes` come from a Bedrock call whose prompt gives the shelter's live facts (slots, vet, species, distance/radius) and the case's needs profile and summary, and shows an example reply of 0.92 and 20; there is no knowledge base, no shelter history, no definition of "confidence", no calibration, and no temperature set. Tier-2 (Slack) shelters use a fixed 0.78 and 45 minutes. Freshness is LIVE for tier 1 and HUMAN for tier 2; SYNCED and STATIC are never assigned in the code. The net effect is that Slack shelters start roughly 25 to 30 percent behind.
+
+**Student, on whether the confidence number is acceptable:**
+"what's a guess here? is it an informed decision the agent makes against a knowledge base or a prompt we set up? if yes then that works, if it's a random guess then no. slack starting 30% behind is ok"
+
+**Student, on the fixed constants versus agent-generated weights:**
+"lets keep it fixed for now and keep looking into agent generated weights and how we can reproduce them"
+
+(Student decisions recorded: count open capacity once in a future formula change; keep the formula's constants fixed for now; Slack shelters starting about 30 percent behind is acceptable; investigate agent-generated weights and their reproducibility.)
+
+## Item 2: weight blend and fallback (`lambda/shared/weights.ts`, `deriveWeights`)
+(awaiting the student's answers)
