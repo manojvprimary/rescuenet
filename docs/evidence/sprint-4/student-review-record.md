@@ -28,4 +28,15 @@ AI's answers, recorded as the AI's (not the student's): the tier-1 `confidence` 
 (Student decisions recorded: count open capacity once in a future formula change; keep the formula's constants fixed for now; Slack shelters starting about 30 percent behind is acceptable; investigate agent-generated weights and their reproducibility.)
 
 ## Item 2: weight blend and fallback (`lambda/shared/weights.ts`, `deriveWeights`)
+**Q1. The fallback for unusable classifier output is the least urgent type (STABLE_ROUTINE). Is that the right safe default? What would you choose?**
+Student: "how do we stop it from returning garbage? i would treat a case we dont have visibility into at highest severity. better to be safe than sorry"
+
+**Q2. Probabilities that do not sum to 1 are silently rescaled. OK, or a failure?**
+Student: "ok to rescale them as long as the original ratios are retained"
+
+**Q3. Anything unclear?** (not answered separately)
+
+(Student decision recorded: when the classifier output is unusable, treat the case as highest severity (INJURED_CRITICAL), not as STABLE_ROUTINE. This reverses the design in Hard Stop 2, Section 5.3, and is not yet implemented: it will change `FALLBACK_ARCHETYPE`, the SYN-08 expectation, the tests, and the deployed function. Rescaling is acceptable because dividing by the total keeps the ratios exactly.)
+
+## Item 3: the classifier path (`needs-profile` v2, `parseClassifierResponse`, and the failure handling)
 (awaiting the student's answers)
