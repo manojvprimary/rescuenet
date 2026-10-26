@@ -282,13 +282,13 @@ Structured, per-instance disclosure of AI assistance, reformatted in CISC 699 We
 
 ---
 
-## Entry 25 — Hard Stop 4 Technical Evidence Review (This Document and the Walkthrough Script)
+## Entry 25 — Hard Stop 4 Technical Evidence Review (This Document)
 
 - **Tool:** Claude (Anthropic, Claude Sonnet 5.5)
 - **Date / Phase:** Week 8 (2026-10-25), Hard Stop 4
-- **Purpose:** Assemble the evidence review and the recorded-walkthrough script from the repository's own files.
-- **Prompt / Task Summary:** Generate the document, its figures and tables from the committed results (`eval/results/ablation*.json`, `docs/evidence/sprint-4/`, the measurement and midpoint files); write a 10-minute walkthrough script. Every number in the tables is read from a file by the generator. AI-generated text, tables, and figures.
-- **Output Used:** The submitted document and the script the student uses for the recording.
+- **Purpose:** Assemble the evidence review from the repository's own files.
+- **Prompt / Task Summary:** Generate the document, its figures and tables from the committed results (`eval/results/ablation*.json`, `docs/evidence/sprint-4/`, the measurement and midpoint files). Every number in the tables is read from a file by the generator. AI-generated text, tables, and figures.
+- **Output Used:** The submitted document.
 - **Affected Section / Artifact:** The whole package; the engineering log (Week 8).
 - **Human Verification:** Pages were rendered and inspected; headline numbers were cross-checked against the clean-clone evidence file. The student-review section contains only what the student wrote; it is not filled in by the AI.
 - **Final Student Revisions:** The student-review section contains the student's replies exactly as typed. The student set the decisions listed in Section 1.4 of the document. Any other edits the student makes after this entry was written are not reflected here.

@@ -164,5 +164,5 @@ A running, dated record of decisions, findings, and changes made during the CISC
 
 **Corrections and cautions.** SYN-04 contains a bid production never sends (found from the output, confirmed in the code, not edited); the evidence script printed empty hash lines until I fixed an absolute-path bug in the runner; the formula variants and set-2 cases share an author and a purpose, so their result is a lead, not validation.
 
-**Not done.** Independent annotator or judge; a real case; expert-proposed formula variants; the student-led code review and the recorded walkthrough (the student's parts, due before submission); promotion of v2.
+**Not done.** Independent annotator or judge; a real case; expert-proposed formula variants; a pair-by-pair review of the five weakest AHP judgments; promotion of v2.
 
