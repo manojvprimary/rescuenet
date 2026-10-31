@@ -1,0 +1,139 @@
+[
+  {
+    "id": "SYN-01",
+    "best": "A",
+    "f0Winner": "B",
+    "bestBid": {
+      "km": 2,
+      "slots": 3,
+      "vet": true,
+      "intakeMin": 30
+    },
+    "winnerBid": {
+      "km": 9,
+      "slots": 5,
+      "vet": true,
+      "intakeMin": 30
+    },
+    "capacityOverProximity": true,
+    "gap": {
+      "F0": -0.024,
+      "F1": 0.005,
+      "F2": 0.038,
+      "F3": 0.067
+    },
+    "fixedBy": [
+      "F1",
+      "F2",
+      "F3"
+    ]
+  },
+  {
+    "id": "SYN-04",
+    "best": "B",
+    "f0Winner": "C",
+    "bestBid": {
+      "km": 4,
+      "slots": 3,
+      "vet": false,
+      "intakeMin": 20
+    },
+    "winnerBid": {
+      "km": 12,
+      "slots": 5,
+      "vet": true,
+      "intakeMin": 45
+    },
+    "capacityOverProximity": true,
+    "gap": {
+      "F0": -0.018,
+      "F1": -0.079,
+      "F2": -0.037,
+      "F3": -0.149
+    },
+    "fixedBy": []
+  },
+  {
+    "id": "SYN-05",
+    "best": "B",
+    "f0Winner": "C",
+    "bestBid": {
+      "km": 6,
+      "slots": 3,
+      "vet": true,
+      "intakeMin": 30
+    },
+    "winnerBid": {
+      "km": 14,
+      "slots": 6,
+      "vet": true,
+      "intakeMin": 30
+    },
+    "capacityOverProximity": true,
+    "gap": {
+      "F0": -0.019,
+      "F1": 0.009,
+      "F2": -0.002,
+      "F3": 0.027
+    },
+    "fixedBy": [
+      "F1",
+      "F3"
+    ]
+  },
+  {
+    "id": "SYN-11",
+    "best": "A",
+    "f0Winner": "B",
+    "bestBid": {
+      "km": 1.5,
+      "slots": 2,
+      "vet": false,
+      "intakeMin": 15
+    },
+    "winnerBid": {
+      "km": 6,
+      "slots": 6,
+      "vet": true,
+      "intakeMin": 15
+    },
+    "capacityOverProximity": true,
+    "gap": {
+      "F0": -0.147,
+      "F1": -0.046,
+      "F2": -0.045,
+      "F3": 0.055
+    },
+    "fixedBy": [
+      "F3"
+    ]
+  },
+  {
+    "id": "SYN-12",
+    "best": "A",
+    "f0Winner": "B",
+    "bestBid": {
+      "km": 1,
+      "slots": 1,
+      "vet": false,
+      "intakeMin": 10
+    },
+    "winnerBid": {
+      "km": 3,
+      "slots": 6,
+      "vet": true,
+      "intakeMin": 40
+    },
+    "capacityOverProximity": true,
+    "gap": {
+      "F0": -0.169,
+      "F1": 0.014,
+      "F2": -0.122,
+      "F3": 0.06
+    },
+    "fixedBy": [
+      "F1",
+      "F3"
+    ]
+  }
+]

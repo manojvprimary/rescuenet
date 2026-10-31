@@ -166,3 +166,17 @@ A running, dated record of decisions, findings, and changes made during the CISC
 
 **Not done.** Independent annotator or judge; a real case; expert-proposed formula variants; a pair-by-pair review of the five weakest AHP judgments; promotion of v2.
 
+
+---
+
+## Week 9 — 2026-10-31 (Results and Limitations Memo)
+
+**Question.** Why does the production formula miss the cases it misses, and what must the final report say about the limits of the evidence?
+
+**Done.** `scripts/error-analysis.ts` computes, for each production-formula miss, the score gap between the annotated best shelter and its strongest rival under every formula (v2 blend weights); output in `docs/evidence/sprint-5/error-analysis.json`. Two figures and the memo (`docs/CISC699_Results_and_Limitations_Memo.docx`) were built from the committed result files.
+
+**Result (counts).** All 5 of the 5 misses on the 12 informative cases (SYN-01, 04, 05, 11, 12) have the same shape: a farther shelter with more open slots outranks the nearer annotated best. Counting capacity once flips 3 of them; adding the 10 km distance scale flips SYN-11 too; SYN-04 stays wrong because of the zero-slot fixture bid (KI-21). Three misses are near-ties (gap under 0.025), so they may also reflect the annotation.
+
+**Cautions.** The memo was not shared with the supervisor before submission (B-04 still open); recorded as such. No production code, fixture or annotation was changed.
+
+**Not done.** Independent annotator; formula change with a minimum-capacity rule; highest-severity fallback; free-text injury detection.

@@ -295,6 +295,32 @@ Structured, per-instance disclosure of AI assistance, reformatted in CISC 699 We
 
 ---
 
+## Entry 26 — Results and Limitations Memo and Error Analysis (This Document)
+
+- **Tool:** Claude (Anthropic, Claude Sonnet 5.5)
+- **Date / Phase:** Week 9 (2026-10-31), Results and Limitations Memo
+- **Purpose:** Turn the Hard Stop 4 ablation into a results-and-limitations argument and find out why the production formula misses the cases it misses.
+- **Prompt / Task Summary:** Write `scripts/error-analysis.ts` (per-case score gaps for every formula under the v2 blend weights); render two figures; draft the memo from `eval/results/`, `KNOWN_ISSUES.md`, `docs/RISK_LOG.md` and the Hard Stop 3 and 4 documents.
+- **Output Used:** The script, `docs/evidence/sprint-5/error-analysis.json`, the memo and its two figures.
+- **Affected Section / Artifact:** Memo Section 5 (error analysis) is new analysis; the other sections restate earlier evidence. KI-11 and KI-22 are referenced, not changed.
+- **Human Verification:** The five missed cases and their winners in the error analysis match the pre-registered `eval/results/ablation.json` exactly; headline counts in the memo are computed from the result files by the document generator, not typed. Supervisor feedback on the memo was not obtained.
+- **Final Student Revisions:** The student chose to start this assignment after the Hard Stop 4 submission and set the discussion topic; any later edits the student makes are theirs.
+
+---
+
+## Entry 27 — Discussion 09 Post Draft (Unexpected Result)
+
+- **Tool:** Claude (Anthropic, Claude Sonnet 5.5)
+- **Date / Phase:** Week 9 (2026-10-31), Discussion 09
+- **Purpose:** Draft the required post about one genuine unexpected result, in the format classmates were using.
+- **Prompt / Task Summary:** Choose the unexpected result (weighting method irrelevant under the production formula), take every figure from `eval/results/ablation*.json`, and write the five required parts plus a question for classmates.
+- **Output Used:** The draft, for the student to review and post themselves.
+- **Affected Section / Artifact:** None in the repository.
+- **Human Verification:** Every number was checked against the committed result files before the draft was shown.
+- **Final Student Revisions:** To be recorded when the student posts; the student posts and may edit before posting.
+
+---
+
 ## Prior AI Use (ISEM 502 / GRAD 695, narrative summary — predates this schema)
 
 AI-assisted development spanned the earlier coursework this project descends from: code and infrastructure implementation (CDK stacks, Lambda functions, GraphQL schema, mobile app), the GRAD 695 Applied Project Report and its figures, and the ISEM 502 UX Portfolio (personas, heuristic evaluation, prototypes), all drafted from student direction and reviewed by the student. No AI-generated or fabricated user-research data was presented as real at any point; where a course step assumed data unavailable to the student, the constraint was disclosed rather than simulated.
