@@ -2,6 +2,15 @@
 
 Format: newest first. Versions are git tags. Each entry lists what changed and what was deliberately not changed.
 
+## v0.5.0-results (2026-11-01) — CISC 699 Results and Limitations Memo
+
+### Added
+- `scripts/error-analysis.ts` and `docs/evidence/sprint-5/`: per-case score gaps for the five production-formula misses under every formula (v2 blend weights), plus the two memo figures.
+- `docs/CISC699_Results_and_Limitations_Memo.docx`, AI log entries 26 and 27, and a Week 9 engineering-log entry.
+
+### Not changed (deliberately)
+- The production scoring formula, the deployed system, fixtures and annotations. The memo records the findings (all five misses are a farther, roomier shelter outranking a nearer one); the fix is still pending.
+
 ## v0.4.0-ablation (2026-10-25) — CISC 699 Hard Stop 4
 
 ### Added
